@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
 
   for (;;){
   	if (interrupt_received)
-  	  return;
+  	  break;
     canvas->SetPixel(32,16,0,0,serialGetchar(fd)=='1'?255:0);
   }
 
