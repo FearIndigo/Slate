@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
   //}
   
   RGBMatrix::Options defaults;
-  //defaults.hardware_mapping = "adafruit-hat-pwm";
+  defaults.hardware_mapping = "adafruit-hat-pwm";
   defaults.rows = 32;
   defaults.cols = 64;
   defaults.chain_length = 1;
