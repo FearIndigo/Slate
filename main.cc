@@ -39,12 +39,12 @@ static void DrawOnCanvas(Canvas *canvas) {
 }
 
 int main(int argc, char *argv[]) {
-  int fd;
+  //int fd;
 
-  if((fd=serialOpen("/dev/ttyACM0",9600))<0){
-    fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
-    return 1;
-  }
+  //if((fd=serialOpen("/dev/ttyACM0",9600))<0){
+  //  fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
+  //  return 1;
+  //}
   
   RGBMatrix::Options defaults;
   defaults.hardware_mapping = "regular";  // or e.g. "adafruit-hat"
@@ -63,12 +63,12 @@ int main(int argc, char *argv[]) {
   signal(SIGTERM, InterruptHandler);
   signal(SIGINT, InterruptHandler);
 
-  for (;;){
-    putchar(serialGetchar(fd));
-    fflush(stdout);
+  //for (;;){
+  //  putchar(serialGetchar(fd));
+  //  fflush(stdout);
+  //}
 
-    DrawOnCanvas(canvas);    // Using the canvas.
-  }
+	DrawOnCanvas(canvas);    // Using the canvas.
 
   // Animation finished. Shut down the RGB matrix.
   canvas->Clear();
