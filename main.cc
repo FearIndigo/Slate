@@ -18,7 +18,7 @@ static void InterruptHandler(int signo) {
 
 int main(int argc, char *argv[]) {
   int fd;
-  bool al, ar, bl, br = false;
+  bool al, ar, bl, br;
 
   if((fd=serialOpen("/dev/ttyACM0",9600))<0){
     fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
