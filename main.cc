@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
   	  break;
 
     serialRead = serialGetchar(fd);
-    for (int i=0; i < inputs.Length; ++i)
+    for (int i=0; i < 4; ++i)
       inputs[i] = (serialRead & (1<<i)) != 0;
     
     canvas->SetPixel(0,0,0,0,inputs[0]?255:0);
