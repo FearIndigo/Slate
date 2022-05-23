@@ -34,7 +34,6 @@ static void DrawOnCanvas(Canvas *canvas) {
     float dot_y = sin(a * 2 * M_PI) * r;
     canvas->SetPixel(center_x + dot_x, center_y + dot_y,
                      255, 0, 0);
-    printf("draw pixel");
     usleep(1 * 1000);  // wait a little to slow down things.
   }
 }
