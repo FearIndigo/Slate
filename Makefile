@@ -51,7 +51,6 @@ main.o : src/main.cc
 clean:
 	rm -f $(OBJECTS) $(BINARIES)
 	$(MAKE) -C $(RGB_LIBDIR) clean
-	$(PP_LIBDIR)/build uninstall
 
 FORCE:
 .PHONY: FORCE
