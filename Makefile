@@ -25,7 +25,7 @@ $(RGB_LIBRARY): FORCE
 #reconfig /boot/config.txt "^.*dtparam=audio.*$" "dtparam=audio=off"
 
 $(WP_LIBRARY): FORCE
-	$(WP_LIBDIR)/build
+	cd $(WP_LIBDIR) && ./build && cd ..
 
 main.o : src/main.cc
 
@@ -34,6 +34,7 @@ main.o : src/main.cc
 
 clean:
 	rm -f $(OBJECTS) $(BINARIES)
+	cd $(WP_LIBDIR) && ./build uninstall && cd ..
 	$(MAKE) -C $(RGB_LIBDIR) clean
 
 FORCE:
