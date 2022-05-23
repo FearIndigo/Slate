@@ -12,4 +12,4 @@ install-rgb-matrix:
 	sudo bash rgb-matrix.sh
 
 build:
-	gcc src/main.cc -o slate
+	gcc src/main.cc -o slate -lwiringPi
