@@ -1,10 +1,20 @@
-﻿import serial, string
+﻿#include <stdio.h>
+#include <string.h>
+#include <errno.h>
 
-output = " "
-ser = serial.Serial('/dev/ttyUSB0', 9600, 8, 'N', 1, timeout=1)
-while True:
-  print "----"
-  while output != "":
-    output = ser.readline()
-    print output
-  output = " "
+#include <wiringSerial.h>
+
+int main ()
+{
+  int fd ;
+
+  if((fd=serialOpen("/dev/ttyACM0",9600))<0){
+    fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
+    return 1;
+  }
+
+  for (;;){
+    putchar(serialGetchar(fd));
+    fflush(stdout);
+  }
+}
