@@ -21,7 +21,7 @@ slate : $(OBJECTS) $(RGB_LIBRARY) $(WP_LIBRARY)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
 
 $(RGB_LIBRARY): FORCE
-	$(MAKE) -C $(RGB_LIBDIR) HARDWARE_DESC=adafruit-hat-pwm
+	$(MAKE) -C $(RGB_LIBDIR)
 #reconfig /boot/config.txt "^.*dtparam=audio.*$" "dtparam=audio=off"
 
 $(WP_LIBRARY): FORCE
