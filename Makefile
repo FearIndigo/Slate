@@ -27,10 +27,10 @@ $(RGB_LIBRARY): FORCE
 $(WP_LIBRARY): FORCE
 	cd $(WP_LIBDIR) && ./build && cd ..
 
-main.o : src/main.cc
+main.o : main.cc
 
 %.o : %.cc
-	$(CXX) -I$(PP_INCDIR) -I$(RGB_INCDIR) $(CXXFLAGS) -c -o $@ $<
+	$(CXX) -I$(RGB_INCDIR) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	rm -f $(OBJECTS) $(BINARIES)
