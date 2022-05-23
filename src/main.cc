@@ -6,7 +6,7 @@
 #include <signal.h>
 
 #include <wiringSerial.h>
-#include "led-matrix.h"
+#include "../../rpi-rgb-led-matrix/include/led-matrix.h"
 
 using rgb_matrix::RGBMatrix;
 using rgb_matrix::Canvas;
