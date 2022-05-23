@@ -1,10 +1,13 @@
-float ledBrightness[4];
+byte result;
+unsigned long ledOffDuration[4];
+unsigned long prevTime, deltaTime, currentTime;
 
 const int BUTTON_PINS[] = {2,4,7,8};
 const int LED_PINS[] = {3,5,6,9};
 const int MAX_BRIGHTNESS = 255;
-const int MIN_BRIGHTNESS = 5;
-const float BRIGHTNESS_FADE = 0.9;
+const int MIN_BRIGHTNESS = 1;
+const int BRIGHTNESS_FADE_DURATION = 400;
+const float BRIGHTNESS_EXPONENT = 10;
 
 void setup()
 {
@@ -19,26 +22,92 @@ void setup()
 
 void loop()
 {
+  result = 0;
+  
   for (int i = 0; i < 4; i++)
   {
-    Serial.write(processInput(i));
+    if(processInput(i))
+      result |= (byte)(1 << i);
   }
-  
-  Serial.println();
+
+  Serial.write(result);
+
+  currentTime = millis();
+  deltaTime = currentTime - prevTime;
+  prevTime = currentTime;
 }
 
-char processInput(int i)
+bool processInput(int i)
 {
   if (digitalRead(BUTTON_PINS[i]) == LOW)
   {
-    ledBrightness[i] = MAX_BRIGHTNESS;
-    analogWrite(LED_PINS[i], (int)ledBrightness[i]);
-    return '1';
+    ledOffDuration[i] = 0;
+    analogWrite(LED_PINS[i], MAX_BRIGHTNESS);
+    return true;
   }
   else
   {
-    ledBrightness[i] = max(ledBrightness[i] * BRIGHTNESS_FADE, MIN_BRIGHTNESS);
-    analogWrite(LED_PINS[i], (int)ledBrightness[i]);
-    return '0';
+    ledOffDuration[i]+=deltaTime;
+    analogWrite(LED_PINS[i],
+    fscale(ledOffDuration[i],0,BRIGHTNESS_FADE_DURATION,MAX_BRIGHTNESS,MIN_BRIGHTNESS,BRIGHTNESS_EXPONENT));
+    return false;
   }
+}
+
+float fscale(float inputValue, float originalMin, float originalMax, float newBegin, float
+newEnd, float curve){
+
+  float OriginalRange = 0;
+  float NewRange = 0;
+  float zeroRefCurVal = 0;
+  float normalizedCurVal = 0;
+  float rangedValue = 0;
+  boolean invFlag = 0;
+
+  // condition curve parameter
+  // limit range
+
+  if (curve > 10) curve = 10;
+  if (curve < -10) curve = -10;
+
+  curve *=-.1; // - invert and scale - this seems more intuitive - postive numbers give more weight to high end on output
+  curve = pow(10, curve); // convert linear scale into lograthimic exponent for other pow function
+
+  // Check for out of range inputValues
+  if (inputValue < originalMin) {
+    inputValue = originalMin;
+  }
+  if (inputValue > originalMax) {
+    inputValue = originalMax;
+  }
+
+  // Zero Refference the values
+  OriginalRange = originalMax - originalMin;
+
+  if (newEnd > newBegin){
+    NewRange = newEnd - newBegin;
+  }
+  else
+  {
+    NewRange = newBegin - newEnd;
+    invFlag = 1;
+  }
+
+  zeroRefCurVal = inputValue - originalMin;
+  normalizedCurVal  =  zeroRefCurVal / OriginalRange;   // normalize to 0 - 1 float
+
+  // Check for originalMin > originalMax  - the math for all other cases i.e. negative numbers seems to work out fine
+  if (originalMin > originalMax ) {
+    return 0;
+  }
+
+  if (invFlag == 0){
+    rangedValue =  (pow(normalizedCurVal, curve) * NewRange) + newBegin;
+  }
+  else     // invert the ranges
+  {  
+    rangedValue =  newBegin - (pow(normalizedCurVal, curve) * NewRange);
+  }
+
+  return rangedValue;
 }

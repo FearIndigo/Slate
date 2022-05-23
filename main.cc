@@ -18,7 +18,6 @@ static void InterruptHandler(int signo) {
 
 int main(int argc, char *argv[]) {
   int fd;
-  bool al, ar, bl, br;
 
   if((fd=serialOpen("/dev/ttyACM0",9600))<0){
     fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
@@ -42,17 +41,22 @@ int main(int argc, char *argv[]) {
   signal(SIGTERM, InterruptHandler);
   signal(SIGINT, InterruptHandler);
 
+  // Player inputs
+  bool inputs[4];
+  unsigned char serialRead;
+  
   for (;;){
   	if (interrupt_received)
   	  break;
-  	al = serialGetchar(fd)=='1';
-  	ar = serialGetchar(fd)=='1';
-  	bl = serialGetchar(fd)=='1';
-  	br = serialGetchar(fd)=='1';
-    canvas->SetPixel(0,0,0,0,al?255:0);
-    canvas->SetPixel(0,31,0,0,ar?255:0);
-    canvas->SetPixel(63,0,0,0,bl?255:0);
-    canvas->SetPixel(63,31,0,0,br?255:0);
+
+    serialRead = serialGetchar(fd);
+    for (int i=0; i < inputs.Length; ++i)
+      inputs[i] = (serialRead & (1<<i)) != 0;
+    
+    canvas->SetPixel(0,0,0,0,inputs[0]?255:0);
+    canvas->SetPixel(0,31,0,0,inputs[1]?255:0);
+    canvas->SetPixel(63,0,0,0,inputs[2]?255:0);
+    canvas->SetPixel(63,31,0,0,inputs[3]?255:0);
   }
 
   // Animation finished. Shut down the RGB matrix.
