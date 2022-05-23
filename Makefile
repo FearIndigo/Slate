@@ -15,13 +15,13 @@ LDFLAGS+=-l$(WP_LIBRARY_NAME) \
          -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) \
           -lrt -lm -lpthread
 
-all : $(WP_LIBRARY) && slate
+all : slate
 
-slate : $(OBJECTS) $(RGB_LIBRARY)
+slate : $(WP_LIBRARY) $(OBJECTS) $(RGB_LIBRARY)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
 
 $(RGB_LIBRARY): FORCE
-	$(MAKE) -C $(RGB_LIBDIR)
+	$(MAKE) -C $(RGB_LIBDIR) DEFAULT_HARDWARE=adafruit-hat-pwm
 #reconfig /boot/config.txt "^.*dtparam=audio.*$" "dtparam=audio=off"
 
 $(WP_LIBRARY): FORCE
