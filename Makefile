@@ -1,20 +1,3 @@
-# There are several different pinouts for various breakout boards that uses
-# this library. If you are using the described pinout in the toplevel README.md
-# or the standard active-3 breakout board, then 'regular' is the one you'd like
-# to use.
-#
-# Adafruit also made a breakout board, if you want to use that, choose
-# 'adafruit-hat'
-#
-# These are the choices
-#   regular            # Following this project wiring and using these PCBs
-#   adafruit-hat       # If you have a RGB matrix HAT from Adafruit
-#   adafruit-hat-pwm   # If you have an Adafruit HAT with PWM hardware mod.
-#   regular-pi1        # If you have an old Pi1 and regular didn't work.
-#   classic            # (deprecated) Classic Pi1/2/. Not used anymore.
-#   classic-pi1        # (deprecated) Classic pinout on Rasperry Pi 1
-HARDWARE_DESC=adafruit-hat-pwm
-
 CXXFLAGS=-Wall -O3 -g
 OBJECTS=main.o
 BINARIES=slate
@@ -38,7 +21,8 @@ slate : $(OBJECTS) $(RGB_LIBRARY) $(WP_LIBRARY)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
 
 $(RGB_LIBRARY): FORCE
-	$(MAKE) -C $(RGB_LIBDIR)
+	$(MAKE) -C $(RGB_LIBDIR) HARDWARE_DESC=adafruit-hat-pwm && \
+	reconfig /boot/config.txt "^.*dtparam=audio.*$" "dtparam=audio=off"
 
 $(WP_LIBRARY): FORCE
 	$(WP_LIBDIR)/build
