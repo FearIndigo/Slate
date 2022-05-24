@@ -11,9 +11,9 @@ WP_LIBDIR=wiringPi
 WP_LIBRARY_NAME=wiringPi
 WP_LIBRARY=$(WP_LIBDIR)/lib$(WP_LIBRARY_NAME).a
 
-ENTT_INCLUDE=entt/single_include
+ENTT_INCDIR=entt/single_include
 
-LDFLAGS+=-I$(ENTT_INCLUDE) -l$(WP_LIBRARY_NAME) -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthread
+LDFLAGS+=-l$(WP_LIBRARY_NAME) -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthread
 
 all : slate
 
@@ -30,7 +30,7 @@ $(WP_LIBRARY): FORCE
 main.o : main.cc
 
 %.o : %.cc
-	$(CXX) -I$(RGB_INCDIR) $(CXXFLAGS) -c -o $@ $<
+	$(CXX) -I$(RGB_INCDIR) -I$(ENTT_INCDIR) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	rm -f $(OBJECTS) $(BINARIES)
