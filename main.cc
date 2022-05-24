@@ -6,6 +6,7 @@
 #include <signal.h>
 
 #include <wiringSerial.h>
+#include <entt/entt.hpp>
 #include "led-matrix.h"
 
 using rgb_matrix::RGBMatrix;
