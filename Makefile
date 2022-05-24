@@ -1,4 +1,4 @@
-CXXFLAGS=-Wall -O3 -g
+CXXFLAGS=-Wall -O3 -g -std=c++17
 OBJECTS=main.o
 BINARIES=slate
 
@@ -11,7 +11,7 @@ WP_LIBDIR=wiringPi
 WP_LIBRARY_NAME=wiringPi
 WP_LIBRARY=$(WP_LIBDIR)/lib$(WP_LIBRARY_NAME).a
 
-ENTT_INCDIR=entt/single_include
+ENTT_INCDIR=entt/src
 
 LDFLAGS+=-l$(WP_LIBRARY_NAME) -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthread
 
