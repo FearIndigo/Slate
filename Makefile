@@ -11,9 +11,13 @@ WP_LIBDIR=wiringPi
 WP_LIBRARY_NAME=wiringPi
 WP_LIBRARY=$(WP_LIBDIR)/lib$(WP_LIBRARY_NAME).a
 
+ENTT_LIBDIR=entt/single_include/entt
+ENTT_LIBRARY_NAME=entt
+
 LDFLAGS+=-l$(WP_LIBRARY_NAME) \
-         -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) \
-          -lrt -lm -lpthread
+	-L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) \
+	-L$(ENTT_LIBDIR) -l$(ENTT_LIBRARY_NAME) \
+	-lrt -lm -lpthread
 
 all : slate
 
