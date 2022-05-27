@@ -1,4 +1,9 @@
-﻿#include <string>
+﻿#include <stdio.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <math.h>
+#include <signal.h>
 #include <wiringSerial.h>
 
 namespace Slate

@@ -1,17 +1,11 @@
-﻿#include <stdio.h>
-#include <string.h>
-#include <errno.h>
-#include <unistd.h>
-#include <math.h>
-#include <signal.h>
-
-#include "src/input/input.hpp"
+﻿#include "src/input/input.hpp"
 
 #include <entt/entt.hpp>
 #include "led-matrix.h"
 
 using rgb_matrix::RGBMatrix;
 using rgb_matrix::Canvas;
+using Slate::Input;
 
 volatile bool interrupt_received = false;
 static void InterruptHandler(int signo) {
