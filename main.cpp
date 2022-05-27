@@ -10,7 +10,6 @@
 
 using rgb_matrix::RGBMatrix;
 using rgb_matrix::Canvas;
-using Slate::Input;
 
 volatile bool interrupt_received = false;
 static void InterruptHandler(int signo) {
