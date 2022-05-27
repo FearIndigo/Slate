@@ -1,5 +1,6 @@
 ﻿#include <errno.h>
 #include <stdio.h>
+#include <string.h>
 #include <wiringSerial.h>
 
 namespace Slate
