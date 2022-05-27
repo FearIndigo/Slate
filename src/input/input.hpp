@@ -20,7 +20,7 @@ namespace Slate
         ///
         /// Read inputs from serial and set the decoded values.
         ///
-        void Update();
+        void UpdateValues();
 
         ///
         /// The decoded input values of each player button.

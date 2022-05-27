@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
   			if (interrupt_received)
   	  			break;
 
-    		input.Update();
+    		input.UpdateValues();
     
     		canvas->SetPixel(0,0,0,0,input.values[0]?255:0);
     		canvas->SetPixel(0,31,0,0,input.values[1]?255:0);
