@@ -34,12 +34,6 @@ int main(int argc, char *argv[]) {
   	signal(SIGTERM, InterruptHandler);
   	signal(SIGINT, InterruptHandler);
 
-	int fd;
-	if((fd=serialOpen("/dev/ttyACM0",9600))<0){
-        fprintf(stderr,"TEST: Unable to open serial device: %s\n",strerror(errno));
-    	return 1;
-    }
-
 	try {
 		Slate::Input input("/dev/ttyACM0",9600);
 		
