@@ -1,4 +1,4 @@
-﻿#include <string.h>
+﻿#include <string>
 #include <errno.h>
 #include <wiringSerial.h>
 
@@ -7,7 +7,6 @@ namespace Slate
     class Input
     {
     public:
-        Input();
         ///
         /// Main constructor.
         ///
