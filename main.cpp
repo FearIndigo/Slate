@@ -41,8 +41,8 @@ int main(int argc, char *argv[]) {
   	signal(SIGINT, InterruptHandler);
 
 	try {
-		// Initialize input, define serial port and baudrate
-		Slate::Input input("/dev/ttyACM0",9600);
+		// Initialize input, define serial port and baudrate [default = ("/dev/ttyACM0", 9600)]
+		Slate::Input input("/dev/serial0",9600);
 		
 		// Main loop
 		for (;;){

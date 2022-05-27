@@ -6,7 +6,7 @@ const int BUTTON_PINS[] = {2,4,7,8};
 const int LED_PINS[] = {3,5,6,9};
 const int MAX_BRIGHTNESS = 255;
 const int MIN_BRIGHTNESS = 1;
-const int BRIGHTNESS_FADE_DURATION = 400;
+const int BRIGHTNESS_FADE_DURATION = 300;
 const float BRIGHTNESS_EXPONENT = 10;
 
 void setup()
@@ -47,9 +47,9 @@ bool processInput(int i)
   }
   else
   {
-    ledOffDuration[i]+=deltaTime;
     analogWrite(LED_PINS[i],
     fscale(ledOffDuration[i],0,BRIGHTNESS_FADE_DURATION,MAX_BRIGHTNESS,MIN_BRIGHTNESS,BRIGHTNESS_EXPONENT));
+    ledOffDuration[i]+=deltaTime;
     return false;
   }
 }
