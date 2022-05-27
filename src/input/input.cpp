@@ -2,7 +2,7 @@
 
 namespace Slate
 {
-    Input::Input(string device,int baud)
+    Input::Input(std::string_view device,int baud)
     {
         if((fd=serialOpen(device,baud))<0){
             fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
