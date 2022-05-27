@@ -16,7 +16,7 @@ static void InterruptHandler(int signo) {
 	interrupt_received = true;
 }
 
-void Shutdown(Canvas canvas) {
+void Shutdown(Canvas* canvas) {
 	// Shut down the RGB matrix.
     canvas->Clear();
     delete canvas;
