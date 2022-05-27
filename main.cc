@@ -5,7 +5,8 @@
 #include <math.h>
 #include <signal.h>
 
-#include <wiringSerial.h>
+#include "src/input/input.hpp"
+
 #include <entt/entt.hpp>
 #include "led-matrix.h"
 
@@ -18,51 +19,46 @@ static void InterruptHandler(int signo) {
 }
 
 int main(int argc, char *argv[]) {
-  int fd;
+	RGBMatrix::Options defaults;
+  	defaults.hardware_mapping = "adafruit-hat-pwm";
+  	defaults.rows = 32;
+  	defaults.cols = 64;
+  	defaults.chain_length = 1;
+  	defaults.parallel = 1;
+  	defaults.show_refresh_rate = false;
+  	Canvas *canvas = RGBMatrix::CreateFromFlags(&argc, &argv, &defaults);
+  	if (canvas == NULL)
+    	return 1;
 
-  if((fd=serialOpen("/dev/ttyACM0",9600))<0){
-    fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
-    return 1;
-  }
-  
-  RGBMatrix::Options defaults;
-  defaults.hardware_mapping = "adafruit-hat-pwm";
-  defaults.rows = 32;
-  defaults.cols = 64;
-  defaults.chain_length = 1;
-  defaults.parallel = 1;
-  defaults.show_refresh_rate = false;
-  Canvas *canvas = RGBMatrix::CreateFromFlags(&argc, &argv, &defaults);
-  if (canvas == NULL)
-    return 1;
+  	// It is always good to set up a signal handler to cleanly exit when we
+  	// receive a CTRL-C for instance. The DrawOnCanvas() routine is looking
+  	// for that.
+  	signal(SIGTERM, InterruptHandler);
+  	signal(SIGINT, InterruptHandler);
 
-  // It is always good to set up a signal handler to cleanly exit when we
-  // receive a CTRL-C for instance. The DrawOnCanvas() routine is looking
-  // for that.
-  signal(SIGTERM, InterruptHandler);
-  signal(SIGINT, InterruptHandler);
+	try {
+		Slate::Input inputHandler("/dev/ttyACM0",9600);
+		
+		for (;;){
+  			if (interrupt_received)
+  	  			break;
 
-  // Player inputs
-  bool inputs[4];
-  unsigned char serialRead;
-  
-  for (;;){
-  	if (interrupt_received)
-  	  break;
-
-    serialRead = serialGetchar(fd);
-    for (int i=0; i < 4; ++i)
-      inputs[i] = (serialRead & (1<<i)) != 0;
+    		inputHandler.Update();
     
-    canvas->SetPixel(0,0,0,0,inputs[0]?255:0);
-    canvas->SetPixel(0,31,0,0,inputs[1]?255:0);
-    canvas->SetPixel(63,0,0,0,inputs[2]?255:0);
-    canvas->SetPixel(63,31,0,0,inputs[3]?255:0);
-  }
+    		canvas->SetPixel(0,0,0,0,inputHandler.inputs[0]?255:0);
+    		canvas->SetPixel(0,31,0,0,inputHandler.inputs[1]?255:0);
+    		canvas->SetPixel(63,0,0,0,inputHandler.inputs[2]?255:0);
+    		canvas->SetPixel(63,31,0,0,inputHandler.inputs[3]?255:0);
+  		}
+	}
+	catch(...)
+	{
+		return 1;
+	}
 
-  // Animation finished. Shut down the RGB matrix.
-  canvas->Clear();
-  delete canvas;
+  	// Animation finished. Shut down the RGB matrix.
+  	canvas->Clear();
+  	delete canvas;
 
-  return 0;
+  	return 0;
 }
