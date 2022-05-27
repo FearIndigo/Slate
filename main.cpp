@@ -13,7 +13,13 @@ using rgb_matrix::Canvas;
 
 volatile bool interrupt_received = false;
 static void InterruptHandler(int signo) {
-  interrupt_received = true;
+	interrupt_received = true;
+}
+
+void Shutdown(Canvas canvas) {
+	// Shut down the RGB matrix.
+    canvas->Clear();
+    delete canvas;
 }
 
 int main(int argc, char *argv[]) {
@@ -35,14 +41,18 @@ int main(int argc, char *argv[]) {
   	signal(SIGINT, InterruptHandler);
 
 	try {
+		// Initialize input, define serial port and baudrate
 		Slate::Input input("/dev/ttyACM0",9600);
 		
+		// Main loop
 		for (;;){
-  			if (interrupt_received)
-  	  			break;
-
+			// Break out of loop when interrupt triggered
+  			if (interrupt_received) break;
+			
+			// Read serial and save inputs to values array
     		input.Update();
     
+    		// TEST, set pixels on/off based on input values
     		canvas->SetPixel(0,0,0,0,input.values[0]?255:0);
     		canvas->SetPixel(0,31,0,0,input.values[1]?255:0);
     		canvas->SetPixel(63,0,0,0,input.values[2]?255:0);
@@ -51,12 +61,10 @@ int main(int argc, char *argv[]) {
 	}
 	catch(...)
 	{
+		Shutdown(canvas);
 		return 1;
 	}
 
-  	// Animation finished. Shut down the RGB matrix.
-  	canvas->Clear();
-  	delete canvas;
-
+  	Shutdown(canvas);
   	return 0;
 }
