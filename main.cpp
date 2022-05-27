@@ -35,18 +35,18 @@ int main(int argc, char *argv[]) {
   	signal(SIGINT, InterruptHandler);
 
 	try {
-		Slate::Input inputHandler("/dev/ttyACM0",9600);
+		Slate::Input input("/dev/ttyACM0",9600);
 		
 		for (;;){
   			if (interrupt_received)
   	  			break;
 
-    		inputHandler.Update();
+    		input.Update();
     
-    		canvas->SetPixel(0,0,0,0,inputHandler.inputs[0]?255:0);
-    		canvas->SetPixel(0,31,0,0,inputHandler.inputs[1]?255:0);
-    		canvas->SetPixel(63,0,0,0,inputHandler.inputs[2]?255:0);
-    		canvas->SetPixel(63,31,0,0,inputHandler.inputs[3]?255:0);
+    		canvas->SetPixel(0,0,0,0,input.values[0]?255:0);
+    		canvas->SetPixel(0,31,0,0,input.values[1]?255:0);
+    		canvas->SetPixel(63,0,0,0,input.values[2]?255:0);
+    		canvas->SetPixel(63,31,0,0,input.values[3]?255:0);
   		}
 	}
 	catch(...)

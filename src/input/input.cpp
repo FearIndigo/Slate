@@ -14,6 +14,6 @@ namespace Slate
     {
         serialRead = serialGetchar(fd);
         for (int i=0; i < 4; ++i)
-            inputs[i] = (serialRead & (1<<i)) != 0;
+            values[i] = (serialRead & (1<<i)) != 0;
     }
 }

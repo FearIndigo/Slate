@@ -21,9 +21,9 @@ namespace Slate
         void Update();
 
         ///
-        /// The decoded input value of each player button.
+        /// The decoded input values of each player button.
         ///
-        bool inputs[4];
+        bool values[4];
     private:
         ///
         /// The file descriptor used to define which device is used to read serial.
