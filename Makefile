@@ -1,5 +1,5 @@
 CXXFLAGS=-Wall -O3 -g -std=c++17
-OBJECTS=main.o
+OBJECTS=main.o input.o
 BINARIES=slate
 
 RGB_INCDIR=matrix/include
@@ -28,6 +28,7 @@ $(WP_LIBRARY): FORCE
 	cd $(WP_LIBDIR) && ./build && cd ..
 
 main.o : main.cpp
+input.o : src/input/input.cpp
 
 %.o : %.cpp
 	$(CXX) -I$(RGB_INCDIR) -I$(ENTT_INCDIR) $(CXXFLAGS) -c -o $@ $<
