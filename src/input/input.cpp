@@ -2,9 +2,9 @@
 
 namespace Slate
 {
-    Input::Input(std::string_view device,const int baud)
+    Input::Input(const char *device,const int baud)
     {
-        fprintf(device);
+        printf(device);
         if((fd=serialOpen(device,baud))<0){
             fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
             throw std::invalid_argument( "Failed to setup player inputs." );
