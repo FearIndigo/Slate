@@ -1,4 +1,4 @@
-﻿#include <string>
+﻿//#include <string.h>
 #include <errno.h>
 #include <wiringSerial.h>
 
@@ -13,7 +13,7 @@ namespace Slate
         /// \param device Port serial device is connected to.
         /// \param baud Baudrate of the serial device.
         ///
-        Input(string device,int baud);
+        Input(const std::string_view device,const int baud);
 
         ///
         /// Read inputs from serial and set the decoded values.
