@@ -1,4 +1,9 @@
-﻿#include "src/input/input.hpp"
+﻿#include <unistd.h>
+#include <math.h>
+#include <stdio.h>
+#include <signal.h>
+
+#include "src/input/input.hpp"
 
 #include <entt/entt.hpp>
 #include "led-matrix.h"
