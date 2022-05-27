@@ -1,7 +1,7 @@
 ﻿#include <errno.h>
 #include <stdio.h>
 #include <string.h>
-#include <stdexcept.h>
+#include <stdexcept>
 #include <wiringSerial.h>
 
 namespace Slate
