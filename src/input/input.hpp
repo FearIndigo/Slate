@@ -13,7 +13,7 @@ namespace Slate
         /// \param device Port serial device is connected to.
         /// \param baud Baudrate of the serial device.
         ///
-        Input(const std::string_view device,const int baud);
+        Input(const char* device,const int baud);
 
         ///
         /// Read inputs from serial and set the decoded values.
