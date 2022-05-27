@@ -7,13 +7,14 @@ namespace Slate
     class Input
     {
     public:
+        Input();
         ///
         /// Main constructor.
         ///
         /// \param device Port serial device is connected to.
         /// \param baud Baudrate of the serial device.
         ///
-        Input(string,int);
+        Input(string device,int baud);
 
         ///
         /// Read inputs from serial and set the decoded values.
