@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdexcept>
+#include <iostream>
 #include <wiringSerial.h>
 
 namespace Slate

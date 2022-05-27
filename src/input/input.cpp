@@ -4,7 +4,7 @@ namespace Slate
 {
     Input::Input(const char* device,const int baud)
     {
-        printf("/dev/ttyACM0");
+        cout << "/dev/ttyACM0";
         if((fd=serialOpen("/dev/ttyACM0",baud))<0){
             fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
             throw std::invalid_argument( "Failed to setup player inputs." );
