@@ -27,9 +27,9 @@ $(RGB_LIBRARY): FORCE
 $(WP_LIBRARY): FORCE
 	cd $(WP_LIBDIR) && ./build && cd ..
 
-main.o : main.cc
+main.o : main.cpp
 
-%.o : %.cc
+%.o : %.cpp
 	$(CXX) -I$(RGB_INCDIR) -I$(ENTT_INCDIR) $(CXXFLAGS) -c -o $@ $<
 
 clean:
