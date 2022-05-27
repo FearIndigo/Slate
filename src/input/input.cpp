@@ -10,7 +10,7 @@ namespace Slate
         }
     }
 
-    Input::Update()
+    Input::UpdateValues()
     {
         serialRead = serialGetchar(fd);
         for (int i=0; i < 4; ++i)
