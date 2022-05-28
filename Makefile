@@ -1,7 +1,7 @@
 CXXFLAGS=-Wall -O3 -g -std=c++17
 SRC_DIR=src/
 SOURCES=$(wildcard $(SRC_DIR)*.cpp)
-OBJECTS=$(patsubst %.cpp, %.o, $(SOURCES))
+OBJECTS=main.o $(patsubst %.cpp, %.o, $(SOURCES))
 TARGET=slate
 
 RGB_INCDIR=matrix/include
@@ -14,7 +14,7 @@ ENTT_INCDIR=entt/src
 
 LDFLAGS+=-l$(WP_LIBRARY_NAME) -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthread
 
-print-%  : ; @echo $* = $($*)
+print-%  : ; $(info $*="$($*)")
 
 all : $(SOURCES) $(TARGET)
 
