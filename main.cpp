@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 		}
 
 		// Font color
-		Color color(128, 128, 128);
+		rgb_matrix::Color color(128, 128, 128);
 		
 		// Main loop
 		while (!interrupt_received){
