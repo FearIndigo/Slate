@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 		Slate::Input input("/dev/ttyACM0",9600);
 
 		// Create frame canvas
-		rgb_matrix::FrameCanvas *canvas = display.matrix->CreateFrameCanvas();
+		//rgb_matrix::FrameCanvas *canvas = display.matrix->CreateFrameCanvas();
 
 		// Load font
 		rgb_matrix::Font font;
