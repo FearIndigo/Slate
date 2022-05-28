@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 
 		// Load font
 		rgb_matrix::Font font;
-		if (!font.LoadFont("matrix/fonts/8x13.bdf")) {
+		if (!font.LoadFont("matrix/fonts/4x6.bdf")) {
 			fprintf(stderr, "Couldn't load font '%s'\n", "matrix/fonts/8x13.bdf");
 			return 1;
 		}
