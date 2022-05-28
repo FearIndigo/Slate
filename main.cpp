@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
 		
 		// Main loop
 		while (!interrupt_received){
-			canvas->Clear();
+			//canvas->Clear();
 			
 			// Read serial and save inputs to values array
     		input.Update();

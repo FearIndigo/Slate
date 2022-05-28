@@ -26,7 +26,7 @@ namespace Slate
 		~Display();		
 
         ///
-        /// The display matrix.
+        /// The display canvas.
         ///
         Canvas *canvas;
     private:
