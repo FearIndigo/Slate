@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 		Slate::Input input("/dev/ttyACM0",9600);
 
 		// Create frame canvas
-		rgb_matrix::FrameCanvas *offscreen_canvas = display.canvas->CreateFrameCanvas();
+		rgb_matrix::FrameCanvas *offscreen_canvas = display.matrix->CreateFrameCanvas();
 
 		// Load font
 		rgb_matrix::Font font;
@@ -57,8 +57,8 @@ int main(int argc, char *argv[]) {
 			if(input.Value(3))
     			offscreen_canvas->SetPixel(63,31,0,0,255);
 
-			// Swap the offscreen_canvas with canvas on vsync, avoids flickering
-			offscreen_canvas = display.canvas->SwapOnVSync(offscreen_canvas);
+			// Swap the offscreen_canvas with displayed canvas on vsync, avoids flickering
+			offscreen_canvas = display.matrix->SwapOnVSync(offscreen_canvas);
   		}
 	}
 	catch(...)

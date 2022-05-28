@@ -2,7 +2,6 @@
 #include "led-matrix.h"
 
 using rgb_matrix::RGBMatrix;
-using rgb_matrix::Canvas;
 
 namespace Slate
 {
@@ -27,9 +26,9 @@ namespace Slate
 		~Display();		
 
         ///
-        /// The display canvas.
+        /// The display matrix.
         ///
-        Canvas *canvas;
+        RGBMatrix *matrix;
     private:
     };
 }

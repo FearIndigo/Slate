@@ -9,15 +9,15 @@ namespace Slate
         defaults.rows = rows;
         defaults.cols = cols;
         defaults.show_refresh_rate = false;
-        canvas = RGBMatrix::CreateFromFlags(&argc, &argv, &defaults);
-        if (canvas == NULL)
+        matrix = RGBMatrix::CreateFromFlags(&argc, &argv, &defaults);
+        if (matrix == NULL)
             throw std::invalid_argument("Failed to create canvas.");
     }
 
     Display::~Display()
     {
-        if (canvas == NULL) return;
-        canvas->Clear();
-        delete canvas;
+        if (matrix == NULL) return;
+        matrix->Clear();
+        delete matrix;
     }
 }
