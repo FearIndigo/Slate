@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
 
 	try {
 		// Initialize display
-		Slate::Display display(&argc, &argv, "adafruit-hat-pwm", 32, 64, false);
+		Slate::Display display(argc, argv, "adafruit-hat-pwm", 32, 64, false);
 	
 		// Initialize input
 		Slate::Input input("/dev/ttyACM0",9600);
