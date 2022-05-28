@@ -3,6 +3,8 @@
 #include "src/core/display/display.hpp"
 #include "src/core/input/input.hpp"
 
+using namespace rgb_matrix;
+
 volatile bool interrupt_received = false;
 static void InterruptHandler(int signo) {
 	interrupt_received = true;
