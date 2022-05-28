@@ -14,8 +14,6 @@ ENTT_INCDIR=entt/src
 
 LDFLAGS+=-l$(WP_LIBRARY_NAME) -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthread
 
-print-%  : ; $(info $*="$($*)")
-
 all : $(TARGET)
 
 $(TARGET) : $(OBJECTS)
@@ -25,4 +23,4 @@ $(TARGET) : $(OBJECTS)
 	$(CXX) -I$(RGB_INCDIR) -I$(ENTT_INCDIR) $(CXXFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJECTS) $(BINARIES)
+	rm -f $(OBJECTS) $(TARGET)
