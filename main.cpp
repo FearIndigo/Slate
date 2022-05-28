@@ -1,6 +1,4 @@
-﻿//#include <math.h>
-//#include <stdio.h>
-#include <signal.h>
+﻿#include <signal.h>
 
 #include "src/core/display/display.hpp"
 #include "src/core/input/input.hpp"
@@ -22,7 +20,7 @@ int main(int argc, char *argv[]) {
 
 	try {
 		// Initialize display
-		Slate::Display display("adafruit-hat-pwm", 32, 64, false);
+		Slate::Display display(&argc, &argv, "adafruit-hat-pwm", 32, 64, false);
 	
 		// Initialize input
 		Slate::Input input("/dev/ttyACM0",9600);
