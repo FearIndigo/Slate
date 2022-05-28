@@ -1,7 +1,7 @@
 ﻿//#include <unistd.h>
 //#include <math.h>
 //#include <stdio.h>
-//#include <signal.h>
+#include <signal.h>
 
 #include "src/core/display/display.hpp"
 #include "src/core/input/input.hpp"
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 	}
 	catch(...)
 	{
-		display.Shutdown(canvas);
+		display.Shutdown();
 		return 1;
 	}
 	
