@@ -30,8 +30,8 @@ int main(int argc, char *argv[]) {
 
 		// Load font
 		rgb_matrix::Font font;
-		if (!font.LoadFont("matrix/fonts/4x6.bdf")) {
-			fprintf(stderr, "Couldn't load font '%s'\n", "matrix/fonts/8x13.bdf");
+		if (!font.LoadFont("matrix/fonts/6x12.bdf")) {
+			fprintf(stderr, "Couldn't load font '%s'\n", "matrix/fonts/6x12.bdf");
 			return 1;
 		}
 
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
 
 			// DEBUG. draw text
 			rgb_matrix::DrawText(display.canvas, font,
-									0, 6 + font.baseline(),
+									0, 13 + font.baseline(),
 									color, NULL,
 									"Ponglord", 0);
 			
