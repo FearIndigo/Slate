@@ -25,9 +25,6 @@ int main(int argc, char *argv[]) {
 		// Initialize input
 		Slate::Input input("/dev/ttyACM0",9600);
 
-		// Create frame canvas
-		//rgb_matrix::FrameCanvas *canvas = display.matrix->CreateFrameCanvas();
-
 		// Load font
 		rgb_matrix::Font font;
 		if (!font.LoadFont("matrix/fonts/6x12.bdf")) {
@@ -40,8 +37,6 @@ int main(int argc, char *argv[]) {
 		
 		// Main loop
 		while (!interrupt_received){
-			//canvas->Clear();
-			
 			// Read serial and save inputs to values array
     		input.Update();
 
@@ -56,9 +51,6 @@ int main(int argc, char *argv[]) {
 			display.canvas->SetPixel(0,31,0,0,input.Value(1)?255:0);
 			display.canvas->SetPixel(63,0,0,0,input.Value(2)?255:0);
 			display.canvas->SetPixel(63,31,0,0,input.Value(3)?255:0);
-
-			// Swap the buffered canvas with displayed canvas on vsync, avoids flickering
-			//canvas = display.matrix->SwapOnVSync(canvas);
   		}
 	}
 	catch(...)

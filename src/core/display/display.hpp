@@ -1,8 +1,6 @@
 ﻿#include <stdexcept>
 #include "led-matrix.h"
 
-using rgb_matrix::RGBMatrix;
-
 namespace Slate
 {
     class Display
