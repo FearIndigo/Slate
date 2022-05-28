@@ -14,7 +14,7 @@ namespace Slate
         ///
         /// \param device Port serial device is connected to.
         /// \param baud Baudrate of the serial device.
-        ///
+        ///                                               
         Input(const char* device,const int baud);
 
         ///
