@@ -1,6 +1,6 @@
 CXXFLAGS=-Wall -O3 -g -std=c++17
-SOURCES:=$(wildcard **/*.cpp)
-OBJECTS:=$(patsubst %.cpp, %.o, $(SOURCES))
+SOURCES:=$(shell find . -name "*.cpp")
+OBJECTS:=$(patsubst %.cpp,%.o,$(SOURCES))
 TARGET=slate
 
 RGB_INCDIR=matrix/include
