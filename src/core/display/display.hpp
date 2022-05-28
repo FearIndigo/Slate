@@ -22,7 +22,7 @@ namespace Slate
         /// \param cols Number of columns in the matrix.
         /// \param showRefresh Display the refresh rate in the console
         ///
-        Display(int argc, char *argv[], const char* hardwareMapping, const int rows, const int cols, const bool showRefresh);
+        Display(int *argc, char **argv[], const char* hardwareMapping, const int rows, const int cols, const bool showRefresh);
 
 		///
         /// Deconstructor
