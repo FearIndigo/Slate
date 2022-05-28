@@ -18,15 +18,15 @@ namespace Slate
         ///
         Display(const char* hardwareMapping, const int rows, const int cols, const bool showRefresh);
 
+		///
+        /// Deconstructor
+        ///
+		~Display();		
+
         ///
         /// The display canvas.
         ///
         Canvas *canvas;
-
-        ///
-        /// Function to shutdown the canvas
-        ///
-        void Shutdown();
     private:
     };
 }

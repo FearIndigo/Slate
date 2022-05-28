@@ -14,7 +14,7 @@ namespace Slate
             throw std::invalid_argument( "Failed to create canvas." );
     }
 
-    Display::Shutdown()
+    Display::~Display()
     {
         if (canvas == NULL) return;
         

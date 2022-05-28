@@ -31,11 +31,7 @@ int main(int argc, char *argv[]) {
 		// Main loop
 		for (;;){
 			// Break out of loop when interrupt triggered
-  			if (interrupt_received)
-  			{
-  				display.Shutdown();
-  				break;
-  			}
+  			if (interrupt_received) break;
 			
 			// Read serial and save inputs to values array
     		input.Update();
@@ -49,7 +45,6 @@ int main(int argc, char *argv[]) {
 	}
 	catch(...)
 	{
-		display.Shutdown();
 		return 1;
 	}
 	
