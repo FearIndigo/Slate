@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 		Slate::Input input("/dev/ttyACM0",9600);
 
 		// Create frame canvas
-		rgb_matrix::FrameCanvas *canvas = display.matrix->CreateFrameCanvas();
+		//rgb_matrix::FrameCanvas *canvas = display.matrix->CreateFrameCanvas();
 
 		// Load font
 		//rgb_matrix::Font font;
@@ -52,13 +52,13 @@ int main(int argc, char *argv[]) {
 			//						"Ponglord", 0);
 			
     		// DEBUG. Set pixels on/off based on input values
-			canvas->SetPixel(0,0,0,0,input.Value(0)?255:0);
-			canvas->SetPixel(0,31,0,0,input.Value(1)?255:0);
-			canvas->SetPixel(63,0,0,0,input.Value(2)?255:0);
-			canvas->SetPixel(63,31,0,0,input.Value(3)?255:0);
+			display.canvas->SetPixel(0,0,0,0,input.Value(0)?255:0);
+			display.canvas->SetPixel(0,31,0,0,input.Value(1)?255:0);
+			display.canvas->SetPixel(63,0,0,0,input.Value(2)?255:0);
+			display.canvas->SetPixel(63,31,0,0,input.Value(3)?255:0);
 
 			// Swap the buffered canvas with displayed canvas on vsync, avoids flickering
-			canvas = display.matrix->SwapOnVSync(canvas);
+			//canvas = display.matrix->SwapOnVSync(canvas);
   		}
 	}
 	catch(...)

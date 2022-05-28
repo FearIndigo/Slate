@@ -28,7 +28,7 @@ namespace Slate
         ///
         /// The display matrix.
         ///
-        RGBMatrix *matrix;
+        Canvad *canvas;
     private:
     };
 }
