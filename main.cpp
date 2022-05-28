@@ -1,5 +1,6 @@
 ﻿//#include <math.h>
 //#include <stdio.h>
+#include <signal.h>
 
 #include "src/core/display/display.hpp"
 #include "src/core/input/input.hpp"

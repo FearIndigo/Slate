@@ -1,5 +1,5 @@
-﻿#include <signal.h>
-#include <unistd.h>
+﻿#include <unistd.h>
+#include <stdexcept>
 #include "led-matrix.h"
 
 using rgb_matrix::RGBMatrix;
