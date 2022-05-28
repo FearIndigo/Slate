@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
 
 			// DEBUG. draw text
 			rgb_matrix::DrawText(canvas, font,
-									16, 6 + font.baseline(),
+									0, 6 + font.baseline(),
 									color, NULL,
 									"Ponglord", 0);
 			
