@@ -6,7 +6,7 @@ namespace Slate
     {
         if((fd=serialOpen(device,baud))<0){
             fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
-            throw std::invalid_argument( "Failed to setup player inputs." );
+            throw std::invalid_argument("Failed to setup player inputs.");
         }
     }
 
