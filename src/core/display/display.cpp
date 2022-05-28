@@ -5,7 +5,7 @@ namespace Slate
     Display::Display(const char* hardwareMapping, const int rows, const int cols, const bool showRefresh)
     {
         RGBMatrix::Options defaults;
-        defaults.hardware_mapping = hardwareMapping; // Default = "adafruit-hat-pwm"
+        defaults.hardware_mapping = hardwareMapping;
         defaults.rows = rows;
         defaults.cols = cols;
         defaults.show_refresh_rate = false;

@@ -1,4 +1,6 @@
-﻿#include "led-matrix.h"
+﻿#include <signal.h>
+#include <unistd.h>
+#include "led-matrix.h"
 
 using rgb_matrix::RGBMatrix;
 using rgb_matrix::Canvas;
