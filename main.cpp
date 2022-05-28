@@ -3,7 +3,7 @@
 #include "src/core/display/display.hpp"
 #include "src/core/input/input.hpp"
 
-#include "graphics.h"
+//#include "graphics.h"
 
 volatile bool interrupt_received = false;
 static void InterruptHandler(int signo) {
@@ -29,14 +29,14 @@ int main(int argc, char *argv[]) {
 		rgb_matrix::FrameCanvas *canvas = display.matrix->CreateFrameCanvas();
 
 		// Load font
-		rgb_matrix::Font font;
-		if (!font.LoadFont("matrix/fonts/8x13.bdf")) {
-			fprintf(stderr, "Couldn't load font '%s'\n", "matrix/fonts/8x13.bdf");
-			return 1;
-		}
+		//rgb_matrix::Font font;
+		//if (!font.LoadFont("matrix/fonts/8x13.bdf")) {
+		//	fprintf(stderr, "Couldn't load font '%s'\n", "matrix/fonts/8x13.bdf");
+		//	return 1;
+		//}
 
 		// Font color
-		rgb_matrix::Color color(128, 128, 128);
+		//rgb_matrix::Color color(128, 128, 128);
 		
 		// Main loop
 		while (!interrupt_received){
@@ -46,10 +46,10 @@ int main(int argc, char *argv[]) {
     		input.Update();
 
 			// DEBUG. draw text
-			rgb_matrix::DrawText(canvas, font,
-									0, 6 + font.baseline(),
-									color, NULL,
-									"Ponglord", 0);
+			//rgb_matrix::DrawText(canvas, font,
+			//						0, 6 + font.baseline(),
+			//						color, NULL,
+			//						"Ponglord", 0);
 			
     		// DEBUG. Set pixels on/off based on input values
 			canvas->SetPixel(0,0,0,0,input.Value(0)?255:0);
