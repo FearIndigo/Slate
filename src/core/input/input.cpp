@@ -16,4 +16,9 @@ namespace Slate
         for (int i=0; i < 4; ++i)
             values[i] = (serialRead & (1<<i)) != 0;
     }
+
+	bool Input::Value(int index)
+	{
+		return values[index];
+	}
 }

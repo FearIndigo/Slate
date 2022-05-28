@@ -22,10 +22,11 @@ namespace Slate
         ///
         void Update();
 
-        ///
-        /// The decoded input values of each player button.
-        ///
-        bool values[4];
+		///
+		/// Get an input value
+		///
+		/// \param index The index of what value to get (0 = player1 left, 1 = player1 right, 2 = player2 left, 3 = player2 right).
+		bool Value(int index);
     private:
         ///
         /// The file descriptor used to define which device is used to read serial.
@@ -36,5 +37,10 @@ namespace Slate
         /// The byte received from the most recent serialGetchar(fd).
         ///
         unsigned char serialRead;
+
+		///
+        /// The decoded input values of each player button.
+        ///
+        bool values[4];
     };
 }
