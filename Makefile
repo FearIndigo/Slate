@@ -1,5 +1,6 @@
 CXXFLAGS=-Wall -O3 -g -std=c++17
-SOURCES:=$(shell find . -name "*.cpp")
+SRC_DIR=src
+SOURCES:=$(wildcard *.cpp $(SRC_DIR)/**/*.cpp)
 OBJECTS:=$(patsubst %.cpp,%.o,$(SOURCES))
 TARGET=slate
 
