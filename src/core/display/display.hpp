@@ -28,7 +28,7 @@ namespace Slate
         ///
         /// The display canvas.
         ///
-        Canvas *canvas;
+        rgb_matrix::Canvas *canvas;
     private:
     };
 }
