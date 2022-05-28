@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 		Slate::Input input("/dev/ttyACM0",9600);
 
 		// Create frame canvas
-		rgb_matrix::FrameCanvas *offscreen_canvas = display.matrix->CreateFrameCanvas();
+		rgb_matrix::FrameCanvas *canvas = display.matrix->CreateFrameCanvas();
 
 		// Load font
 		rgb_matrix::Font font;
@@ -43,24 +43,20 @@ int main(int argc, char *argv[]) {
 			// Read serial and save inputs to values array
     		input.Update();
 
-			// DEBUG, draw text
-			rgb_matrix::DrawText(offscreen_canvas, font,
-									32, 16 + font.baseline(),
+			// DEBUG. draw text
+			rgb_matrix::DrawText(canvas, font,
+									16, 6 + font.baseline(),
 									color, NULL,
-									"Test", 0);
+									"Ponglord", 0);
 			
     		// DEBUG. Set pixels on/off based on input values
-			if(input.Value(0))
-    			offscreen_canvas->SetPixel(0,0,0,0,255);
-			if(input.Value(1))
-    			offscreen_canvas->SetPixel(0,31,0,0,255);
-			if(input.Value(2))
-    			offscreen_canvas->SetPixel(63,0,0,0,255);
-			if(input.Value(3))
-    			offscreen_canvas->SetPixel(63,31,0,0,255);
+			canvas->SetPixel(0,0,0,0,input.Value(0)?255:0);
+			canvas->SetPixel(0,31,0,0,input.Value(1)?255:0);
+			canvas->SetPixel(63,0,0,0,input.Value(2)?255:0);
+			canvas->SetPixel(63,31,0,0,input.Value(3)?255:0);
 
-			// Swap the offscreen_canvas with displayed canvas on vsync, avoids flickering
-			offscreen_canvas = display.matrix->SwapOnVSync(offscreen_canvas);
+			// Swap the buffered canvas with displayed canvas on vsync, avoids flickering
+			canvas = display.matrix->SwapOnVSync(canvas);
   		}
 	}
 	catch(...)
