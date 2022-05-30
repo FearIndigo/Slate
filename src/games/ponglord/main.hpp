@@ -1,4 +1,6 @@
-﻿#include "../../core/base/baseGame.hpp"
+﻿#include <entt/entt.hpp>
+
+#include "../../core/base/baseGame.hpp"
 
 namespace Ponglord
 {
@@ -31,11 +33,6 @@ namespace Ponglord
         /// Render everything to the window.
         ///
         void render();
-
-        ///
-        /// Our main window.
-        ///
-        Window m_window;
 
         ///
         /// The default entt registry to hold and manage our entities.

@@ -1,6 +1,5 @@
 ﻿#include "led-matrix.h"
 #include "graphics.h"
-#include <entt/entt.hpp>
 
 namespace Slate
 {
