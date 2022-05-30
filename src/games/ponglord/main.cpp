@@ -8,8 +8,8 @@ namespace Ponglord
         color = {128,128,128};
         
         // Load font
-        if (!font.LoadFont("../../../matrix/fonts/6x12.bdf")) {
-            fprintf(stderr, "Couldn't load font '%s'\n", "../../../matrix/fonts/6x12.bdf");
+        if (!font.LoadFont("4x6.bdf")) {
+            fprintf(stderr, "Couldn't load font '%s'\n", "4x6.bdf");
         }
     }
 
