@@ -10,7 +10,7 @@ namespace Slate
         defaults.cols = cols;
         defaults.show_refresh_rate = false;
         defaults.pixel_mapper_config="Rotate:90";
-        canvas = RGBMatrix::CreateFromFlags(&argc, &argv, &defaults);
+        canvas = rgb_matrix::RGBMatrix::CreateFromFlags(&argc, &argv, &defaults);
         if (canvas == NULL)
             throw std::invalid_argument("Failed to create canvas.");
     }
