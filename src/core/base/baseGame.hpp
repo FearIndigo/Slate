@@ -5,7 +5,9 @@ namespace Slate
 {
     class BaseGame
     {
-    public:   
+    public:
+        BaseGame();
+           
         ///
         /// Display the games thumbnail.
         ///
