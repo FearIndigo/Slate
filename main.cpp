@@ -24,8 +24,8 @@ int main(int argc, char *argv[]) {
 		// Initialize input
 		Slate::Input input("/dev/ttyACM0",9600);
 
-		// DEBUG. Create ponglord game
-		Ponglord::Game() pong;
+		// DEBUG. Create instance of ponglord game
+		Ponglord::Game pong();
 		
 		// Main loop
 		while (!interrupt_received){
