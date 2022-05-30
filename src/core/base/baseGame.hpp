@@ -5,16 +5,16 @@ namespace Slate
 {
     class BaseGame
     {
-    public:          
+    public:
         ///
         /// Display the games thumbnail.
         ///
-        void Display(rgb_matrix::Canvas *canvas)
+        void Display(rgb_matrix::Canvas *canvas, rgb_matrix::Font font)
         {
             rgb_matrix::DrawText(canvas, font,
-                                            0, 30 + font.baseline(),
-                                            color, NULL,
-                                            title, 0);
+                                    0, 30 + font.baseline(),
+                                    color, NULL,
+                                    title, 0);
         }
         
         ///
@@ -25,7 +25,7 @@ namespace Slate
         ///
         /// Font used for display.
         ///
-        rgb_matrix::Font font;
+        //rgb_matrix::Font font;
 
         ///
         /// Colour used for display.
