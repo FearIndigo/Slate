@@ -25,12 +25,12 @@ namespace Slate
         ///
         /// Font used for display.
         ///
-        const rgb_matrix::Font font;
+        rgb_matrix::Font font;
 
         ///
         /// Colour used for display.
         ///
-        const rgb_matrix::Color color;
+        rgb_matrix::Color color;
         
         ///
         /// The game title
