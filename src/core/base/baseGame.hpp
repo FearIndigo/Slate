@@ -7,11 +7,6 @@ namespace Slate
     {
     public:
         ///
-        /// Main constructor.
-        ///                                               
-        BaseGame();
-
-        ///
         /// Display the games thumbnail.
         ///
         void Display(rgb_matrix::Canvas *canvas)
