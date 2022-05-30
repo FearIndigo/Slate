@@ -7,6 +7,11 @@ namespace Slate
     {
     public:
         ///
+        /// Base class constructor.
+        ///
+        BaseGame(const char* title, const rgb_matrix::Color color) : title(title), color(color) {}
+        
+        ///
         /// Display the games thumbnail.
         ///
         void Display(rgb_matrix::Canvas *canvas)

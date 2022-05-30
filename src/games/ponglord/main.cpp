@@ -3,7 +3,7 @@
 namespace Ponglord
 {
     Game::Game()
-        : title("Ponglord"), color(128,128,128) {}
+        : Slate::BaseGame("Ponglord", rgb_matrix::Color(128,128,128)) {}
     {
         // Load font
         if (!font.LoadFont("../../../matrix/fonts/6x12.bdf")) {
