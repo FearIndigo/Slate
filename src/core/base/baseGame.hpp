@@ -9,7 +9,7 @@ namespace Slate
         ///
         /// Display the games thumbnail.
         ///
-        void Display(rgb_matrix::Canvas canvas)
+        void Display(rgb_matrix::Canvas *canvas)
         {
             rgb_matrix::DrawText(canvas, font,
                                             0, 30 + font.baseline(),
@@ -30,12 +30,12 @@ namespace Slate
         ///
         /// Colour used for display.
         ///
-        rgb_matrix::Color color;
+        const rgb_matrix::Color color;
         
         ///
         /// The game title
         ///
-        char* *title;
+        const char* title;
 
         ///
         /// The thumbnail image.
