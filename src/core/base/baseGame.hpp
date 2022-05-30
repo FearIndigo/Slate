@@ -25,7 +25,7 @@ namespace Slate
         ///
         /// Font used for display.
         ///
-        rgb_matrix::Font font;
+        const rgb_matrix::Font font;
 
         ///
         /// Colour used for display.
