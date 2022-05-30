@@ -4,7 +4,7 @@ namespace Slate
 {
     Display::Display(int argc, char *argv[], const char* hardwareMapping, const int rows, const int cols, const bool showRefresh)
     {
-        RGBMatrix::Options defaults;
+        rgb_matrix::RGBMatrix::Options defaults;
         defaults.hardware_mapping = hardwareMapping;
         defaults.rows = rows;
         defaults.cols = cols;
