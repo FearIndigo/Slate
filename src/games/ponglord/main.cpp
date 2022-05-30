@@ -3,9 +3,8 @@
 namespace Ponglord
 {
     Game::Game()
+        : Slate::BaseGame("Ponglord") {}
     {
-        title = "Ponglord";
-
         color = {128,128,128};
         
         // Load font
