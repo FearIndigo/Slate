@@ -1,0 +1,51 @@
+﻿#include "led-matrix.h"
+#include "graphics.h"
+#include <entt/entt.hpp>
+
+namespace Slate
+{
+    class BaseGame
+    {
+    public:
+        ///
+        /// Main constructor.
+        ///                                               
+        BaseGame();
+
+        ///
+        /// Display the games thumbnail.
+        ///
+        void Display(rgb_matrix::Canvas *canvas)
+        {
+            rgb_matrix::DrawText(canvas, font,
+                                        0, 30 + font.baseline(),
+                                        color, NULL,
+                                        title, 0);
+        }
+        
+        ///
+        /// The main game loop.
+        ///
+        virtual void Run();
+    private:
+        ///
+        /// Font used for display.
+        ///
+        rgb_matrix::Font font;
+
+        ///
+        /// Colour used for display.
+        ///
+        rgb_matrix::Color color;
+        
+        ///
+        /// The game title
+        ///
+        char* title;
+
+        ///
+        /// The thumbnail image.
+        ///
+        //??? thumbnail;
+    };
+}

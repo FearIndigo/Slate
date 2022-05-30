@@ -2,8 +2,7 @@
 
 #include "src/core/display/display.hpp"
 #include "src/core/input/input.hpp"
-
-#include "graphics.h"
+#include "src/games/ponglord/main.hpp"
 
 volatile bool interrupt_received = false;
 static void InterruptHandler(int signo) {
@@ -25,26 +24,16 @@ int main(int argc, char *argv[]) {
 		// Initialize input
 		Slate::Input input("/dev/ttyACM0",9600);
 
-		// Load font
-		rgb_matrix::Font font;
-		if (!font.LoadFont("matrix/fonts/6x12.bdf")) {
-			fprintf(stderr, "Couldn't load font '%s'\n", "matrix/fonts/6x12.bdf");
-			return 1;
-		}
-
-		// Font color
-		rgb_matrix::Color color(128, 128, 128);
+		// DEBUG. Create ponglord game
+		Ponglord::Game() pong;
 		
 		// Main loop
 		while (!interrupt_received){
 			// Read serial and save inputs to values array
     		input.Update();
 
-			// DEBUG. draw text
-			rgb_matrix::DrawText(display.canvas, font,
-									0, 10 + font.baseline(),
-									color, NULL,
-									"Ponglord", 0);
+			// DEBUG. Display ponglord thumbnail
+			pong.Display(display.canvas);
 			
     		// DEBUG. Set pixels on/off based on input values
 			display.canvas->SetPixel(0,0,0,0,input.Value(0)?255:0);
