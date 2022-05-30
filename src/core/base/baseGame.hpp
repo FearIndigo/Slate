@@ -40,7 +40,7 @@ namespace Slate
         ///
         /// The game title
         ///
-        char* title;
+        char* *title;
 
         ///
         /// The thumbnail image.
