@@ -16,6 +16,14 @@ namespace Ponglord
         color = (rgb_matrix::Color){.r = 128, .g = 128, .b = 128};
     }
 
+    void Game::Display(rgb_matrix::Canvas *canvas)
+    {
+        rgb_matrix::DrawText(canvas, font,
+                                        0, 30 + font.baseline(),
+                                        color, NULL,
+                                        title, 0);
+    }
+
     void Game::Run()
     {
         
