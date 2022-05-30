@@ -1,5 +1,4 @@
 ﻿#include <signal.h>
-#include "graphics.h"
 
 #include "src/core/display/display.hpp"
 #include "src/core/input/input.hpp"
@@ -28,20 +27,13 @@ int main(int argc, char *argv[]) {
 		// DEBUG. Create instance of ponglord game
 		Ponglord::Game pong;
 		
-		// Load font
-		rgb_matrix::Font font;
-		if (!font.LoadFont("matrix/fonts/6x12.bdf")) {
-			fprintf(stderr, "Couldn't load font '%s'\n", "matrix/fonts/6x12.bdf");
-			return 1;
-		}
-		
 		// Main loop
 		while (!interrupt_received){
 			// Read serial and save inputs to values array
     		input.Update();
 
 			// DEBUG. Display ponglord thumbnail
-			pong.Display(display.canvas, font);
+			pong.Display(display.canvas);
 			
     		// DEBUG. Set pixels on/off based on input values
 			if(input.Value(0))
