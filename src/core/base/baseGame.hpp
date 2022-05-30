@@ -20,7 +20,7 @@ namespace Slate
         /// The main game loop.
         ///
         virtual void Run();
-    private:
+    protected:
         ///
         /// Font used for display.
         ///
