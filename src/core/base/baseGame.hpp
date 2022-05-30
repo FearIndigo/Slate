@@ -5,9 +5,7 @@ namespace Slate
 {
     class BaseGame
     {
-    public:
-        BaseGame();
-           
+    public:          
         ///
         /// Display the games thumbnail.
         ///
@@ -22,7 +20,7 @@ namespace Slate
         ///
         /// The main game loop.
         ///
-        virtual void Run();
+        virtual void Run() {}
     protected:
         ///
         /// Font used for display.
