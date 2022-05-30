@@ -11,11 +11,6 @@ namespace Ponglord
         /// Main constructor.
         ///                                               
         Game();
-
-        ///
-        ///
-        ///
-        void Display(rgb_matrix::Canvas *canvas);
         
         ///
         /// The main game loop.
