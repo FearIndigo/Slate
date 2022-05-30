@@ -36,14 +36,10 @@ int main(int argc, char *argv[]) {
 			pong.Display(display.canvas);
 			
     		// DEBUG. Set pixels on/off based on input values
-			if(input.Value(0))
-				display.canvas->SetPixel(0,0,0,0,255);
-			if(input.Value(1))
-				display.canvas->SetPixel(31,0,0,0,255);
-			if(input.Value(2))
-				display.canvas->SetPixel(0,63,0,0,255);
-			if(input.Value(3))
-				display.canvas->SetPixel(31,63,0,0,255);
+			display.canvas->SetPixel(0,0,0,0,input.Value(0)?255:0);
+			display.canvas->SetPixel(31,0,0,0,input.Value(1)?255:0);
+			display.canvas->SetPixel(0,63,0,0,input.Value(2)?255:0);
+			display.canvas->SetPixel(31,63,0,0,input.Value(3)?255:0);
   		}
 	}
 	catch(...)
