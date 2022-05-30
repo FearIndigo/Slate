@@ -9,7 +9,7 @@ namespace Slate
         ///
         /// Display the games thumbnail.
         ///
-        void Display(rgb_matrix::Canvas *canvas, rgb_matrix::Font font)
+        void Display(rgb_matrix::Canvas *canvas, rgb_matrix::Font *font)
         {
             rgb_matrix::DrawText(canvas, font,
                                     0, 30 + font.baseline(),
