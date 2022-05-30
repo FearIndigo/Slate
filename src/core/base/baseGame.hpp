@@ -7,11 +7,6 @@ namespace Slate
     {
     public:
         ///
-        /// Base class constructor.
-        ///
-        BaseGame(const char* title, const rgb_matrix::Color color) : title(title), color(color) {}
-        
-        ///
         /// Display the games thumbnail.
         ///
         void Display(rgb_matrix::Canvas *canvas)
@@ -30,17 +25,17 @@ namespace Slate
         ///
         /// Font used for display.
         ///
-        const rgb_matrix::Font font;
+        rgb_matrix::Font font;
 
         ///
         /// Colour used for display.
         ///
-        const rgb_matrix::Color color;
+        rgb_matrix::Color color;
         
         ///
         /// The game title
         ///
-        const char* title;
+        char* title;
 
         ///
         /// The thumbnail image.
