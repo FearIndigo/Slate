@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
 			if(pong.isRunning)
 			{
 				// DEBUG. Run pong main loop
-				pong.Run(display.canvas, input, frame_time);
+				pong.Run(display.canvas, &input, frame_time);
 			}
 			else
 			{
