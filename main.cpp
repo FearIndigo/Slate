@@ -47,10 +47,10 @@ int main(int argc, char *argv[]) {
 			// Update player inputs
     		input.Update(frame_time);
 
-			// Visual representation of button long press
-			rgb_matrix::DrawLine(display.canvas, -1, 0, -1 + input.GetButtonLongPressPercentage(0)*15, 0, longPressColor);
+			// Visual representation of button long press 
+			rgb_matrix::DrawLine(display.canvas, -1, 0, -1 + input.GetButtonLongPressPercentage(0)*16, 0, longPressColor);
 			rgb_matrix::DrawLine(display.canvas, 32, 0, 32 - input.GetButtonLongPressPercentage(1)*16, 0, longPressColor);
-			rgb_matrix::DrawLine(display.canvas, -1, 63, -1 + input.GetButtonLongPressPercentage(2)*15, 63, longPressColor);
+			rgb_matrix::DrawLine(display.canvas, -1, 63, -1 + input.GetButtonLongPressPercentage(2)*16, 63, longPressColor);
 			rgb_matrix::DrawLine(display.canvas, 32, 63, 32 - input.GetButtonLongPressPercentage(3)*16, 63, longPressColor);
 			
 			if(pong.isRunning)
