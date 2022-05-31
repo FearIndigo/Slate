@@ -5,6 +5,7 @@
 #include "src/core/time/time.hpp"
 
 #include "src/games/ponglord/main.hpp"
+#include "src/games/test/test.hpp"
 
 volatile bool interrupt_received = false;
 static void InterruptHandler(int signo) {
@@ -33,8 +34,12 @@ int main(int argc, char *argv[]) {
 		// Long press visual colour
 		rgb_matrix::Color longPressColor(64,64,64);
 		
-		// DEBUG. Create instance of ponglord game
-		Ponglord::Game pong;
+		// DEBUG.
+		Slate::BaseGame games[2] = {
+			Ponglord::Game pong,
+			Test::Game test
+		};
+		int gameIndex = 0;
 		
 		// Main loop
 		while (!interrupt_received){
@@ -48,7 +53,7 @@ int main(int argc, char *argv[]) {
     		input.Update(frame_time);
 
 			// Visual representation of button long press
-			if(!pong.isRunning || pong.showLongPress)
+			if(!games[gameIndex].isRunning || games[gameIndex].showLongPress)
 			{
 				rgb_matrix::DrawLine(display.canvas, -1, 0, -1 + input.GetButtonLongPressPercentage(0)*16, 0, longPressColor);
 				rgb_matrix::DrawLine(display.canvas, 32, 0, 32 - input.GetButtonLongPressPercentage(1)*16, 0, longPressColor);
@@ -56,21 +61,46 @@ int main(int argc, char *argv[]) {
 				rgb_matrix::DrawLine(display.canvas, 32, 63, 32 - input.GetButtonLongPressPercentage(3)*16, 63, longPressColor);
 			}
 			
-			if(pong.isRunning)
+			if(games[gameIndex].isRunning)
 			{
 				// DEBUG. Run pong main loop
-				pong.Run(display.canvas, input, frame_time);
+				games[gameIndex].Run(display.canvas, input, frame_time);
 			}
 			else
 			{
-				// DEBUG. Display ponglord thumbnail
-				pong.Display(display.canvas, frame_time);
+				// DEBUG. Display game thumbnail
+				games[gameIndex].Display(display.canvas, frame_time);
+
+				// DEBUG. move to next game index
+				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)
+				{
+					input.ResetLongPress(0);
+					gameIndex = (gameIndex + 1) % 2;
+				}
+				// DEBUG. move to previous game index
+				if(input.GetButtonLongPress(1) && input.GetButtonLongPressPercentage(0) == 0)
+				{
+					input.ResetLongPress(1);
+					gameIndex = (gameIndex - 1) % 2;
+				}
+				// DEBUG. move to next game index
+				if(input.GetButtonLongPress(3) && input.GetButtonLongPressPercentage(2) == 0)
+				{
+					input.ResetLongPress(3);
+					gameIndex = (gameIndex + 1) % 2;
+				}
+				// DEBUG. move to previous game index
+				if(input.GetButtonLongPress(2) && input.GetButtonLongPressPercentage(3) == 0)
+				{
+					input.ResetLongPress(2);
+					gameIndex = (gameIndex - 1) % 2;
+				}
 				
 				// Run the current game when either player long presses both buttons
 				if((input.GetButtonLongPress(0) && input.GetButtonLongPress(1)) ||
 					(input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))
 				{
-					pong.isRunning = true;
+					games[gameIndex].isRunning = true;
 					input.ResetLongPressAll();
 				}
 			}

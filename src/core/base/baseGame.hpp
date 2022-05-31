@@ -1,6 +1,7 @@
 ﻿#ifndef SLATE_BASE_BASEGAME
 #define SLATE_BASE_BASEGAME
 
+#include <stdexcept>
 #include "led-matrix.h"
 #include "graphics.h"
 #include "../input/input.hpp"
@@ -10,6 +11,27 @@ namespace Slate
     class BaseGame
     {
     public:
+        ///
+        /// Default constructor
+        ///
+        BaseGame()
+        {
+            // Dont run by default
+            isRunning = false;
+            
+            // Dont show long press visuals by default
+            showLongPress = false;
+            
+            // Set default text color
+            color = {128,128,128};
+            
+            // Load default font
+            if (!font.LoadFont("matrix/fonts/5x7.bdf")) {
+                fprintf(stderr, "Couldn't load font '%s'\n", "matrix/font/4x6.bdf");
+                throw std::invalid_argument("Could load font use for Ponglord.");
+            }
+        }
+    
         ///
         /// Display the games thumbnail.
         ///

@@ -1,5 +1,4 @@
-﻿#include <stdexcept>
-#include <entt/entt.hpp>
+﻿#include <entt/entt.hpp>
 
 #include "../../core/base/baseGame.hpp"
 
