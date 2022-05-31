@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
 						pong.isRunning = true;
 			}
 
-			display.canvas = display.matrix->SwapOnVsync(display.canvas);
+			display.canvas = display.matrix->SwapOnVSync(display.canvas);
   		}
 	}
 	catch(...)
