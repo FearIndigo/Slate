@@ -22,7 +22,7 @@ namespace Ponglord
         if((input.GetButtonLongPress(0) && input.GetButtonLongPress(1)) &&
             (input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))
         {
-            pong.isRunning = false;
+            isRunning = false;
             input.ResetLongPress();
         }
         
