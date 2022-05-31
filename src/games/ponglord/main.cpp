@@ -3,8 +3,9 @@
 namespace Ponglord
 {
     Game::Game()
-        : thumbnail("Ponglord") {}
-    {}
+    {
+        thumbnail = new Slate::Thumbnail("Ponglord");
+    }
 
     void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)
     {
