@@ -4,7 +4,7 @@ namespace Ponglord
 {
     Game::Game()
     {
-        isRunning = false;
+        isRunning = true;
         title = "Ponglord";
         color = {128,128,128};
 
