@@ -82,30 +82,30 @@ int main(int argc, char *argv[]) {
 				games[gameIndex]->thumbnail->Display(display.canvas, frame_time);
 
 				// Player 1 move to next game index
-				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)
+				if(input.GetButtonLongPress(1) && input.GetButtonLongPressPercentage(0) == 0)
 				{
-					input.ResetLongPress(0);
+					input.ResetLongPress(1);
 					gameIndex = (gameIndex + 1) % gamesCount;
 					games[gameIndex]->thumbnail->Reset();
 				}
 				// Player 1 move to previous game index
-				if(input.GetButtonLongPress(1) && input.GetButtonLongPressPercentage(0) == 0)
+				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)
 				{
-					input.ResetLongPress(1);
+					input.ResetLongPress(0);
 					gameIndex = gameIndex == 0 ? gamesCount - 1 : (gameIndex - 1) % gamesCount;
 					games[gameIndex]->thumbnail->Reset();
 				}
 				// Player 2 move to next game index
-				if(input.GetButtonLongPress(2) && input.GetButtonLongPressPercentage(3) == 0)
+				if(input.GetButtonLongPress(3) && input.GetButtonLongPressPercentage(2) == 0)
 				{
-					input.ResetLongPress(2);
+					input.ResetLongPress(3);
 					gameIndex = (gameIndex + 1) % gamesCount;
 					games[gameIndex]->thumbnail->Reset();
 				}
 				// Player 2 move to previous game index
-				if(input.GetButtonLongPress(3) && input.GetButtonLongPressPercentage(2) == 0)
+				if(input.GetButtonLongPress(2) && input.GetButtonLongPressPercentage(3) == 0)
 				{
-					input.ResetLongPress(3);
+					input.ResetLongPress(2);
 					gameIndex = gameIndex == 0 ? gamesCount - 1 : (gameIndex - 1) % gamesCount;
 					games[gameIndex]->thumbnail->Reset();
 				}
