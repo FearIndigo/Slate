@@ -19,7 +19,7 @@ namespace Slate
 
     void Thumbnail::Display(rgb_matrix::FrameCanvas *canvas, const unsigned int frame_time)
     {
-        fprintf(stderr, "Couldn't load font '%s'\n", "title");
+        fprintf(stderr, "Couldn't load font '%s'\n", title);
         length = rgb_matrix::DrawText(canvas, font,
                                     x + 32, 30 + font.baseline(),
                                     color, NULL,
