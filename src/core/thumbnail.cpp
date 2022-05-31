@@ -23,7 +23,7 @@ namespace Slate
                                     x + 32, 29 + font.baseline(),
                                     color, NULL,
                                     title, 0);
-        
+        fprintf(stderr, "Print thumbnail '%s'\n", title);
         step += frame_time;
         if(step >= 100)
         {
