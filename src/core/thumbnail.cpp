@@ -9,7 +9,10 @@ namespace Slate
         
         // Set text color
         color = {128,128,128};
-            
+
+        x = 0;
+        step = 0;
+        
         // Load font
         if (!font.LoadFont("matrix/fonts/5x7.bdf")) {
             fprintf(stderr, "Couldn't load font '%s'\n", "matrix/font/4x6.bdf");
@@ -23,7 +26,7 @@ namespace Slate
                                     x + 32, 29 + font.baseline(),
                                     color, NULL,
                                     title, 0);
-        fprintf(stderr, "Print thumbnail '%s'\n", title);
+        
         step += frame_time;
         if(step >= 100)
         {

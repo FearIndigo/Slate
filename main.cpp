@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
 		};
 		int gamesCount = 2;
 		int gameIndex = 0;
+		bool isRunning = false;
 
 		// Initialize time
 		Slate::Time time;
@@ -54,10 +55,18 @@ int main(int argc, char *argv[]) {
 			// Update player inputs
     		input.Update(frame_time);
 			
-			if(games[gameIndex]->IsRunning)
+			if(isRunning)
 			{
-				// DEBUG. Run pong main loop
+				// Run game main loop
 				games[gameIndex]->Run(display.canvas, input, frame_time);
+
+				// Return to main menu if all buttons have been long pressed
+				if(input.GetButtonLongPress(0) && input.GetButtonLongPress(1) &&
+					input.GetButtonLongPress(2) && input.GetButtonLongPress(3))
+				{
+					isRunning = false;
+					input.ResetLongPressAll();
+				}
 			}
 			else
 			{
@@ -99,11 +108,12 @@ int main(int argc, char *argv[]) {
 				if((input.GetButtonLongPress(0) && input.GetButtonLongPress(1)) ||
 					(input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))
 				{
-					games[gameIndex]->IsRunning = true;
+					isRunning = true;
 					input.ResetLongPressAll();
 				}
 			}
 
+			// Send new frame canvas to matrix display
 			display.canvas = display.matrix->SwapOnVSync(display.canvas);
   		}
 	}

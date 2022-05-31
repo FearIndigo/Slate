@@ -11,12 +11,7 @@ namespace Slate
     class BaseGame
     {
     public:
-        BaseGame(const char* title) : IsRunning(false), thumbnail(new Slate::Thumbnail(title)) {}
-        ///
-        /// Run game or show thumbnail.
-        ///
-        bool IsRunning;
-        
+        BaseGame(const char* title) : thumbnail(new Slate::Thumbnail(title)) {}
         ///
         /// Main game loop.
         ///
