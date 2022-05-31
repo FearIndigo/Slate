@@ -1,5 +1,4 @@
 ﻿#include <signal.h>
-#include <iostream>
 
 #include "src/core/display/display.hpp"
 #include "src/core/input/input.hpp"
@@ -44,8 +43,6 @@ int main(int argc, char *argv[]) {
 			
 			// Get new frame time
 			frame_time = time.Update();
-			std::cout << frame_time;
-			std::cout << input.GetButton(0);
 			
 			// Update player inputs
     		input.Update(frame_time);
