@@ -54,5 +54,15 @@ namespace Slate
         /// How long the current display frame has been displayed for.
         ///
         int step;
+
+        ///
+        /// How long (milliseconds) it takes to scroll the text one pixel
+        ///
+        int stepTime;
+
+        ///
+        /// How long (milliseconds) it initially takes for the text to start scrolling
+        ///
+        int firstStep;
     };
 }

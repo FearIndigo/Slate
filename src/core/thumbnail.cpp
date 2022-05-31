@@ -9,10 +9,16 @@ namespace Slate
         
         // Set text color
         color = {128,128,128};
+
+        // Set time it takes to scroll the text one pixel
+        stepTime = 50;
+
+        // Set how long it takes for the text to initially start scrolling
+        firstStep = 500;
         
         // Load font
-        if (!font.LoadFont("matrix/fonts/tom-thumb.bdf")) {
-            fprintf(stderr, "Couldn't load font '%s'\n", "matrix/font/tom-thumb.bdf");
+        if (!font.LoadFont("matrix/fonts/4x6.bdf")) {
+            fprintf(stderr, "Couldn't load font '%s'\n", "matrix/font/4x6.bdf");
             throw std::invalid_argument("Could load font used for thumbnail.");
         }
 
@@ -28,9 +34,9 @@ namespace Slate
                                     title, 0);
         
         step += frame_time;
-        if(step >= 100)
+        if(step >= stepTime)
         {
-            step = step % 100;
+            step = step % stepTime;
             if(--x + length + 32 < 0)
                 x = 0;
         }
@@ -38,7 +44,7 @@ namespace Slate
 
     void Thumbnail::Reset()
     {
-        x = 0;
-        step = 0;
+        x = -32;
+        step = -firstStep + stepTime;
     }
 }
