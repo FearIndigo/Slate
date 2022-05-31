@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
 			else
 			{
 				// DEBUG. Display ponglord thumbnail
-				pong.Display(display.canvas);
+				pong.Display(display.canvas, frame_time);
 				
 				// Run the current game when either player long presses both buttons
 				if((input.GetButtonLongPress(0) && input.GetButtonLongPress(1)) ||

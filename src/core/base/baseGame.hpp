@@ -13,12 +13,19 @@ namespace Slate
         ///
         /// Display the games thumbnail.
         ///
-        void Display(rgb_matrix::Canvas *canvas)
+        void Display(rgb_matrix::Canvas *canvas, const unsigned int frame_time)
         {
-            rgb_matrix::DrawText(canvas, font,
-                                    0, 30 + font.baseline(),
+            length = rgb_matrix::DrawText(canvas, font,
+                                    x, 30 + font.baseline(),
                                     color, NULL,
                                     title, 0);
+            step += frame_time;
+            if(step > 200)
+            {
+                step = 0;
+                if(--x + length < 0)
+                    x = 0;
+            }
         }
         
         ///
@@ -47,10 +54,25 @@ namespace Slate
         rgb_matrix::Color color;
         
         ///
-        /// The game title
+        /// The game title.
         ///
         const char* title;
-
+        
+        ///
+        /// How many x axis pixels the title takes up.
+        ///
+        int length;
+        
+        ///
+        /// Text display x value.
+        ///
+        int x;
+        
+        ///
+        /// How long the current display frame has been displayed for.
+        ///
+        int step;
+                
         ///
         /// The thumbnail image.
         ///
