@@ -10,12 +10,12 @@ namespace Test
     {
         // DEBUG. Set red pixels on if button pressed
         if(input.GetButton(0))
-            canvas->SetPixel(0,0,255,0,0);
+            canvas->SetPixel(0,0,0,128,255);
         if(input.GetButton(1))
-            canvas->SetPixel(31,0,255,0,0);
+            canvas->SetPixel(31,0,0,128,255);
         if(input.GetButton(2))
-            canvas->SetPixel(0,63,255,0,0);
+            canvas->SetPixel(0,63,255,128,0);
         if(input.GetButton(3))
-            canvas->SetPixel(31,63,255,0,0);
+            canvas->SetPixel(31,63,255,128,0);
     }
 }

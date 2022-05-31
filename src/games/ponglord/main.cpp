@@ -14,8 +14,8 @@ namespace Ponglord
         if(input.GetButton(1))
             canvas->SetPixel(31,0,0,0,255);
         if(input.GetButton(2))
-            canvas->SetPixel(0,63,0,0,255);
+            canvas->SetPixel(0,63,255,0,0);
         if(input.GetButton(3))
-            canvas->SetPixel(31,63,0,0,255);
+            canvas->SetPixel(31,63,255,0,0);
     }
 }

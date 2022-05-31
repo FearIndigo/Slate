@@ -66,6 +66,7 @@ int main(int argc, char *argv[]) {
 				{
 					isRunning = false;
 					input.ResetLongPressAll();
+					games[gameIndex]->thumbnail->Reset();
 				}
 			}
 			else
@@ -77,31 +78,35 @@ int main(int argc, char *argv[]) {
 				rgb_matrix::DrawLine(display.canvas, 32, 63, 32 - input.GetButtonLongPressPercentage(3)*16, 63, longPressColor);
 				
 				// Display game thumbnail
-				games[gameIndex]->DisplayThumbnail(display.canvas, frame_time);
+				games[gameIndex]->thumbnail->Display(display.canvas, frame_time);
 
 				// DEBUG. move to next game index
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)
 				{
 					input.ResetLongPress(0);
 					gameIndex = (gameIndex + 1) % gamesCount;
+					games[gameIndex]->thumbnail->Reset();
 				}
 				// DEBUG. move to previous game index
 				if(input.GetButtonLongPress(1) && input.GetButtonLongPressPercentage(0) == 0)
 				{
 					input.ResetLongPress(1);
 					gameIndex = std::abs((gameIndex - 1) % gamesCount);
+					games[gameIndex]->thumbnail->Reset();
 				}
 				// DEBUG. move to next game index
 				if(input.GetButtonLongPress(3) && input.GetButtonLongPressPercentage(2) == 0)
 				{
 					input.ResetLongPress(3);
 					gameIndex = (gameIndex + 1) % gamesCount;
+					games[gameIndex]->thumbnail->Reset();
 				}
 				// DEBUG. move to previous game index
 				if(input.GetButtonLongPress(2) && input.GetButtonLongPressPercentage(3) == 0)
 				{
 					input.ResetLongPress(2);
 					gameIndex = std::abs((gameIndex - 1) % gamesCount);
+					games[gameIndex]->thumbnail->Reset();
 				}
 				
 				// Run the current game when either player long presses both buttons
@@ -110,6 +115,7 @@ int main(int argc, char *argv[]) {
 				{
 					isRunning = true;
 					input.ResetLongPressAll();
+					games[gameIndex]->thumbnail->Reset();
 				}
 			}
 

@@ -19,6 +19,11 @@ namespace Slate
         /// \param frame_time Frame delta time.
         ///
         void Display(rgb_matrix::FrameCanvas *canvas, const unsigned int frame_time);
+
+        ///
+        /// Reset the thumbnail to the starting position.
+        ///
+        void Reset();
     private:
         ///
         /// Font used for display.
