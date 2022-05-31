@@ -6,6 +6,7 @@ namespace Slate
     {
         // Get current time
         new_time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+        current_time = new_time;
     }
 
     unsigned int Time::Update()

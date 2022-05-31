@@ -12,6 +12,9 @@ namespace Slate
     {
     public:
         BaseGame(const char* title) : thumbnail(title) {}
+        {
+            IsRunning = false;
+        }
         ///
         /// Run game or show thumbnail.
         ///
