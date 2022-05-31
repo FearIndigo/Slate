@@ -27,13 +27,13 @@ namespace Slate
         ///
         void DisplayThumbnail(rgb_matrix::FrameCanvas *canvas, const unsigned int frame_time)
         {
-            thumbnail.Display(canvas, frame_time);
+            thumbnail->Display(canvas, frame_time);
         }
     private:
         ///
         /// Game thumbnail.
         ///
-        Slate::Thumbnail thumbnail;
+        Slate::Thumbnail *thumbnail;
     };
 }
 

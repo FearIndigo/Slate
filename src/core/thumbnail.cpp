@@ -20,14 +20,14 @@ namespace Slate
     void Thumbnail::Display(rgb_matrix::FrameCanvas *canvas, const unsigned int frame_time)
     {
         length = rgb_matrix::DrawText(canvas, font,
-                                    0, 30 + font.baseline(),
+                                    x + 32, 29 + font.baseline(),
                                     color, NULL,
                                     title, 0);
             
         step += frame_time;
-        if(step > 100)
+        if(step >= 100)
         {
-            step = 0;
+            step = step % 100;
             if(--x + length + 32 < 0)
                 x = 0;
         }
