@@ -29,6 +29,9 @@ int main(int argc, char *argv[]) {
 		// Initialize time
 		Slate::Time time;
 		unsigned int frame_time;
+
+		// Long press visual colour
+		rgb_matrix::Color longPressColor(64,64,64);
 		
 		// DEBUG. Create instance of ponglord game
 		Ponglord::Game pong;
@@ -41,6 +44,12 @@ int main(int argc, char *argv[]) {
 			// Update player inputs
     		input.Update(frame_time);
 
+			// Visual representation of button long press
+			rgb_matrix::DrawLine(display.canvas, 0, 0, 16 * input.GetButtonLongPressPercentage(0), 0, longPressColor);
+			rgb_matrix::DrawLine(display.canvas, 31, 0, 16 * input.GetButtonLongPressPercentage(1), 0, longPressColor);
+			rgb_matrix::DrawLine(display.canvas, 0, 63, 16 * input.GetButtonLongPressPercentage(0), 63, longPressColor);
+			rgb_matrix::DrawLine(display.canvas, 31, 63, 16 * input.GetButtonLongPressPercentage(1), 63, longPressColor);
+			
 			if(pong.isRunning)
 			{
 				// DEBUG. Run pong main loop
@@ -50,7 +59,7 @@ int main(int argc, char *argv[]) {
 			{
 				// DEBUG. Display ponglord thumbnail
 				pong.Display(display.canvas);
-
+				
 				// Run the current game when either player long presses both buttons
 				if((input.GetButtonLongPress(0) && input.GetButtonLongPress(1)) ||
 					(input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))

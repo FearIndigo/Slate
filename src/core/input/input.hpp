@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdexcept>
 #include <wiringSerial.h>
+#include <algorithm>
 
 namespace Slate
 {
@@ -38,6 +39,13 @@ namespace Slate
     	/// \param index The index of what button to get (0 = player1 left, 1 = player1 right, 2 = player2 left, 3 = player2 right).
     	/// 
     	bool GetButtonLongPress(int index);
+
+    	///
+    	/// Get the percentage of longPress the button has been pressed for (0 = not pressed, 1 = long press triggered)
+    	///
+    	/// \param index The index of what button to get (0 = player1 left, 1 = player1 right, 2 = player2 left, 3 = player2 right).
+    	///
+    	double GetButtonLongPressPercentage(int index);
     private:
         ///
         /// The file descriptor used to define which device is used to read serial.

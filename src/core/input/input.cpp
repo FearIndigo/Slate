@@ -39,4 +39,9 @@ namespace Slate
     {
         return pressedDuration[index] >= longPress;
     }
+
+    double Input::GetButtonLongPressPercentage(int index)
+    {
+        return std::clamp((double)pressedDuration[index] / longPress, 0.0, 1.0);
+    }
 }
