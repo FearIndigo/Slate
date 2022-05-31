@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
 
 		// Initialize time
 		Slate::Time time;
-		unsigned int frame_time;
+		unsigned int frame_time = time.Update();
 		
 		// Main loop
 		while (!interrupt_received){
