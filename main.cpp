@@ -52,10 +52,10 @@ int main(int argc, char *argv[]) {
 			// Update player inputs
     		input.Update(frame_time);
 			
-			if(games[gameIndex].isRunning)
+			if(games[gameIndex]->IsRunning)
 			{
 				// DEBUG. Run pong main loop
-				games[gameIndex].Run(display.canvas, input, frame_time);
+				games[gameIndex]->Run(display.canvas, input, frame_time);
 			}
 			else
 			{
@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
 				rgb_matrix::DrawLine(display.canvas, 32, 63, 32 - input.GetButtonLongPressPercentage(3)*16, 63, longPressColor);
 				
 				// Display game thumbnail
-				games[gameIndex].thumbnail.Display(display.canvas, frame_time);
+				games[gameIndex]->DisplayThumbnail(display.canvas, frame_time);
 
 				// DEBUG. move to next game index
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)
@@ -97,7 +97,7 @@ int main(int argc, char *argv[]) {
 				if((input.GetButtonLongPress(0) && input.GetButtonLongPress(1)) ||
 					(input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))
 				{
-					games[gameIndex].isRunning = true;
+					games[gameIndex]->IsRunning = true;
 					input.ResetLongPressAll();
 				}
 			}

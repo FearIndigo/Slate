@@ -2,8 +2,11 @@
 
 namespace Slate
 {
-    Thumbnail::Thumbnail()
+    Thumbnail::Thumbnail(const char* text)
     {
+        // Set title
+        title = text;
+        
         // Set text color
         color = {128,128,128};
             

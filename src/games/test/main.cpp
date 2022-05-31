@@ -8,7 +8,7 @@ namespace Test
 
     void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)
     {
-        isRunning = false;
+        IsRunning = false;
         input.ResetLongPressAll();
     }
 }

@@ -14,12 +14,20 @@ namespace Slate
         ///
         /// Run game or show thumbnail.
         ///
-        bool isRunning;
+        bool IsRunning;
         
         ///
         /// Main game loop.
         ///
         virtual void Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time) {}
+
+        ///
+        /// Display the game thumbnail.
+        ///
+        void DisplayThumbnail(rgb_matrix::FrameCanvas *canvas, const unsigned int frame_time)
+        {
+            thumbnail.Display(canvas, frame_time);
+        }
     protected:
         ///
         /// Game thumbnail.
