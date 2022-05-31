@@ -7,11 +7,10 @@ namespace Slate
     class Thumbnail
     {
     public:
-        Thumbnail();
         ///
         /// Main constructor.
         ///
-        Thumbnail(const char* title);
+        Thumbnail(const char* text);
 
         ///
         /// Display the thumbnail.
