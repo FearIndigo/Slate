@@ -47,11 +47,17 @@ namespace Slate
         return temp > 1.0 ? 1.0 : temp;
     }
 
-    void Input::ResetLongPress()
+    void Input::ResetLongPress(int index)
+    {
+        pressed[i] = false;
+        pressedDuration[index] = 0;
+    }
+    
+    void Input::ResetLongPressAll()
     {
         for (int i=0; i < 4; ++i)
         {
-            pressedDuration[i] = 0;
+            ResetLongPress(i);
         }
     }
 }

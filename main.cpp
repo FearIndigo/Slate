@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 					(input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))
 				{
 					pong.isRunning = true;
-					input.ResetLongPress();
+					input.ResetLongPressAll();
 				}
 			}
 

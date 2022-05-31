@@ -47,9 +47,16 @@ namespace Slate
     	float GetButtonLongPressPercentage(int index);
 
     	///
+    	/// Reset button long press value.
+    	///
+    	/// \param index The index of what button to get (0 = player1 left, 1 = player1 right, 2 = player2 left, 3 = player2 right).
+    	///
+    	void ResetLongPress(int index);
+    	
+    	///
     	/// Reset all button long press values.
     	///
-    	void ResetLongPress();
+    	void ResetLongPressAll();
     private:
         ///
         /// The file descriptor used to define which device is used to read serial.
