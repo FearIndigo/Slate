@@ -1,5 +1,5 @@
-﻿#ifndef INPUT
-#define INPUT
+﻿#ifndef SLATE_CORE_INPUT
+#define SLATE_CORE_INPUT
 
 #include <errno.h>
 #include <stdio.h>

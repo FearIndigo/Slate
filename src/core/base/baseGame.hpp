@@ -1,4 +1,7 @@
-﻿#include "led-matrix.h"
+﻿#ifndef SLATE_BASE_BASEGAME
+#define SLATE_BASE_BASEGAME
+
+#include "led-matrix.h"
 #include "graphics.h"
 #include "../input/input.hpp"
 
@@ -49,3 +52,5 @@ namespace Slate
         //??? thumbnail;
     };
 }
+
+#endif
