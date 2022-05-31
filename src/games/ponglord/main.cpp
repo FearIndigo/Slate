@@ -16,7 +16,7 @@ namespace Ponglord
         }
     }
 
-    void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input& input, const unsigned int frame_time)
+    void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)
     {
         // Return to main menu when all buttons have been long pressed
         if(input.GetButtonLongPress(0) && input.GetButtonLongPress(1) &&
