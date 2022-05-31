@@ -1,5 +1,5 @@
 ﻿#include "thumbnail.hpp"
-#include <iostream>
+//#include <iostream>
 
 namespace Slate
 {
@@ -24,12 +24,12 @@ namespace Slate
                                     x + 32, 29 + font.baseline(),
                                     color, NULL,
                                     title, 0);
-        std::cout   << step;
-        std::cout   << " = Step\n";
-        std::cout   << x;
-        std::cout   << " = X\n";
-        std::cout   << length;
-        std::cout   << " = Length\n\n";
+        //std::cout   << step;
+        //std::cout   << " = Step\n";
+        //std::cout   << x;
+        //std::cout   << " = X\n";
+        //std::cout   << length;
+        //std::cout   << " = Length\n\n";
         
         step += frame_time;
         if(step >= 100)
