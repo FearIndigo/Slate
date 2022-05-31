@@ -16,22 +16,16 @@ namespace Slate
         void Display(rgb_matrix::Canvas *canvas, const unsigned int frame_time)
         {
             length = rgb_matrix::DrawText(canvas, font,
-                                    x, 30 + font.baseline(),
+                                    x + 32, 30 + font.baseline(),
                                     color, NULL,
-                                    title, -1);
+                                    title, 0);
             
             step += frame_time;
             if(step > 100)
             {
-                if(--x + length - 32 < 0)
-                {
-                    step = -400;
+                step = 0;
+                if(--x + length + 32 < 0)
                     x = 0;
-                }
-                else
-                {
-                    step = 0;
-                }
             }
         }
         
