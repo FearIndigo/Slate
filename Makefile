@@ -11,6 +11,8 @@ WP_LIBRARY_NAME=wiringPi
 
 ENTT_INCDIR=entt/src
 
+SLATE_INCDIR=src
+
 LDFLAGS+=-l$(WP_LIBRARY_NAME) -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthread
 
 all : $(TARGET)
@@ -19,7 +21,7 @@ $(TARGET) : $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
 
 %.o : %.cpp
-	$(CXX) -I$(RGB_INCDIR) -I$(ENTT_INCDIR) $(CXXFLAGS) -c -o $@ $<
+	$(CXX) -I$(RGB_INCDIR) -I$(ENTT_INCDIR) -I$(SLATE_INCDIR) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	rm -f $(OBJECTS) $(TARGET)

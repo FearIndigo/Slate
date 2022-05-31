@@ -1,11 +1,11 @@
 ﻿#include <signal.h>
 
-#include "src/core/display/display.hpp"
-#include "src/core/input/input.hpp"
-#include "src/core/time/time.hpp"
+#include "core/display.hpp"
+#include "core/input.hpp"
+#include "core/time.hpp"
 
-#include "src/games/ponglord/main.hpp"
-#include "src/games/test/main.hpp"
+#include "games/ponglord/main.hpp"
+#include "games/test/main.hpp"
 
 volatile bool interrupt_received = false;
 static void InterruptHandler(int signo) {
@@ -35,10 +35,10 @@ int main(int argc, char *argv[]) {
 		rgb_matrix::Color longPressColor(64,64,64);
 		
 		// DEBUG.
-		Ponglord::Game pong;
+		Ponglord::Game ponglord;
 		Test::Game test;
 		Slate::BaseGame games[2] = {
-			pong,
+			ponglord,
 			test
 		};
 		int gameIndex = 0;
@@ -53,15 +53,6 @@ int main(int argc, char *argv[]) {
 			
 			// Update player inputs
     		input.Update(frame_time);
-
-			// Visual representation of button long press
-			if(!games[gameIndex].isRunning || games[gameIndex].showLongPress)
-			{
-				rgb_matrix::DrawLine(display.canvas, -1, 0, -1 + input.GetButtonLongPressPercentage(0)*16, 0, longPressColor);
-				rgb_matrix::DrawLine(display.canvas, 32, 0, 32 - input.GetButtonLongPressPercentage(1)*16, 0, longPressColor);
-				rgb_matrix::DrawLine(display.canvas, -1, 63, -1 + input.GetButtonLongPressPercentage(2)*16, 63, longPressColor);
-				rgb_matrix::DrawLine(display.canvas, 32, 63, 32 - input.GetButtonLongPressPercentage(3)*16, 63, longPressColor);
-			}
 			
 			if(games[gameIndex].isRunning)
 			{
@@ -70,8 +61,14 @@ int main(int argc, char *argv[]) {
 			}
 			else
 			{
-				// DEBUG. Display game thumbnail
-				games[gameIndex].Display(display.canvas, frame_time);
+				// Visual representation of button long press in main menu
+				rgb_matrix::DrawLine(display.canvas, -1, 0, -1 + input.GetButtonLongPressPercentage(0)*16, 0, longPressColor);
+				rgb_matrix::DrawLine(display.canvas, 32, 0, 32 - input.GetButtonLongPressPercentage(1)*16, 0, longPressColor);
+				rgb_matrix::DrawLine(display.canvas, -1, 63, -1 + input.GetButtonLongPressPercentage(2)*16, 63, longPressColor);
+				rgb_matrix::DrawLine(display.canvas, 32, 63, 32 - input.GetButtonLongPressPercentage(3)*16, 63, longPressColor);
+				
+				// Display game thumbnail
+				games[gameIndex].thumbnail.Display(display.canvas, frame_time);
 
 				// DEBUG. move to next game index
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)

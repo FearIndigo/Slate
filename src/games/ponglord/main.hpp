@@ -1,6 +1,6 @@
 ﻿#include <entt/entt.hpp>
 
-#include "../../core/base/baseGame.hpp"
+#include "core/baseGame.hpp"
 
 namespace Ponglord
 {

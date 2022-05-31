@@ -1,5 +1,4 @@
-﻿#include <stdexcept>
-#include "../../core/base/baseGame.hpp"
+﻿#include "core/baseGame.hpp"
 
 namespace Test
 {
