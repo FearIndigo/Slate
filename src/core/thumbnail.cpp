@@ -1,4 +1,5 @@
 ﻿#include "thumbnail.hpp"
+#include <string>
 
 namespace Slate
 {
@@ -23,9 +24,9 @@ namespace Slate
                                     x + 32, 29 + font.baseline(),
                                     color, NULL,
                                     title, 0);
-        fprintf(stderr, "Step '%s'\n", step);
-        fprintf(stderr, "X '%s'\n", x);
-        fprintf(stderr, "Length '%s'\n", length);
+        fprintf(stderr, "Step '%s'\n", std::to_string(step));
+        fprintf(stderr, "X '%s'\n", std::to_string(x));
+        fprintf(stderr, "Length '%s'\n", std::to_string(length));
         step += frame_time;
         if(step >= 100)
         {
