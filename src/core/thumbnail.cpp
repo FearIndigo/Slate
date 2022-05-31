@@ -13,15 +13,14 @@ namespace Slate
         // Load font
         if (!font.LoadFont("matrix/fonts/5x7.bdf")) {
             fprintf(stderr, "Couldn't load font '%s'\n", "matrix/font/4x6.bdf");
-            throw std::invalid_argument("Could load font use for Ponglord.");
+            throw std::invalid_argument("Could load font used for thumbnail.");
         }
     }
 
     void Thumbnail::Display(rgb_matrix::FrameCanvas *canvas, const unsigned int frame_time)
     {
-        fprintf(stderr, "Couldn't load font '%s'\n", title);
         length = rgb_matrix::DrawText(canvas, font,
-                                    x + 32, 30 + font.baseline(),
+                                    0, 30 + font.baseline(),
                                     color, NULL,
                                     title, 0);
             

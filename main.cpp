@@ -1,4 +1,5 @@
 ﻿#include <signal.h>
+#include <cmath>
 
 #include "core/display.hpp"
 #include "core/input.hpp"
@@ -27,10 +28,6 @@ int main(int argc, char *argv[]) {
 		// Initialize input
 		Slate::Input input("/dev/ttyACM0",9600);
 
-		// Initialize time
-		Slate::Time time;
-		unsigned int frame_time;
-
 		// Long press visual colour
 		rgb_matrix::Color longPressColor(64,64,64);
 		
@@ -39,7 +36,12 @@ int main(int argc, char *argv[]) {
 			new Ponglord::Game(),
 			new Test::Game()
 		};
+		int gamesCount = 2;
 		int gameIndex = 0;
+
+		// Initialize time
+		Slate::Time time;
+		unsigned int frame_time;
 		
 		// Main loop
 		while (!interrupt_received){
@@ -72,25 +74,25 @@ int main(int argc, char *argv[]) {
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)
 				{
 					input.ResetLongPress(0);
-					gameIndex = (gameIndex + 1) % 2;
+					gameIndex = (gameIndex + 1) % gamesCount;
 				}
 				// DEBUG. move to previous game index
 				if(input.GetButtonLongPress(1) && input.GetButtonLongPressPercentage(0) == 0)
 				{
 					input.ResetLongPress(1);
-					gameIndex = (gameIndex - 1) % 2;
+					gameIndex = std::abs((gameIndex - 1) % gamesCount);
 				}
 				// DEBUG. move to next game index
 				if(input.GetButtonLongPress(3) && input.GetButtonLongPressPercentage(2) == 0)
 				{
 					input.ResetLongPress(3);
-					gameIndex = (gameIndex + 1) % 2;
+					gameIndex = (gameIndex + 1) % gamesCount;
 				}
 				// DEBUG. move to previous game index
 				if(input.GetButtonLongPress(2) && input.GetButtonLongPressPercentage(3) == 0)
 				{
 					input.ResetLongPress(2);
-					gameIndex = (gameIndex - 1) % 2;
+					gameIndex = std::abs((gameIndex - 1) % gamesCount);
 				}
 				
 				// Run the current game when either player long presses both buttons
