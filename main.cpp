@@ -5,7 +5,7 @@
 #include "src/core/time/time.hpp"
 
 #include "src/games/ponglord/main.hpp"
-#include "src/games/test/test.hpp"
+#include "src/games/test/main.hpp"
 
 volatile bool interrupt_received = false;
 static void InterruptHandler(int signo) {
