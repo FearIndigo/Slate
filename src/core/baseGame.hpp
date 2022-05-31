@@ -29,7 +29,7 @@ namespace Slate
         {
             thumbnail.Display(canvas, frame_time);
         }
-    protected:
+    private:
         ///
         /// Game thumbnail.
         ///
