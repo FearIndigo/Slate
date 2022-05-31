@@ -6,7 +6,6 @@
 #include <string.h>
 #include <stdexcept>
 #include <wiringSerial.h>
-#include <algorithm>
 
 namespace Slate
 {
