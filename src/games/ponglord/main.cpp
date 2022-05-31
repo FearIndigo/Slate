@@ -5,7 +5,7 @@ namespace Ponglord
     Game::Game()
     {
         isRunning = false;
-        showLongPress = true;
+        showLongPress = false;
         title = "Ponglord";
         color = {128,128,128};
 
