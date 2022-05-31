@@ -3,7 +3,7 @@
 namespace Test
 {
     Game::Game()
-        : Slate::BaseGame("Test game with a really long name")
+        : Slate::BaseGame("TEST GAME 001")
     {}
 
     void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)

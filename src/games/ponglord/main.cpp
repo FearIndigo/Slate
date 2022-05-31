@@ -3,7 +3,7 @@
 namespace Ponglord
 {
     Game::Game()
-        : Slate::BaseGame("Ponglord")
+        : Slate::BaseGame("PONGLORD")
     {}
 
     void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)
