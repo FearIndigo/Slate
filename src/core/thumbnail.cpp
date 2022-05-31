@@ -11,7 +11,7 @@ namespace Slate
         color = {128,128,128};
 
         // Set time it takes to scroll the text one pixel
-        stepTime = 50;
+        stepTime = 80;
 
         // Set how long it takes for the text to initially start scrolling
         firstStep = 500;
@@ -44,7 +44,7 @@ namespace Slate
 
     void Thumbnail::Reset()
     {
-        x = -32;
+        x = -28;
         step = -firstStep + stepTime;
     }
 }
