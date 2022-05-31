@@ -23,7 +23,9 @@ namespace Slate
                                     x + 32, 29 + font.baseline(),
                                     color, NULL,
                                     title, 0);
-            
+        fprintf(stderr, "Step '%s'\n", step);
+        fprintf(stderr, "X '%s'\n", x);
+        fprintf(stderr, "Length '%s'\n", length);
         step += frame_time;
         if(step >= 100)
         {
