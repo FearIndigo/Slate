@@ -5,7 +5,7 @@ namespace Slate
     Input::Input(const char* device,const int baud)
     {
         // Set duration button is pressed to trigger a long press
-        longPress = 1000;
+        longPress = 10000;
         if((fd=serialOpen(device,baud))<0){
             fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
             throw std::invalid_argument("Failed to setup player inputs.");
@@ -28,6 +28,7 @@ namespace Slate
                 pressedDuration[i] = 0;
             }
         }
+        serialFlush(fd);
     }
 
 	bool Input::GetButton(int index)

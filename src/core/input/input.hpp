@@ -57,7 +57,7 @@ namespace Slate
         unsigned char serialRead;
 
     	///
-    	/// How long a button needs to be pressed to trigger a long press
+    	/// How long a button needs to be pressed to trigger a long press (microseconds)
     	///
 		unsigned int longPress;
     	
