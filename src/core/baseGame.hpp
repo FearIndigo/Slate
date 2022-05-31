@@ -11,10 +11,7 @@ namespace Slate
     class BaseGame
     {
     public:
-        BaseGame(const char* title) : thumbnail(title) {}
-        {
-            IsRunning = false;
-        }
+        BaseGame(const char* title) : thumbnail(title), IsRunning(false) {}
         ///
         /// Run game or show thumbnail.
         ///
