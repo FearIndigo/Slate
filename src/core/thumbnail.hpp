@@ -7,6 +7,7 @@ namespace Slate
     class Thumbnail
     {
     public:
+        Thumbnail();
         ///
         /// Main constructor.
         ///
