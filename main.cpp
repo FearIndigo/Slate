@@ -1,5 +1,4 @@
 ﻿#include <signal.h>
-#include <cmath>
 #include <iterator>
 
 #include "core/display.hpp"
@@ -39,7 +38,6 @@ int main(int argc, char *argv[]) {
 			new Test::Game("TEST GAME 002")
 		};
 		int gamesCount = std::size(games);
-		int tempIndex = 0;
 		int gameIndex = 0;
 		bool isRunning = false;
 
@@ -87,32 +85,28 @@ int main(int argc, char *argv[]) {
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)
 				{
 					input.ResetLongPress(0);
-					tempIndex = (tempIndex + 1) % gamesCount;
-					gameIndex = std::abs(tempIndex);
+					gameIndex = (gameIndex + 1) % gamesCount;
 					games[gameIndex]->thumbnail->Reset();
 				}
 				// Player 1 move to previous game index
 				if(input.GetButtonLongPress(1) && input.GetButtonLongPressPercentage(0) == 0)
 				{
 					input.ResetLongPress(1);
-					tempIndex = (tempIndex - 1) % gamesCount;
-					gameIndex = std::abs(tempIndex);
+					gameIndex = gameIndex == 0 ? gamesCount - 1 : (gameIndex - 1) % gamesCount;
 					games[gameIndex]->thumbnail->Reset();
 				}
 				// Player 2 move to next game index
-				if(input.GetButtonLongPress(3) && input.GetButtonLongPressPercentage(2) == 0)
-				{
-					input.ResetLongPress(3);
-					tempIndex = (tempIndex + 1) % gamesCount;
-					gameIndex = std::abs(tempIndex);
-					games[gameIndex]->thumbnail->Reset();
-				}
-				// Player 2 move to previous game index
 				if(input.GetButtonLongPress(2) && input.GetButtonLongPressPercentage(3) == 0)
 				{
 					input.ResetLongPress(2);
-					tempIndex = (tempIndex - 1) % gamesCount;
-					gameIndex = std::abs(tempIndex);
+					gameIndex = (gameIndex + 1) % gamesCount;
+					games[gameIndex]->thumbnail->Reset();
+				}
+				// Player 2 move to previous game index
+				if(input.GetButtonLongPress(3) && input.GetButtonLongPressPercentage(2) == 0)
+				{
+					input.ResetLongPress(3);
+					gameIndex = gameIndex == 0 ? gamesCount - 1 : (gameIndex - 1) % gamesCount;
 					games[gameIndex]->thumbnail->Reset();
 				}
 				
