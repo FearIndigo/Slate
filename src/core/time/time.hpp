@@ -8,7 +8,7 @@ namespace Slate
         ///
         /// Main constructor.
         ///
-        Input();
+        Time();
 
         ///
         /// Update and return the frame time.
