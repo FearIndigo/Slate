@@ -18,6 +18,14 @@ namespace Ponglord
 
     void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input input, const unsigned int frame_time)
     {
+        // Return to main menu when all buttons have been long pressed
+        if((input.GetButtonLongPress(0) && input.GetButtonLongPress(1)) &&
+            (input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))
+        {
+            pong.isRunning = false;
+            input.ResetLongPress();
+        }
+        
         // DEBUG. Set pixels on/off based on input values
         if(input.GetButton(0))
             canvas->SetPixel(0,0,0,0,255);

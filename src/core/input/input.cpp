@@ -46,4 +46,12 @@ namespace Slate
         float temp = (float)pressedDuration[index] / (float)longPress;
         return temp > 1.0 ? 1.0 : temp;
     }
+
+    void Input::ResetLongPress()
+    {
+        for (int i=0; i < 4; ++i)
+        {
+            pressedDuration[i] = 0;
+        }
+    }
 }
