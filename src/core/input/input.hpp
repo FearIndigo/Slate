@@ -52,7 +52,7 @@ namespace Slate
     	///
     	/// How long a button needs to be pressed to trigger a long press
     	///
-		const unsigned int longPress = 1000;
+		static const unsigned int longPress;
     	
 		///
         /// The pressed state of player buttons.
