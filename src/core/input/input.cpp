@@ -49,7 +49,6 @@ namespace Slate
 
     void Input::ResetLongPress(int index)
     {
-        pressed[index] = false;
         pressedDuration[index] = 0;
     }
     
