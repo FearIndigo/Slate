@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 				// Run the current game when either player long presses both buttons
 				if((input.GetButtonLongPress(0) && input.GetButtonLongPress(1)) ||
 					(input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))
-					pong.isRunning = true;
+					//pong.isRunning = true;
 			}
   		}
 	}
