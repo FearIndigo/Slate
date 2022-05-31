@@ -16,7 +16,7 @@ namespace Ponglord
         ///
         /// The main game loop.
         ///
-        void Run(rgb_matrix::Canvas *canvas, Slate::Input input, const unsigned int frame_time);
+        void Run(rgb_matrix::FrameCanvas *canvas, Slate::Input input, const unsigned int frame_time);
     private:
         ///
         /// Recieve and process game events.

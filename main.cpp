@@ -38,6 +38,9 @@ int main(int argc, char *argv[]) {
 		
 		// Main loop
 		while (!interrupt_received){
+			// Clear canvas
+			display.canvas->Clear();
+			
 			// Get new frame time
 			frame_time = time.Update();
 			
@@ -45,9 +48,9 @@ int main(int argc, char *argv[]) {
     		input.Update(frame_time);
 
 			// Visual representation of button long press
-			rgb_matrix::DrawLine(display.canvas, 0, 0, 16 * input.GetButtonLongPressPercentage(0), 0, longPressColor);
+			rgb_matrix::DrawLine(display.canvas, 0, 0, 15 * input.GetButtonLongPressPercentage(0), 0, longPressColor);
 			rgb_matrix::DrawLine(display.canvas, 31, 0, 16 * input.GetButtonLongPressPercentage(1), 0, longPressColor);
-			rgb_matrix::DrawLine(display.canvas, 0, 63, 16 * input.GetButtonLongPressPercentage(0), 63, longPressColor);
+			rgb_matrix::DrawLine(display.canvas, 0, 63, 15 * input.GetButtonLongPressPercentage(0), 63, longPressColor);
 			rgb_matrix::DrawLine(display.canvas, 31, 63, 16 * input.GetButtonLongPressPercentage(1), 63, longPressColor);
 			
 			if(pong.isRunning)
@@ -65,6 +68,8 @@ int main(int argc, char *argv[]) {
 					(input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))
 						pong.isRunning = true;
 			}
+
+			display.canvas = display.matrix->SwapOnVsync(display.canvas);
   		}
 	}
 	catch(...)

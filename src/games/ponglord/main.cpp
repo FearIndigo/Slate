@@ -15,12 +15,16 @@ namespace Ponglord
         }
     }
 
-    void Game::Run(rgb_matrix::Canvas *canvas, Slate::Input input, const unsigned int frame_time)
+    void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input input, const unsigned int frame_time)
     {
         // DEBUG. Set pixels on/off based on input values
-        canvas->SetPixel(0,0,0,0,input.GetButton(0)?255:0);
-        canvas->SetPixel(31,0,0,0,input.GetButton(1)?255:0);
-        canvas->SetPixel(0,63,0,0,input.GetButton(2)?255:0);
-        canvas->SetPixel(31,63,0,0,input.GetButton(3)?255:0);
+        if(input.GetButton(0))
+            canvas->SetPixel(0,0,0,0,255);
+        if(input.GetButton(1))
+            canvas->SetPixel(31,0,0,0,255);
+        if(input.GetButton(2))
+            canvas->SetPixel(0,63,0,0,255);
+        if(input.GetButton(3))
+            canvas->SetPixel(31,63,0,0,255);
     }
 }
