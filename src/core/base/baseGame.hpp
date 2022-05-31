@@ -27,6 +27,11 @@ namespace Slate
         bool isRunning;
         
         ///
+        /// Whether to display the long press visuals when running.
+        ///
+        bool showLongPress;
+        
+        ///
         /// Main game loop.
         ///
         virtual void Run(rgb_matrix::FrameCanvas *canvas, Slate::Input input, const unsigned int frame_time) {}

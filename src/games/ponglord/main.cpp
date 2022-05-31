@@ -5,6 +5,7 @@ namespace Ponglord
     Game::Game()
     {
         isRunning = false;
+        showLongPress = true;
         title = "Ponglord";
         color = {128,128,128};
 
@@ -19,12 +20,12 @@ namespace Ponglord
     {
         // DEBUG. Set pixels on/off based on input values
         if(input.GetButton(0))
-            canvas->SetPixel(0,1,0,0,255);
+            canvas->SetPixel(0,0,0,0,255);
         if(input.GetButton(1))
-            canvas->SetPixel(31,1,0,0,255);
+            canvas->SetPixel(31,0,0,0,255);
         if(input.GetButton(2))
-            canvas->SetPixel(0,62,0,0,255);
+            canvas->SetPixel(0,63,0,0,255);
         if(input.GetButton(3))
-            canvas->SetPixel(31,62,0,0,255);
+            canvas->SetPixel(31,63,0,0,255);
     }
 }
