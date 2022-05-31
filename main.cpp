@@ -2,6 +2,8 @@
 
 #include "src/core/display/display.hpp"
 #include "src/core/input/input.hpp"
+#include "src/core/time/time.hpp"
+
 #include "src/games/ponglord/main.hpp"
 
 volatile bool interrupt_received = false;
@@ -22,24 +24,38 @@ int main(int argc, char *argv[]) {
 		Slate::Display display(argc, argv, "adafruit-hat-pwm", 32, 64, false);
 	
 		// Initialize input
-		Slate::Input input("/dev/ttyACM0",9600);
+		Slate::Input input("/dev/ttyACM0",9600,1000);
 
+		// Initialize time
+		Slate::Time time;
+		unsigned int frame_time;
+		
 		// DEBUG. Create instance of ponglord game
 		Ponglord::Game pong;
 		
 		// Main loop
 		while (!interrupt_received){
-			// Read serial and save inputs to values array
-    		input.Update();
-
-			// DEBUG. Display ponglord thumbnail
-			pong.Display(display.canvas);
+			// Get new frame time
+			frame_time = time.Update();
 			
-    		// DEBUG. Set pixels on/off based on input values
-			display.canvas->SetPixel(0,0,0,0,input.Value(0)?255:0);
-			display.canvas->SetPixel(31,0,0,0,input.Value(1)?255:0);
-			display.canvas->SetPixel(0,63,0,0,input.Value(2)?255:0);
-			display.canvas->SetPixel(31,63,0,0,input.Value(3)?255:0);
+			// Update player inputs
+    		input.Update(frame_time);
+
+			if(pong.isRunning)
+			{
+				// DEBUG. Run pong main loop
+				pong.Run(display.canvas, input, frame_time);
+			}
+			else
+			{
+				// DEBUG. Display ponglord thumbnail
+				pong.Display(display.canvas);
+
+				// Run the current game when either player long presses both buttons
+				if((input.GetButtonLongPress(0) && input.GetButtonLongPress(1)) ||
+					(input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))
+					pong.isRunning = true;
+			}
   		}
 	}
 	catch(...)

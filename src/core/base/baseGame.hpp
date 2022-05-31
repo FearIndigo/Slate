@@ -1,5 +1,6 @@
 ﻿#include "led-matrix.h"
 #include "graphics.h"
+#include "../input/input.hpp"
 
 namespace Slate
 {
@@ -18,9 +19,14 @@ namespace Slate
         }
         
         ///
-        /// The main game loop.
+        /// Run game or show thumbnail.
         ///
-        virtual void Run() {}
+        bool isRunning;
+        
+        ///
+        /// Main game loop.
+        ///
+        virtual void Run(rgb_matrix::Canvas canvas*, Slate::Input input, const unsigned int frame_time) {}
     protected:
         ///
         /// Font used for display.

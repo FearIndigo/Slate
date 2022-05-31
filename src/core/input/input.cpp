@@ -2,7 +2,8 @@
 
 namespace Slate
 {
-    Input::Input(const char* device,const int baud)
+    Input::Input(const char* device,const int baud, const unsigned int longPress)
+        : longPress(longPress) {}
     {
         if((fd=serialOpen(device,baud))<0){
             fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
@@ -10,15 +11,31 @@ namespace Slate
         }
     }
 
-    void Input::Update()
+    void Input::Update(const unsigned int frame_time)
     {
         serialRead = serialGetchar(fd);
         for (int i=0; i < 4; ++i)
-            values[i] = (serialRead & (1<<i)) != 0;
+        {
+            pressed[i] = (serialRead & (1<<i)) != 0;
+
+            if(pressed[i])
+            {
+                pressedDuration[i] += frame_time;
+            }
+            else
+            {
+                pressedDuration[i] = 0;
+            }
+        }
     }
 
-	bool Input::Value(int index)
+	bool Input::GetButton(int index)
 	{
-		return values[index];
+		return pressed[index];
 	}
+
+    bool Input::GetButtonLongPress(int index)
+    {
+        return pressedDuration[index] >= longPress;
+    }
 }

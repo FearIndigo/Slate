@@ -1,4 +1,5 @@
-﻿#include <entt/entt.hpp>
+﻿#include <stdexcept>
+#include <entt/entt.hpp>
 
 #include "../../core/base/baseGame.hpp"
 
@@ -15,7 +16,7 @@ namespace Ponglord
         ///
         /// The main game loop.
         ///
-        void Run();
+        void Run(rgb_matrix::Canvas *canvas, Slate::Input input, const unsigned int frame_time);
     private:
         ///
         /// Recieve and process game events.
@@ -25,9 +26,7 @@ namespace Ponglord
         ///
         /// Process game data.
         ///
-        /// \param time The DeltaTime or similar from fixed-timestep loop.
-        ///
-        void update(const double time);
+        void update();
 
         ///
         /// Render everything to the window.

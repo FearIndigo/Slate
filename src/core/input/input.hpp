@@ -14,19 +14,28 @@ namespace Slate
         ///
         /// \param device Port serial device is connected to.
         /// \param baud Baudrate of the serial device.
+        /// \param longPress How long a button needs to be held down (in milliseconds) to trigger a long press.
         ///                                               
-        Input(const char* device,const int baud);
+        Input(const char* device,const int baud, const unsigned int longPress);
 
         ///
-        /// Read inputs from serial and set the decoded values.
+        /// Read inputs from serial update values.
         ///
-        void Update();
+        void Update(const unsigned int frame_time);
 
 		///
-		/// Get an input value
+		/// Get the pressed state of a button
 		///
-		/// \param index The index of what value to get (0 = player1 left, 1 = player1 right, 2 = player2 left, 3 = player2 right).
-		bool Value(int index);
+		/// \param index The index of what button to get (0 = player1 left, 1 = player1 right, 2 = player2 left, 3 = player2 right).
+		/// 
+		bool GetButton(int index);
+
+    	///
+    	/// Get the long pressed state of a button
+    	///
+    	/// \param index The index of what button to get (0 = player1 left, 1 = player1 right, 2 = player2 left, 3 = player2 right).
+    	/// 
+    	bool GetButtonLongPress(int index);
     private:
         ///
         /// The file descriptor used to define which device is used to read serial.
@@ -38,9 +47,19 @@ namespace Slate
         ///
         unsigned char serialRead;
 
+    	///
+    	/// How long a button needs to be pressed to trigger a long press
+    	///
+		const unsigned int longPress;
+    	
 		///
-        /// The decoded input values of each player button.
+        /// The pressed state of player buttons.
         ///
-        bool values[4];
+        bool pressed[4];
+
+    	///
+    	/// How long each button has been pressed
+    	///
+    	unsigned int pressedDuration[4];
     };
 }
