@@ -18,13 +18,20 @@ namespace Slate
             length = rgb_matrix::DrawText(canvas, font,
                                     x, 30 + font.baseline(),
                                     color, NULL,
-                                    title, 0);
+                                    title, -1);
+            
             step += frame_time;
             if(step > 100)
             {
-                step = -400;
                 if(--x + length - 32 < 0)
+                {
+                    step = -400;
                     x = 0;
+                }
+                else
+                {
+                    step = 0;
+                }
             }
         }
         
