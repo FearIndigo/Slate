@@ -34,12 +34,10 @@ int main(int argc, char *argv[]) {
 		// Long press visual colour
 		rgb_matrix::Color longPressColor(64,64,64);
 		
-		// DEBUG.
-		Ponglord::Game ponglord;
-		Test::Game test;
-		Slate::BaseGame games[2] = {
-			ponglord,
-			test
+		// DEBUG. Create all game classes
+		Slate::BaseGame* games[] = {
+			new Ponglord::Game(),
+			new Test::Game()
 		};
 		int gameIndex = 0;
 		
