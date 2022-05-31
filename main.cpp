@@ -87,28 +87,32 @@ int main(int argc, char *argv[]) {
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)
 				{
 					input.ResetLongPress(0);
-					gameIndex = std::abs((tempIndex + 1) % gamesCount);
+					tempIndex = (tempIndex + 1) % gamesCount;
+					gameIndex = std::abs(tempIndex);
 					games[gameIndex]->thumbnail->Reset();
 				}
 				// Player 1 move to previous game index
 				if(input.GetButtonLongPress(1) && input.GetButtonLongPressPercentage(0) == 0)
 				{
 					input.ResetLongPress(1);
-					gameIndex = std::abs((tempIndex - 1) % gamesCount);
+					tempIndex = (tempIndex - 1) % gamesCount;
+					gameIndex = std::abs(tempIndex);
 					games[gameIndex]->thumbnail->Reset();
 				}
 				// Player 2 move to next game index
 				if(input.GetButtonLongPress(3) && input.GetButtonLongPressPercentage(2) == 0)
 				{
 					input.ResetLongPress(3);
-					gameIndex = std::abs((tempIndex + 1) % gamesCount);
+					tempIndex = (tempIndex + 1) % gamesCount;
+					gameIndex = std::abs(tempIndex);
 					games[gameIndex]->thumbnail->Reset();
 				}
 				// Player 2 move to previous game index
 				if(input.GetButtonLongPress(2) && input.GetButtonLongPressPercentage(3) == 0)
 				{
 					input.ResetLongPress(2);
-					gameIndex = std::abs((tempIndex - 1) % gamesCount);
+					tempIndex = (tempIndex - 1) % gamesCount;
+					gameIndex = std::abs(tempIndex);
 					games[gameIndex]->thumbnail->Reset();
 				}
 				
