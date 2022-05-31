@@ -6,7 +6,7 @@ namespace Ponglord
     {
         isRunning = false;
         showLongPress = false;
-        title = "Ponglord a pong-like pong-a-pong game";
+        title = "Pong";
         color = {128,128,128};
 
         // Load font
