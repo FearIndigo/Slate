@@ -1,4 +1,5 @@
 ﻿#include <signal.h>
+#include <iostream>
 
 #include "src/core/display/display.hpp"
 #include "src/core/input/input.hpp"
@@ -43,15 +44,17 @@ int main(int argc, char *argv[]) {
 			
 			// Get new frame time
 			frame_time = time.Update();
+			std::cout << frame_time;
+			std::cout << input.GetButton(0);
 			
 			// Update player inputs
     		input.Update(frame_time);
 
 			// Visual representation of button long press
-			rgb_matrix::DrawLine(display.canvas, 0, 0, input.GetButtonLongPress(0)?15:0, 0, longPressColor);
-			rgb_matrix::DrawLine(display.canvas, 31, 0, input.GetButtonLongPress(1)?16:31, 0, longPressColor);
-			rgb_matrix::DrawLine(display.canvas, 0, 63, input.GetButtonLongPress(2)?15:0, 63, longPressColor);
-			rgb_matrix::DrawLine(display.canvas, 31, 63, input.GetButtonLongPress(3)?16:31, 63, longPressColor);
+			rgb_matrix::DrawLine(display.canvas, 0, 0, input.GetButtonLongPressPercentage(0)*15, 0, longPressColor);
+			rgb_matrix::DrawLine(display.canvas, 31, 0, 31 - input.GetButtonLongPressPercentage(1)*16, 0, longPressColor);
+			rgb_matrix::DrawLine(display.canvas, 0, 63, input.GetButtonLongPressPercentage(2)*15, 63, longPressColor);
+			rgb_matrix::DrawLine(display.canvas, 31, 63, 31 - input.GetButtonLongPressPercentage(3)*16, 63, longPressColor);
 			
 			if(pong.isRunning)
 			{
