@@ -17,9 +17,8 @@ namespace Slate
         ///
         /// \param device Port serial device is connected to.
         /// \param baud Baudrate of the serial device.
-        /// \param longPress How long a button needs to be held down (in milliseconds) to trigger a long press.
         ///                                               
-        Input(const char* device,const int baud, const unsigned int longPressDuration);
+        Input(const char* device,const int baud);
 
         ///
         /// Read inputs from serial update values.

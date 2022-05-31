@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 		Slate::Display display(argc, argv, "adafruit-hat-pwm", 32, 64, false);
 	
 		// Initialize input
-		Slate::Input input("/dev/ttyACM0",9600,1000);
+		Slate::Input input("/dev/ttyACM0",9600);
 
 		// Initialize time
 		Slate::Time time;
