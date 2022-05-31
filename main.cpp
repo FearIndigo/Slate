@@ -35,9 +35,11 @@ int main(int argc, char *argv[]) {
 		rgb_matrix::Color longPressColor(64,64,64);
 		
 		// DEBUG.
+		Ponglord::Game pong;
+		Test::Game test;
 		Slate::BaseGame games[2] = {
-			Ponglord::Game pong,
-			Test::Game test
+			pong,
+			test
 		};
 		int gameIndex = 0;
 		
