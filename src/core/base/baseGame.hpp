@@ -20,10 +20,10 @@ namespace Slate
                                     color, NULL,
                                     title, 0);
             step += frame_time;
-            if(step > 200)
+            if(step > 100)
             {
-                step = 0;
-                if(--x + length < 0)
+                step = -400;
+                if(--x + length - 32 < 0)
                     x = 0;
             }
         }
