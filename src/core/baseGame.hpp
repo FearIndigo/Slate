@@ -11,7 +11,7 @@ namespace Slate
     class BaseGame
     {
     public:
-        BaseGame(const char* title) : IsRunning(false), *thumbnail(title) {}
+        BaseGame(const char* title) : IsRunning(false), thumbnail(new Slate::Thumbnail(title)) {}
         ///
         /// Run game or show thumbnail.
         ///
@@ -33,7 +33,7 @@ namespace Slate
         ///
         /// Game thumbnail.
         ///
-        Slate::Thumbnail  *thumbnail;
+        Slate::Thumbnail *thumbnail;
     };
 }
 
