@@ -2,8 +2,8 @@
 
 namespace Test
 {
-    Game::Game()
-        : Slate::BaseGame("TEST GAME 001")
+    Game::Game(const char* testTitle)
+        : Slate::BaseGame(testTitle)
     {}
 
     void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)

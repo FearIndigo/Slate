@@ -1,5 +1,6 @@
 ﻿#include <signal.h>
 #include <cmath>
+#include <iterator>
 
 #include "core/display.hpp"
 #include "core/input.hpp"
@@ -34,9 +35,10 @@ int main(int argc, char *argv[]) {
 		// DEBUG. Create all game classes
 		Slate::BaseGame* games[] = {
 			new Ponglord::Game(),
-			new Test::Game()
+			new Test::Game("TEST GAME 001"),
+			new Test::Game("TEST GAME 002")
 		};
-		int gamesCount = 2;
+		int gamesCount = std::size(games);
 		int gameIndex = 0;
 		bool isRunning = false;
 
@@ -80,28 +82,28 @@ int main(int argc, char *argv[]) {
 				// Display game thumbnail
 				games[gameIndex]->thumbnail->Display(display.canvas, frame_time);
 
-				// DEBUG. move to next game index
+				// Player 1 move to next game index
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)
 				{
 					input.ResetLongPress(0);
 					gameIndex = (gameIndex + 1) % gamesCount;
 					games[gameIndex]->thumbnail->Reset();
 				}
-				// DEBUG. move to previous game index
+				// Player 1 move to previous game index
 				if(input.GetButtonLongPress(1) && input.GetButtonLongPressPercentage(0) == 0)
 				{
 					input.ResetLongPress(1);
 					gameIndex = std::abs((gameIndex - 1) % gamesCount);
 					games[gameIndex]->thumbnail->Reset();
 				}
-				// DEBUG. move to next game index
+				// Player 2 move to next game index
 				if(input.GetButtonLongPress(3) && input.GetButtonLongPressPercentage(2) == 0)
 				{
 					input.ResetLongPress(3);
 					gameIndex = (gameIndex + 1) % gamesCount;
 					games[gameIndex]->thumbnail->Reset();
 				}
-				// DEBUG. move to previous game index
+				// Player 2 move to previous game index
 				if(input.GetButtonLongPress(2) && input.GetButtonLongPressPercentage(3) == 0)
 				{
 					input.ResetLongPress(2);

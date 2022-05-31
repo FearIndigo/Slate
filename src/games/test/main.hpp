@@ -8,7 +8,7 @@ namespace Test
         ///
         /// Main constructor.
         ///                                               
-        Game();
+        Game(const char* testTitle);
         
         ///
         /// The main game loop.
