@@ -40,8 +40,8 @@ namespace Slate
         return pressedDuration[index] >= longPress;
     }
 
-    double Input::GetButtonLongPressPercentage(int index)
+    float Input::GetButtonLongPressPercentage(int index)
     {
-        return std::clamp((double)pressedDuration[index] / (double)longPress, 0.0, 1.0);
+        return std::clamp((float)pressedDuration[index] / (float)longPress, 0.0, 1.0);
     }
 }
