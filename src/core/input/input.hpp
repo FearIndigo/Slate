@@ -1,4 +1,7 @@
-﻿#include <errno.h>
+﻿#ifndef INPUT
+#define INPUT
+
+#include <errno.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdexcept>
@@ -63,3 +66,5 @@ namespace Slate
     	unsigned int pressedDuration[4];
     };
 }
+
+#endif
