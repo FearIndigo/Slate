@@ -22,9 +22,9 @@ namespace Slate
         ///
         /// Constructor.
         ///
-        /// \param p The pixels to draw with positions relative to entity position.
+        /// \param default_pixels The default pixels to draw with positions relative to entity position.
         ///
-        Renderable(const Slate::Pixel p[]);
+        Renderable(const std::vector<Slate::Pixel> default_pixels);
 
         ///
         /// The pixels to draw relative to the entity position.
