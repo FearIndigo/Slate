@@ -10,11 +10,12 @@ namespace Ponglord
 
         // Assign component data to entities.
         registry.emplace<Slate::Position>(test, 15.0, 31.0);
-        registry.emplace<Slate::Renderable>(test, new std::vector<Slate::Pixel>{
+        const std::vector<Slate::Pixel> test_pixels = {
             {0,0,255,255,255},
             {1,0,0,255,255},
             {-1,0,255,255,0}
-        });
+        };
+        registry.emplace<Slate::Renderable>(test, test_pixels);
     }
 
     void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)
