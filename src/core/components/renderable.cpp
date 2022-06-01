@@ -2,7 +2,7 @@
 
 namespace Slate
 {
-    Renderable::Renderable(const Pixel p*)
+    Renderable::Renderable(const Slate::Pixel p[])
         : pixels(p) {}
 
     void Draw(rgb_matrix::FrameCanvas *canvas, const Slate::Position position)

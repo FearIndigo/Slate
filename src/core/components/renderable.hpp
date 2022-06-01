@@ -2,6 +2,7 @@
 #define SLATE_COMPONENTS_RENDERABLE
 
 #include <stdint.h>
+#include <vector>
 #include "position.hpp"
 
 namespace Slate
@@ -23,12 +24,12 @@ namespace Slate
         ///
         /// \param p The pixels to draw with positions relative to entity position.
         ///
-        Renderable(const Pixel p[]);
+        Renderable(const Slate::Pixel p[]);
 
         ///
         /// The pixels to draw relative to the entity position.
         ///
-        Pixel pixels[];
+        std::vector<Slate::Pixel> pixels;
 
         ///
         /// Draw the pixels to the canvas.
