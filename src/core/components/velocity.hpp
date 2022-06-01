@@ -15,12 +15,12 @@ namespace Slate
         Velocity(const double init_x, const double init_y);
         
         ///
-        /// x velocity.
+        /// x velocity in pixels per second.
         ///
         double x;
 
         ///
-        /// y velocity.
+        /// y velocity in pixels per second.
         ///
         double y;
     };

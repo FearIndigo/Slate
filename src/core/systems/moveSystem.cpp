@@ -11,8 +11,8 @@ namespace Slate
         .each([&frame_time](auto &pos, auto &vel)
         {
             // Update entity position given its velocity
-            pos.x += vel.x * frame_time;
-            pos.y += vel.y * frame_time;
+            pos.x += vel.x * (frame_time / 1000.0);
+            pos.y += vel.y * (frame_time / 1000.0);
         });
     }
 }
