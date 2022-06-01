@@ -2,6 +2,8 @@
 
 namespace Slate
 {
+    MoveSystem::MoveSystem() {}
+    
     void MoveSystem::Update(entt::registry &registry, const unsigned int frame_time)
     {
         // Loop through entities with Position and Velocity components
