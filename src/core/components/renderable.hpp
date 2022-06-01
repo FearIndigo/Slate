@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 #include <vector>
+#include "led-matrix.h"
+
 #include "position.hpp"
 
 namespace Slate
@@ -35,9 +37,9 @@ namespace Slate
         /// Draw the pixels to the canvas.
         ///
         /// \param canvas The frame canvas to draw to.
-        /// \param position The position of the entity.
+        /// \param pos The position of the entity.
         ///
-        void Draw(rgb_matrix::FrameCanvas *canvas, const Slate::Position position);
+        void Draw(rgb_matrix::FrameCanvas *canvas, const Slate::Position pos);
     };
 }
 
