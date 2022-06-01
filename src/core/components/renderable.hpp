@@ -39,7 +39,7 @@ namespace Slate
         /// \param canvas The frame canvas to draw to.
         /// \param pos The position of the entity.
         ///
-        void Draw(rgb_matrix::FrameCanvas *canvas, const Slate::Position pos);
+        void Draw(rgb_matrix::FrameCanvas *canvas, const Slate::Position &pos);
     };
 }
 
