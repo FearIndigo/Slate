@@ -7,7 +7,7 @@ namespace Slate
 
     void Draw(rgb_matrix::FrameCanvas *canvas, const Slate::Position pos)
     {
-        for (Slate::Pixel p : pixels)
-            canvas->SetPixel(pos.x + p.rel_x, pos.y + p.rel_y, p.r, p.g, p.b);
+        for (const auto &p : pixels)
+            canvas->SetPixel(pos.x + p->rel_x, pos.y + p->rel_y, p->r, p->g, p->b);
     }
 }
