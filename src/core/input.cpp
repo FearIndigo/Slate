@@ -38,7 +38,7 @@ namespace Slate
 
     bool Input::GetButtonLongPress(int index)
     {
-        return pressed_duration[index] >= longPress;
+        return pressed_duration[index] >= long_press;
     }
 
     float Input::GetButtonLongPressPercentage(int index)
