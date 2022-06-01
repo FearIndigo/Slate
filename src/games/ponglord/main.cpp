@@ -10,7 +10,7 @@ namespace Ponglord
 
         // Assign component data to entities.
         registry.emplace<Slate::Position>(test, 15.0, 31.0);
-        registry.emplace<Slate::Renderable>(test, {
+        registry.emplace<Slate::Renderable>(test, new std::vector<Slate::Pixel>{
             {0,0,255,255,255},
             {1,0,0,255,255},
             {-1,0,255,255,0}
