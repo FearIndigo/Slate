@@ -34,7 +34,7 @@ namespace Slate
                                     title, 0);
         
         step += frame_time;
-        if(step >= first_step)
+        if(step >= step_time)
         {
             step = step % step_time;
             if(--x + length + 32 < 0)

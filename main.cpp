@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPress(1) &&
 					input.GetButtonLongPress(2) && input.GetButtonLongPress(3))
 				{
-					game_index = false;
+					is_running = false;
 					input.ResetLongPressAll();
 					games[game_index]->thumbnail->Reset();
 				}
