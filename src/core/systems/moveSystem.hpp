@@ -1,7 +1,7 @@
 ﻿#ifndef SLATE_SYSTEMS_MOVESYSTEM
 #define SLATE_SYSTEMS_MOVESYSTEM
 
-#include <entt/registry.hpp>
+#include <entt/entity/registry.hpp>
 
 #include "../components/position.hpp"
 #include "../components/velocity.hpp"

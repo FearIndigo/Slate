@@ -1,7 +1,7 @@
 ﻿#ifndef SLATE_SYSTEMS_RENDERSYSTEM
 #define SLATE_SYSTEMS_RENDERSYSTEM
 
-#include <entt/registry.hpp>
+#include <entt/entity/registry.hpp>
 #include "led-matrix.h"
 
 #include "../components/position.hpp"
