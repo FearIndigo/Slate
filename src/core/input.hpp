@@ -1,5 +1,5 @@
-﻿#ifndef SLATE_CORE_INPUT
-#define SLATE_CORE_INPUT
+﻿#ifndef SLATE_INPUT
+#define SLATE_INPUT
 
 #include <errno.h>
 #include <stdio.h>
@@ -66,12 +66,12 @@ namespace Slate
         ///
         /// The byte received from the most recent serialGetchar(fd).
         ///
-        unsigned char serialRead;
+        unsigned char serial_read;
 
     	///
     	/// How long a button needs to be pressed to trigger a long press (milliseconds)
     	///
-		unsigned int longPress;
+		unsigned int long_press;
     	
 		///
         /// The pressed state of player buttons.
@@ -81,7 +81,7 @@ namespace Slate
     	///
     	/// How long each button has been pressed
     	///
-    	unsigned int pressedDuration[4];
+    	unsigned int pressed_duration[4];
     };
 }
 

@@ -11,10 +11,10 @@ namespace Slate
         color = {128,128,128};
 
         // Set time it takes to scroll the text one pixel
-        stepTime = 80;
+        step_time = 80;
 
         // Set how long it takes for the text to initially start scrolling
-        firstStep = 500;
+        first_step = 500;
         
         // Load font
         if (!font.LoadFont("matrix/fonts/4x6.bdf")) {
@@ -34,9 +34,9 @@ namespace Slate
                                     title, 0);
         
         step += frame_time;
-        if(step >= stepTime)
+        if(step >= first_step)
         {
-            step = step % stepTime;
+            step = step % step_time;
             if(--x + length + 32 < 0)
                 x = 0;
         }
@@ -45,6 +45,6 @@ namespace Slate
     void Thumbnail::Reset()
     {
         x = -28;
-        step = -firstStep + stepTime;
+        step = -first_step + step_time;
     }
 }

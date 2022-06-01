@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
 		Slate::Input input("/dev/ttyACM0",9600);
 
 		// Long press visual colour
-		rgb_matrix::Color longPressColor(64,64,64);
+		rgb_matrix::Color long_press_color(64,64,64);
 		
 		// DEBUG. Create all game classes
 		Slate::BaseGame* games[] = {
@@ -37,9 +37,9 @@ int main(int argc, char *argv[]) {
 			new Test::Game("TEST GAME 001"),
 			new Test::Game("TEST GAME 002")
 		};
-		int gamesCount = std::size(games);
-		int gameIndex = 0;
-		bool isRunning = false;
+		int games_count = std::size(games);
+		int game_index = 0;
+		bool is_running = false;
 
 		// Initialize time
 		Slate::Time time;
@@ -56,67 +56,67 @@ int main(int argc, char *argv[]) {
 			// Update player inputs
     		input.Update(frame_time);
 			
-			if(isRunning)
+			if(is_running)
 			{
 				// Run game main loop
-				games[gameIndex]->Run(display.canvas, input, frame_time);
+				games[game_index]->Run(display.canvas, input, frame_time);
 
 				// Return to main menu if all buttons have been long pressed
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPress(1) &&
 					input.GetButtonLongPress(2) && input.GetButtonLongPress(3))
 				{
-					isRunning = false;
+					game_index = false;
 					input.ResetLongPressAll();
-					games[gameIndex]->thumbnail->Reset();
+					games[game_index]->thumbnail->Reset();
 				}
 			}
 			else
 			{
 				// Visual representation of button long press in main menu
-				rgb_matrix::DrawLine(display.canvas, -1, 0, -1 + input.GetButtonLongPressPercentage(0)*16, 0, longPressColor);
-				rgb_matrix::DrawLine(display.canvas, 32, 0, 32 - input.GetButtonLongPressPercentage(1)*16, 0, longPressColor);
-				rgb_matrix::DrawLine(display.canvas, -1, 63, -1 + input.GetButtonLongPressPercentage(2)*16, 63, longPressColor);
-				rgb_matrix::DrawLine(display.canvas, 32, 63, 32 - input.GetButtonLongPressPercentage(3)*16, 63, longPressColor);
+				rgb_matrix::DrawLine(display.canvas, -1, 0, -1 + input.GetButtonLongPressPercentage(0)*16, 0, long_press_color);
+				rgb_matrix::DrawLine(display.canvas, 32, 0, 32 - input.GetButtonLongPressPercentage(1)*16, 0, long_press_color);
+				rgb_matrix::DrawLine(display.canvas, -1, 63, -1 + input.GetButtonLongPressPercentage(2)*16, 63, long_press_color);
+				rgb_matrix::DrawLine(display.canvas, 32, 63, 32 - input.GetButtonLongPressPercentage(3)*16, 63, long_press_color);
 				
 				// Display game thumbnail
-				games[gameIndex]->thumbnail->Display(display.canvas, frame_time);
+				games[game_index]->thumbnail->Display(display.canvas, frame_time);
 
 				// Player 1 move to next game index
 				if(input.GetButtonLongPress(1) && input.GetButtonLongPressPercentage(0) == 0)
 				{
 					input.ResetLongPress(1);
-					gameIndex = (gameIndex + 1) % gamesCount;
-					games[gameIndex]->thumbnail->Reset();
+					game_index = (game_index + 1) % games_count;
+					games[game_index]->thumbnail->Reset();
 				}
 				// Player 1 move to previous game index
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPressPercentage(1) == 0)
 				{
 					input.ResetLongPress(0);
-					gameIndex = gameIndex == 0 ? gamesCount - 1 : (gameIndex - 1) % gamesCount;
-					games[gameIndex]->thumbnail->Reset();
+					game_index = game_index == 0 ? games_count - 1 : (game_index - 1) % games_count;
+					games[game_index]->thumbnail->Reset();
 				}
 				// Player 2 move to next game index
 				if(input.GetButtonLongPress(3) && input.GetButtonLongPressPercentage(2) == 0)
 				{
 					input.ResetLongPress(3);
-					gameIndex = (gameIndex + 1) % gamesCount;
-					games[gameIndex]->thumbnail->Reset();
+					game_index = (game_index + 1) % games_count;
+					games[game_index]->thumbnail->Reset();
 				}
 				// Player 2 move to previous game index
 				if(input.GetButtonLongPress(2) && input.GetButtonLongPressPercentage(3) == 0)
 				{
 					input.ResetLongPress(2);
-					gameIndex = gameIndex == 0 ? gamesCount - 1 : (gameIndex - 1) % gamesCount;
-					games[gameIndex]->thumbnail->Reset();
+					game_index = game_index == 0 ? games_count - 1 : (game_index - 1) % games_count;
+					games[game_index]->thumbnail->Reset();
 				}
 				
 				// Run the current game when either player long presses both buttons
 				if((input.GetButtonLongPress(0) && input.GetButtonLongPress(1)) ||
 					(input.GetButtonLongPress(2) && input.GetButtonLongPress(3)))
 				{
-					isRunning = true;
+					is_running = true;
 					input.ResetLongPressAll();
-					games[gameIndex]->thumbnail->Reset();
+					games[game_index]->thumbnail->Reset();
 				}
 			}
 

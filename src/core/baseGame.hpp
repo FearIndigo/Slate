@@ -1,5 +1,5 @@
-﻿#ifndef SLATE_BASE_BASEGAME
-#define SLATE_BASE_BASEGAME
+﻿#ifndef SLATE_BASEGAME
+#define SLATE_BASEGAME
 
 #include <stdexcept>
 #include "led-matrix.h"

@@ -58,11 +58,11 @@ namespace Slate
         ///
         /// How long (milliseconds) it takes to scroll the text one pixel
         ///
-        int stepTime;
+        int step_time;
 
         ///
         /// How long (milliseconds) it initially takes for the text to start scrolling
         ///
-        int firstStep;
+        int first_step;
     };
 }
