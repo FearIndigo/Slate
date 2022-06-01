@@ -23,12 +23,12 @@ namespace Slate
         ///
         /// \param p The pixels to draw with positions relative to entity position.
         ///
-        Renderable(const Pixel p*);
+        Renderable(const Pixel p[]);
 
         ///
         /// The pixels to draw relative to the entity position.
         ///
-        Pixel pixels*;
+        Pixel pixels[];
 
         ///
         /// Draw the pixels to the canvas.
