@@ -9,8 +9,8 @@ namespace Ponglord
         const auto test = registry.create();
 
         // Assign component data to entities.
-        m_registry.emplace<Position>(test, 15.0, 31.0);
-        m_registry.emplace<Renderable>(test, {
+        registry.emplace<Position>(test, 15.0, 31.0);
+        registry.emplace<Renderable>(test, {
             {0,0,255,255,255},
             {1,0,0,255,255},
             {-1,0,255,255,0}
