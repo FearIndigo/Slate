@@ -24,7 +24,7 @@ namespace Ponglord
         /// \param registry The registry to retrieve entities from.
         /// \param input The player inputs.
         ///
-        void Update(entt::registry &registry, const Slate::input &input);
+        void Update(entt::registry &registry, const Slate::Input &input);
     };
 }
 
