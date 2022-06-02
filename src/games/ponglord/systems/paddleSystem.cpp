@@ -20,7 +20,7 @@ namespace Ponglord
                 
                 if(input.GetButton(1))
                 {
-                    vel.x += 3.0
+                    vel.x += 3.0;
                 }
             }
             else
@@ -32,7 +32,7 @@ namespace Ponglord
                 
                 if(input.GetButton(3))
                 {
-                    vel.x += 3.0
+                    vel.x += 3.0;
                 }
             }
         });
