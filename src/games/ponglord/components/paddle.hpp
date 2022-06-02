@@ -7,6 +7,27 @@ namespace Ponglord
 {
     struct Bounds
     {
+        Bounds(Bounds&& b) noexcept
+        {
+            this->min_x = b.min_x;
+            this->max_x = b.max_x;
+            this->min_y = b.min_y;
+            this->max_y = b.max_y;
+        }
+    
+        Bounds& Bounds::operator=(Bounds&& b) noexcept
+        {
+            if (this != &p)
+            {
+                this->min_x = b.min_x;
+                this->max_x = b.max_x;
+                this->min_y = b.min_y;
+                this->max_y = b.max_y;
+            }
+
+            return *this;
+        }
+        
         const int min_x;
         const int max_x;
         const int min_y;
