@@ -38,10 +38,11 @@ namespace Ponglord
         ///
         /// Test if a point is inside the paddle collision bounds;
         ///
+        /// \param angle_change Returns the angle to change the ball by.
         /// \param x Point x position.
         /// \param y Point y position.
         ///
-        bool PointInsideBounds(const int x, const int y) const;
+        bool PointInsideBounds(double &angle_change, const int x, const int y) const;
     private:
         ///
         /// Does the paddle belong to player 1.

@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <cmath>
+#include <algorithm>
 
 #include "core/components/position.hpp"
 #include "core/components/velocity.hpp"
@@ -44,9 +45,10 @@ namespace Ponglord
         ///
         /// Add speed to the ball after hitting the paddle.
         ///
+        /// \param The angle to change the move dir by.
         /// \param The ball velocity.
         ///
-        void IncreaseDificulty(Slate::Velocity &vel);
+        void IncreaseDificulty(const double angle_change, Slate::Velocity &vel);
 
         ///
         /// How much longer the ball has left before it starts moving at the start of the round.
@@ -74,14 +76,9 @@ namespace Ponglord
         const double add_speed;
 
         ///
-        /// Default x move direction after a serve.
+        /// The direction the ball is moving
         ///
-        double x_dir;
-
-        ///
-        /// Default y move direction after a serve.
-        ///
-        double y_dir;
+        double ball_move_angle;
     };
 }
 

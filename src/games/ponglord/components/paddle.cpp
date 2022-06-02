@@ -25,11 +25,14 @@ namespace Ponglord
         return *this;
     }
     
-    bool Paddle::PointInsideBounds(const int x, const int y) const
+    bool Paddle::PointInsideBounds(double &angle_change, const int x, const int y) const
     {
         // Get paddle current position
         const int xPos = position->MatrixX();
         const int yPos = position->MatrixY();
+
+        // Change ball dir angle by 10 degrees each pixel away from paddle centre
+        angle_change = (x - xPos) * 10.0;
         
         return x <= xPos + bounds.max_x && x >= xPos + bounds.min_x &&
             y <= yPos + bounds.max_y && y >= yPos + bounds.min_y;

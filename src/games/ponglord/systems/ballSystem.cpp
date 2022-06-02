@@ -33,10 +33,11 @@ namespace Ponglord
             }
 
             // If the ball has collided with a paddle
-            if((p1->PointInsideBounds(x,y) && vel.y < 0) ||
-                (p2->PointInsideBounds(x,y) && vel.y > 0))
+            double angle_change;
+            if((p1->PointInsideBounds(angle_change,x,y) && vel.y < 0) ||
+                (p2->PointInsideBounds(angle_change,x,y) && vel.y > 0))
             {
-                ball.IncreaseDificulty(vel);
+                ball.IncreaseDificulty(angle_change,vel);
                 vel.y *= -1.0;
             }
             // If the ball has reach player 1's goals
