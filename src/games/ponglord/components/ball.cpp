@@ -6,7 +6,7 @@ namespace Ponglord
         : start_delay(d), delay(d), start_speed(s), add_speed(a)
     {}
     
-    Ball::Reset(Slate::Position &pos, Slate::Velocity &vel)
+    void Ball::Reset(Slate::Position &pos, Slate::Velocity &vel)
     {
         delay = start_delay;
         pos.x = 15.0;
