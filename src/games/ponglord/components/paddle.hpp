@@ -23,6 +23,8 @@ namespace Ponglord
         ///
         Paddle(const bool p1, const Ponglord::Bounds b, Slate::Position &pos);
 
+        Paddle& operator=(Paddle&&) noexcept;
+        
         ///
         /// Does the paddle belong to player 1.
         ///

@@ -4,6 +4,17 @@ namespace Slate
 {
     Position::Position(const double init_x, const double init_y)
         : x(init_x), y(init_y) {}
+
+    Position& Position::operator=(Position&& p) noexcept
+    {
+        if (this != &p)
+        {
+            this->x = p.x;
+            this->y = p.y;
+        }
+
+        return *this;
+    }
     
     int Position::MatrixX() const
     {

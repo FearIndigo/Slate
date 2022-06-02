@@ -13,6 +13,8 @@ namespace Slate
         /// \param init_y The starting y position.
         ///
         Position(const double init_x, const double init_y);
+
+        Position& operator=(Position&&) noexcept;
         
         ///
         /// Returns the matrix x pixel value.
