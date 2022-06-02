@@ -1,5 +1,5 @@
 CXXFLAGS=-Wall -O3 -g -std=c++17
-SOURCES:=$(wildcard *.cpp src/*/*.cpp src/*/*/*.cpp)
+SOURCES:=$(wildcard *.cpp src/*/*.cpp src/*/*/*.cpp src/*/*/*/*.cpp)
 OBJECTS:=$(patsubst %.cpp,%.o,$(SOURCES))
 TARGET=slate
 
