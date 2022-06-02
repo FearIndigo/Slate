@@ -1,5 +1,4 @@
 ﻿#include "ballSystem.hpp"
-#include <iostream> 
 
 namespace Ponglord
 {
