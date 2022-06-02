@@ -46,8 +46,8 @@ namespace Ponglord
         const int deg = (rand() % 60) - 30; // -30 to 30 degrees
         std::cout << deg;
         std::cout << "\n";
-        x_dir = std::sin(deg * 180.0/3.14159265);
-        y_dir = std::cos(deg * 180.0/3.14159265);
+        x_dir = std::cos(deg * 180.0/3.14159265);
+        y_dir = std::sin(deg * 180.0/3.14159265);
         vel.x = start_speed * x_dir;
         vel.y = (player1_serve ? 1.0 : -1.0) * start_speed * y_dir;
     }
