@@ -46,10 +46,10 @@ namespace Ponglord
         double deg = ((rand() % 600) - 300) / 10.0; // -30.0 to 30.0 degrees
         std::cout << deg;
         std::cout << "\n";
-        x_dir = std::sin(deg * 180.0/3.14159265359);
+        x_dir = std::sin(deg * 3.14159265359 / 180.0);
         std::cout << x_dir;
         std::cout << "\n";
-        y_dir = std::cos(deg * 180.0/3.14159265359);
+        y_dir = std::cos(deg * 3.14159265359 / 180.0);
         std::cout << y_dir;
         std::cout << "\n";
         vel.x = start_speed * x_dir;
