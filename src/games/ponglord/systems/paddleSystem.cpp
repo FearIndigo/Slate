@@ -21,15 +21,9 @@ namespace Ponglord
                 vel.x += input.GetButton(2) ? -20.0 : 0;
                 vel.x += input.GetButton(3) ? 20.0 : 0;
             }
-
-            if(pos.MatrixX() <= 2)
-            {
-                pos.x = 2.0;
-            }
-            else if (pos.MatrixY() >= 29)
-            {
-                pos.x = 29.0;
-            }
+            
+            pos.x = pos.x < 2.0 ? 2.0 : pos.x;
+            pos.x = pos.x > 29.0 ? 29.0 : pos.x;
         });
     }
 }
