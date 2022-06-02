@@ -1,4 +1,5 @@
 ﻿#include "ballSystem.hpp"
+#include <iostream> 
 
 namespace Ponglord
 {
@@ -13,7 +14,10 @@ namespace Ponglord
             // Wait till delay time has finished before moving ball.
             if(ball.delay > 0)
             {
+                cout << ball.delay;
                 ball.delay -= frame_time;
+                cout << ball.delay;
+                cout << "\n";
                 return;
             }
             // Start ball moving after delay time has finished

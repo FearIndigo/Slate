@@ -44,7 +44,7 @@ namespace Ponglord
         auto &p1 = registry.emplace<Ponglord::Paddle>(player1, true, 0, paddle_bounds, p1Pos);
         ball_system.p1 = &p1;
 
-        auto &p2Pos = registry.emplace<Slate::Position>(player2, 15.0, 62.0);
+        auto &p2Pos = registry.emplace<Slate::Position>(player2, 15.0, 63.0);
         registry.emplace<Slate::Velocity>(player2, 0.0, 0.0);
         registry.emplace<Slate::Renderable>(player2, player2_pixels);
         auto &p2 = registry.emplace<Ponglord::Paddle>(player2, false, 0, paddle_bounds, p2Pos);
