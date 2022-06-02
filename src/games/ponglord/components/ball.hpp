@@ -59,6 +59,11 @@ namespace Ponglord
         /// Should player 1 serve the ball
         ///
         bool player1_serve;
+
+        ///
+        /// The direction the ball is moving
+        ///
+        double ball_move_angle;
     private:
         ///
         /// How long to delay the ball from moving at the start of each round.
@@ -74,11 +79,6 @@ namespace Ponglord
         /// How much speed to add each time the ball hits a paddle.
         ///
         const double add_speed;
-
-        ///
-        /// The direction the ball is moving
-        ///
-        double ball_move_angle;
     };
 }
 

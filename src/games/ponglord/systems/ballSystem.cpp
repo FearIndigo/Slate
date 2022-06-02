@@ -30,6 +30,7 @@ namespace Ponglord
                 (x >= 31 && vel.x > 0.0))
             {
                 vel.x *= -1.0;
+                ball.ball_move_angle *= -1.0;
             }
 
             // If the ball has collided with a paddle
