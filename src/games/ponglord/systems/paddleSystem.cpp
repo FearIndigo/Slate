@@ -11,7 +11,7 @@ namespace Ponglord
         .each([&input](auto &pad, auto &pos, auto &vel)
         {
             vel.x = 0;
-            if(pad.is_player1)
+            if(pad.IsPlayer1())
             {
                 if(input.GetButton(0))
                 {

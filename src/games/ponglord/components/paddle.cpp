@@ -37,4 +37,9 @@ namespace Ponglord
         return x <= xPos + bounds.max_x && x >= xPos + bounds.min_x &&
             y <= yPos + bounds.max_y && y >= yPos + bounds.min_y;
     }
+
+    bool Paddle::IsPlayer1()
+    {
+        return is_player1;
+    }
 }

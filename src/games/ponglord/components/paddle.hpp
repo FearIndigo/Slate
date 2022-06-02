@@ -42,6 +42,11 @@ namespace Ponglord
         /// \param y Point y position.
         ///
         bool PointInsideBounds(double &angle_change, const int x, const int y) const;
+
+        ///
+        /// Returns true if the paddle belongs to player 1.
+        ///
+        bool IsPlayer1();
     private:
         ///
         /// Does the paddle belong to player 1.
