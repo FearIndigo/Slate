@@ -1,6 +1,9 @@
 ﻿#ifndef PONGLORD_COMPONENTS_BALL
 #define PONGLORD_COMPONENTS_BALL
 
+#include "core/components/position"
+#include "core/components/velocity"
+
 namespace Ponglord
 {
     class Ball
