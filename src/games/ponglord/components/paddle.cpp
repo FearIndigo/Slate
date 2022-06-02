@@ -8,6 +8,7 @@ namespace Ponglord
     Paddle::Paddle(Paddle&& p) noexcept
     {
         this->isPlayer1 = p.isPlayer1;
+        this->score = p.score;
         this->bounds = p.bounds;
         this->position = p.position;
     }
@@ -17,6 +18,7 @@ namespace Ponglord
         if (this != &p)
         {
             this->isPlayer1 = p.isPlayer1;
+            this->score = p.score;
             this->bounds = p.bounds;
             this->position = p.position;
         }
