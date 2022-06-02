@@ -53,7 +53,7 @@ namespace Ponglord
         ///
         /// The paddle's position component.
         ///
-        Slate::Position position;
+        Slate::Position &position;
     };
 }
 
