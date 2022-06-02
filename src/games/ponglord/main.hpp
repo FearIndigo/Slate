@@ -2,6 +2,7 @@
 
 #include "core/baseGame.hpp"
 #include "systems/ballSystem.hpp"
+#include "systems/paddleSystem.hpp"
 #include "core/systems/moveSystem.hpp"
 #include "core/systems/renderSystem.hpp"
 
@@ -29,6 +30,11 @@ namespace Ponglord
         /// The ball system.
         ///
         Ponglord::BallSystem ball_system;
+
+        ///
+        /// The paddle system.
+        ///
+        Ponglord::PaddleSystem paddle_system;
         
         ///
         /// The movement system.

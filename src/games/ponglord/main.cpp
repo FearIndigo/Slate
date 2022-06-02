@@ -66,6 +66,7 @@ namespace Ponglord
     void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)
     {
         ball_system.Update(registry, frame_time);
+        paddle_system.Update(registry, input);
         move_system.Update(registry, frame_time);
 
         render_system.Update(registry, canvas);
