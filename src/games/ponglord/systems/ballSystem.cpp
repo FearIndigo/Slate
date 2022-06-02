@@ -36,7 +36,7 @@ namespace Ponglord
             if((p1->PointInsideBounds(x,y) && vel.y < 0) ||
                 (p2->PointInsideBounds(x,y) && vel.y > 0))
             {
-                vel.y += (vel.y > 0) - (vel.y < 0) * ball.add_speed;
+                ball.IncreaseDificulty(vel);
                 vel.y *= -1.0;
             }
             // If the ball has reach player 1's goals
