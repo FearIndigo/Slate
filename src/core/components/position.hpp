@@ -17,12 +17,12 @@ namespace Slate
         ///
         /// Returns the matrix x pixel value.
         ///
-        int MatrixX();
+        int MatrixX() const;
 
         ///
         /// Returns the matrix y pixel value.
         ///
-        int MatrixY();
+        int MatrixY() const;
 
         ///
         /// x position.
