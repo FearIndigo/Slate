@@ -2,8 +2,8 @@
 
 namespace Ponglord
 {
-    Paddle::Paddle(const bool p1, const unsigned int s, const Ponglord::Bounds b, Slate::Position &pos)
-        : is_player1(p1), score(s), bounds(b), position(&pos) {}
+    Paddle::Paddle(const bool p1, const Ponglord::Bounds b, Slate::Position &pos)
+        : score(0), is_player1(p1), bounds(b), position(&pos) {}
 
     Paddle::Paddle(Paddle&& p) noexcept
         : is_player1(p.is_player1)
@@ -31,8 +31,8 @@ namespace Ponglord
         const int xPos = position->MatrixX();
         const int yPos = position->MatrixY();
 
-        // Change ball dir angle by 10 degrees each pixel away from paddle centre
-        angle_change = (x - xPos) * 10.0;
+        // Change ball dir angle by 15 degrees each pixel away from paddle centre
+        angle_change = (x - xPos) * 15.0;
         
         return x <= xPos + bounds.max_x && x >= xPos + bounds.min_x &&
             y <= yPos + bounds.max_y && y >= yPos + bounds.min_y;
