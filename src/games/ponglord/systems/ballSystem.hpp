@@ -29,12 +29,12 @@ namespace Ponglord
         ///
         /// Player 1's paddle.
         ///
-        Ponglord::Paddle &p1;
+        Ponglord::Paddle *p1;
 
         ///
         /// Player 2's paddle.
         ///
-        Ponglord::Paddle &p2;
+        Ponglord::Paddle *p2;
     };
 }
 
