@@ -2,8 +2,8 @@
 
 namespace Ponglord
 {
-    Paddle::Paddle(const bool p1, const Ponglord::Bounds b, Slate::Position &pos)
-        : isPlayer1(p1), bounds(b), position(pos) {}
+    Paddle::Paddle(const bool p1, const unsigned int s, const Ponglord::Bounds b, Slate::Position &pos)
+        : isPlayer1(p1), score(s), bounds(b), position(pos) {}
 
     Paddle::Paddle(Paddle&& p) noexcept
     {
@@ -26,7 +26,7 @@ namespace Ponglord
         return *this;
     }
     
-    bool Paddle::PointInsideBounds(const int x, const int y)
+    bool Paddle::PointInsideBounds(const int x, const int y) const
     {
         // Get paddle current position
         const int xPos = position.MatrixX();

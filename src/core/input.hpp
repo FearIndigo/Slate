@@ -30,21 +30,21 @@ namespace Slate
 		///
 		/// \param index The index of what button to get (0 = player1 left, 1 = player1 right, 2 = player2 left, 3 = player2 right).
 		/// 
-		bool GetButton(int index);
+		bool GetButton(int index) const;
 
     	///
     	/// Get the long pressed state of a button
     	///
     	/// \param index The index of what button to get (0 = player1 left, 1 = player1 right, 2 = player2 left, 3 = player2 right).
     	/// 
-    	bool GetButtonLongPress(int index);
+    	bool GetButtonLongPress(int index) const;
 
     	///
     	/// Get the percentage of longPress the button has been pressed for (0 = not pressed, 1 = long press triggered)
     	///
     	/// \param index The index of what button to get (0 = player1 left, 1 = player1 right, 2 = player2 left, 3 = player2 right).
     	///
-    	float GetButtonLongPressPercentage(int index);
+    	float GetButtonLongPressPercentage(int index) const;
 
     	///
     	/// Reset button long press value.

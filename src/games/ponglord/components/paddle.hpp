@@ -18,10 +18,11 @@ namespace Ponglord
         /// Constructor.
         ///
         /// \param p1 Does the paddle belong to player 1.
+        /// \param s The starting score for this paddle.
         /// \param b The collisions bounds of the paddle relative to its position.
         /// \param pos The paddle's position component.
         ///
-        Paddle(const bool p1, const Ponglord::Bounds b, Slate::Position &pos);
+        Paddle(const bool p1, const unsigned int s, const Ponglord::Bounds b, Slate::Position &pos);
 
         Paddle(Paddle&&) noexcept;
         
@@ -43,7 +44,7 @@ namespace Ponglord
         /// \param x Point x position.
         /// \param y Point y position.
         ///
-        bool PointInsideBounds(const int x, const int y);
+        bool PointInsideBounds(const int x, const int y) const;
     private:
         ///
         /// The collision bounds of the paddle relative to the paddle's position.

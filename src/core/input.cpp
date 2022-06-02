@@ -31,17 +31,17 @@ namespace Slate
         serialFlush(fd);
     }
 
-	bool Input::GetButton(int index)
+	bool Input::GetButton(int index) const
 	{
 		return pressed[index];
 	}
 
-    bool Input::GetButtonLongPress(int index)
+    bool Input::GetButtonLongPress(int index) const
     {
         return pressed_duration[index] >= long_press;
     }
 
-    float Input::GetButtonLongPressPercentage(int index)
+    float Input::GetButtonLongPressPercentage(int index) const
     {
         float temp = (float)pressed_duration[index] / (float)long_press;
         return temp > 1.0 ? 1.0 : temp;
