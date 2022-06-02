@@ -1,7 +1,7 @@
 ﻿#ifndef PONGLORD_SYSTEMS_PADDLESYSTEM
 #define PONGLORD_SYSTEMS_PADDLESYSTEM
 
-#include "rgb-matrix.h"
+#include "led-matrix.h"
 #include <entt/entity/registry.hpp>
 
 #include "core/components/position.hpp"
