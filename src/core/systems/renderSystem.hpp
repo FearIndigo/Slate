@@ -4,8 +4,8 @@
 #include <entt/entity/registry.hpp>
 #include "led-matrix.h"
 
-#include "../components/position.hpp"
-#include "../components/renderable.hpp"
+#include "core/components/position.hpp"
+#include "core/components/renderable.hpp"
 
 namespace Slate
 {

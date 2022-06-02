@@ -6,36 +6,52 @@ namespace Ponglord
         : Slate::BaseGame("PONGLORD")
     {
         // Create entities
-        const auto test1 = registry.create();
-        const auto test2 = registry.create();
-        const auto test3 = registry.create();
-        const auto test4 = registry.create();
+        const auto ball = registry.create();
+        const auto player1 = registry.create();
+        const auto player2 = registry.create();
 
         // Create pixel prefabs
-        const std::vector<Slate::Pixel> test_pixels = {
+        const std::vector<Slate::Pixel> ball_pixels = {
             {0,0,255,255,255},
-            {1,0,0,255,255},
-            {-1,0,255,255,0},
-            {-1,2,0,0,255}
         };
+        const std::vector<Slate::Pixel> player1_pixels = {
+            {-2,0,255,128,0},
+            {-1,0,255,128,0},
+            {0,0,255,128,0},
+            {1,0,255,128,0},
+            {2,0,255,128,0}
+        };
+        const std::vector<Slate::Pixel> player2_pixels = {
+            {-2,0,0,128,255},
+            {-1,0,0,128,255},
+            {0,0,0,128,255},
+            {1,0,0,128,255},
+            {2,0,0,128,255}
+        };
+
+        // Create bounds prefabs
+        const Ponglord::Bounds paddle_bounds = {-2,2,0,0};
         
         // Assign component data to entities.
-        registry.emplace<Slate::Position>(test1, 15.0, 32.0);
-        registry.emplace<Slate::Velocity>(test1, 0.0, 1.0);
-        registry.emplace<Slate::Renderable>(test1, test_pixels);
-        registry.emplace<Slate::Position>(test2, 16.0, 31.0);
-        registry.emplace<Slate::Velocity>(test2, 1.0, 0.0);
-        registry.emplace<Slate::Renderable>(test2, test_pixels);
-        registry.emplace<Slate::Position>(test3, 15.0, 30.0);
-        registry.emplace<Slate::Velocity>(test3, 0.0, -1.0);
-        registry.emplace<Slate::Renderable>(test3, test_pixels);
-        registry.emplace<Slate::Position>(test4, 14.0, 31.0);
-        registry.emplace<Slate::Velocity>(test4, -1.0, 0.0);
-        registry.emplace<Slate::Renderable>(test4, test_pixels);
+        registry.emplace<Slate::Position>(ball, 15.0, 32.0);
+        registry.emplace<Slate::Velocity>(ball, 0.0, 0.0);
+        registry.emplace<Slate::Renderable>(ball, ball_pixels);
+        registry.emplace<Ponglord::Ball>(ball, 2000, 5.0, 1.0);
+
+        auto &p1Pos = registry.emplace<Slate::Position>(player1, 15.0, 0.0);
+        registry.emplace<Slate::Velocity>(player1, 0.0, 0.0);
+        registry.emplace<Slate::Renderable>(player1, player1_pixels);
+        ball_system.p1 = registry.emplace<Ponglord::Paddle>(player1, true, paddle_bounds, p1Pos);
+
+        auto &p2Pos = registry.emplace<Slate::Position>(player2, 15.0, 62.0);
+        registry.emplace<Slate::Velocity>(player2, 0.0, 0.0);
+        registry.emplace<Slate::Renderable>(player2, player2_pixels);
+        ball_system.p2 = registry.emplace<Ponglord::Paddle>(player2, false, paddle_bounds, p2Pos);
     }
 
     void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)
     {
+        ball_system.Update(registry, frame_time);
         move_system.Update(registry, frame_time);
 
         render_system.Update(registry, canvas);

@@ -1,6 +1,7 @@
 ﻿#include <entt/entity/registry.hpp>
 
 #include "core/baseGame.hpp"
+#include "systems/ballSystem.hpp"
 #include "core/systems/moveSystem.hpp"
 #include "core/systems/renderSystem.hpp"
 
@@ -24,6 +25,11 @@ namespace Ponglord
         ///
         entt::registry registry;
 
+        ///
+        /// The ball system.
+        ///
+        Ponglord::BallSystem ball_system;
+        
         ///
         /// The movement system.
         ///
