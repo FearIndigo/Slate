@@ -2,9 +2,9 @@
 
 namespace Ponglord
 {
-    BallSystem::BallSystem() {}
+    PaddleSystem::PaddleSystem() {}
     
-    void BallSystem::Update(entt::registry &registry, const Slate::Input &input)
+    void PaddleSystem::Update(entt::registry &registry, const Slate::Input &input)
     {
         // Loop through entities with Paddle, Position and Velocity components
         registry.view<Paddle,Slate::Position,Slate::Velocity>()
