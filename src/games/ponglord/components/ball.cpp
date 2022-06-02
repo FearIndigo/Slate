@@ -43,11 +43,15 @@ namespace Ponglord
 
     void Ball::Serve(Slate::Velocity &vel)
     {
-        const int deg = (rand() % 60) - 30; // -30 to 30 degrees
+        double deg = ((rand() % 600) - 300) / 10.0; // -30.0 to 30.0 degrees
         std::cout << deg;
         std::cout << "\n";
-        x_dir = std::sin(0);
-        y_dir = std::cos(0);
+        x_dir = std::sin(deg * 180.0/3.14159265359);
+        std::cout << x_dir;
+        std::cout << "\n";
+        y_dir = std::cos(deg * 180.0/3.14159265359);
+        std::cout << y_dir;
+        std::cout << "\n";
         vel.x = start_speed * x_dir;
         vel.y = (player1_serve ? 1.0 : -1.0) * start_speed * y_dir;
     }
