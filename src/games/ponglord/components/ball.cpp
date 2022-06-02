@@ -49,7 +49,7 @@ namespace Ponglord
 
     void Ball::IncreaseDificulty(const double angle_change, Slate::Velocity &vel)
     {
-        ball_move_angle = std::clamp(ball_move_angle + angle_change, -60.0, 60.0); // -60.0 to 60.0 degrees
+        ball_move_angle = std::clamp(ball_move_angle + (vel.x > 0) - (vel.x < 0) * angle_change, -60.0, 60.0); // -60.0 to 60.0 degrees
         double x_dir = std::sin(ball_move_angle * 3.14159265359 / 180.0);
         double y_dir = std::cos(ball_move_angle * 3.14159265359 / 180.0);
         
