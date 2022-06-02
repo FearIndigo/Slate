@@ -29,11 +29,6 @@ namespace Ponglord
         Paddle(Paddle&&) noexcept;
         
         Paddle& operator=(Paddle&&) noexcept;
-        
-        ///
-        /// Does the paddle belong to player 1.
-        ///
-        const bool is_player1;
 
         ///
         /// The score for this paddle.
@@ -48,6 +43,11 @@ namespace Ponglord
         ///
         bool PointInsideBounds(const int x, const int y) const;
     private:
+        ///
+        /// Does the paddle belong to player 1.
+        ///
+        const bool is_player1;
+        
         ///
         /// The collision bounds of the paddle relative to the paddle's position.
         ///

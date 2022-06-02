@@ -1,6 +1,10 @@
 ﻿#ifndef PONGLORD_COMPONENTS_BALL
 #define PONGLORD_COMPONENTS_BALL
 
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
 #include "core/components/position.hpp"
 #include "core/components/velocity.hpp"
 
@@ -29,17 +33,29 @@ namespace Ponglord
         /// \param vel The ball velocity.
         ///
         void Reset(Slate::Position &pos, Slate::Velocity &vel);
-        
+
         ///
-        /// How long to delay the ball from moving at the start of each round.
+        /// Serve the ball at the start of the round
         ///
-        const unsigned int start_delay;
+        /// \param vel The ball velocity.
+        ///
+        void Serve(Slate::Velocity &vel);
 
         ///
         /// How much longer the ball has left before it starts moving at the start of the round.
         ///
         int delay;
 
+        ///
+        /// Should player 1 serve the ball
+        ///
+        bool player1_serve;
+    private:
+        ///
+        /// How long to delay the ball from moving at the start of each round.
+        ///
+        const unsigned int start_delay;
+        
         ///
         /// The starting speed of the ball.
         ///

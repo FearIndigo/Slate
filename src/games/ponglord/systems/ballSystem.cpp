@@ -19,16 +19,15 @@ namespace Ponglord
             // Start ball moving after delay time has finished
             else if (vel.x == 0.0 && vel.y == 0.0)
             {
-                vel.x = ball.start_speed / 2.0;
-                vel.y = ball.start_speed / 2.0;
+                ball.Serve(vel);
             }
 
             const int x = pos.MatrixX();
             const int y = pos.MatrixY();
             
-            // If the ball has moved off to the side of the playing field
-            if((x < 0 && vel.x < 0.0) ||
-                (x > 31 && vel.x > 0.0))
+            // If the ball has hit the side of the playing field
+            if((x <= 0 && vel.x < 0.0) ||
+                (x >= 31 && vel.x > 0.0))
             {
                 vel.x *= -1.0;
             }
@@ -37,18 +36,21 @@ namespace Ponglord
             if((p1->PointInsideBounds(x,y) && vel.y < 0) ||
                 (p2->PointInsideBounds(x,y) && vel.y > 0))
             {
+                vel.y += (vel.y > 0) - (vel.y < 0) * ball.add_speed;
                 vel.y *= -1.0;
             }
             // If the ball has reach player 1's goals
             else if(y < 0)
             {
                 p2->score++;
+                ball.player1_serve = true;
                 ball.Reset(pos,vel);
             }
             // If the ball has reach player 2's goals
             else if (y > 63)
             {
                 p1->score++;
+                ball.player1_serve = false;
                 ball.Reset(pos,vel);
             }
         });
