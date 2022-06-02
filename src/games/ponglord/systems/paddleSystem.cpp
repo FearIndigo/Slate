@@ -26,7 +26,7 @@ namespace Ponglord
                 vel.x += input.GetButton(3) ? 20.0 : 0;
                 for (unsigned int i=0; i < pad.score; ++i)
                 {
-                    canvas->SetPixel(32-i,63,32,32,32);
+                    canvas->SetPixel(31-i,63,32,32,32);
                 }
             }
             
