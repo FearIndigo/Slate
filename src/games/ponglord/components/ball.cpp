@@ -7,7 +7,7 @@ namespace Ponglord
     {}
 
     Ball::Ball(Ball&& b) noexcept
-        : start_delay(b.start_delay), start_speed(b.start_speed), add_speed(b.add_speed) {}
+        : start_delay(b.start_delay), start_speed(b.start_speed), add_speed(b.add_speed)
     {
         //this->start_delay = b.start_delay;
         this->delay = b.delay;
@@ -15,7 +15,7 @@ namespace Ponglord
         //this->add_speed = b.add_speed;
     }
     
-    Ball& Ball::operator=(Ball&& p) noexcept
+    Ball& Ball::operator=(Ball&& b) noexcept
     {
         if (this != &p)
         {
