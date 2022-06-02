@@ -8,12 +8,12 @@ namespace Ponglord
     {
         // Loop through entities with Ball, Position and Velocity components
         registry.view<Ball,Slate::Position,Slate::Velocity>()
-        .each([&p1,&p2,&frame_time](auto &ball, auto &pos, auto &vel)
+        .each([&frame_time](auto &ball, auto &pos, auto &vel)
         {
             // Wait till delay time has finished before moving ball.
             if(ball.delay > 0)
             {
-                delay -= frame_time;
+                ball.delay -= frame_time;
                 break;
             }
             // Start ball moving after delay time has finished
