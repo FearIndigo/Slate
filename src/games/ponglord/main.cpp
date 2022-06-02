@@ -15,22 +15,26 @@ namespace Ponglord
             {0,0,255,255,255},
         };
         const std::vector<Slate::Pixel> player1_pixels = {
+            {-3,0,255,128,0},
             {-2,0,255,128,0},
             {-1,0,255,128,0},
             {0,0,255,128,0},
             {1,0,255,128,0},
-            {2,0,255,128,0}
+            {2,0,255,128,0},
+            {3,0,255,128,0}
         };
         const std::vector<Slate::Pixel> player2_pixels = {
+            {-3,0,0,128,255},
             {-2,0,0,128,255},
             {-1,0,0,128,255},
             {0,0,0,128,255},
             {1,0,0,128,255},
-            {2,0,0,128,255}
+            {2,0,0,128,255},
+            {3,0,0,128,255}
         };
 
         // Create bounds prefabs
-        const Ponglord::Bounds paddle_bounds = {-2,2,0,0};
+        const Ponglord::Bounds paddle_bounds = {-3,3,0,0};
         
         // Assign component data to entities.
         registry.emplace<Slate::Position>(ball, 15.0, 32.0);

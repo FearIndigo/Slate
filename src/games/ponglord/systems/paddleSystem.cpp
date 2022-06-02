@@ -22,8 +22,8 @@ namespace Ponglord
                 vel.x += input.GetButton(3) ? 20.0 : 0;
             }
             
-            pos.x = pos.x < 2.0 ? 2.0 : pos.x;
-            pos.x = pos.x > 29.0 ? 29.0 : pos.x;
+            pos.x = pos.x < 3.0 ? 3.0 : pos.x;
+            pos.x = pos.x > 28.0 ? 28.0 : pos.x;
         });
     }
 }
