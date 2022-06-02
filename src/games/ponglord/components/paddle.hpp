@@ -1,6 +1,8 @@
 ﻿#ifndef PONGLORD_COMPONENTS_PADDLE
 #define PONGLORD_COMPONENTS_PADDLE
 
+#include "core/components/position.hpp"
+
 namespace Ponglord
 {
     struct Bounds
