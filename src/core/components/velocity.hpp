@@ -13,6 +13,10 @@ namespace Slate
         /// \param y The starting y velocity.
         ///
         Velocity(const double init_x, const double init_y);
+
+        Velocity(Velocity&&) noexcept;
+        
+        Velocity& operator=(Velocity&&) noexcept;
         
         ///
         /// x velocity in pixels per second.

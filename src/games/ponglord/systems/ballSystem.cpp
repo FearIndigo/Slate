@@ -34,21 +34,21 @@ namespace Ponglord
             }
 
             // If the ball has collided with a paddle
-            if((y < 0 && p1.PointInsideBounds(x,y)) ||
-                (y > 0 && p2.PointInsideBounds(x,y))
+            if((p1->PointInsideBounds(x,y) && vel.y < 0) ||
+                (p2->PointInsideBounds(x,y) && vel.y > 0)
             {
                 vel.y *= -1.0;
             }
             // If the ball has reach player 1's goals
             else if(y < 0)
             {
-                p2.score++;
+                p2->score++;
                 ball.Reset(pos);
             }
             // If the ball has reach player 2's goals
             else if (y > 63)
             {
-                p1.score++;
+                p1->score++;
                 ball.Reset(pos);
             }
         });

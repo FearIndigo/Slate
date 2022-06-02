@@ -28,6 +28,10 @@ namespace Slate
         ///
         Renderable(const std::vector<Slate::Pixel> default_pixels);
 
+        Renderable(Renderable&&) noexcept;
+        
+        Renderable& operator=(Renderable&&) noexcept;
+        
         ///
         /// The pixels to draw relative to the entity position.
         ///
