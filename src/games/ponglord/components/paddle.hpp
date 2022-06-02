@@ -33,7 +33,7 @@ namespace Ponglord
         ///
         /// Does the paddle belong to player 1.
         ///
-        bool isPlayer1;
+        const bool is_player1;
 
         ///
         /// The score for this paddle.
