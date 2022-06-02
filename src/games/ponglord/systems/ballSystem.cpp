@@ -14,10 +14,7 @@ namespace Ponglord
             // Wait till delay time has finished before moving ball.
             if(ball.delay > 0)
             {
-                std::cout << ball.delay;
                 ball.delay -= frame_time;
-                std::cout << ball.delay;
-                std::cout << "\n";
                 return;
             }
             // Start ball moving after delay time has finished

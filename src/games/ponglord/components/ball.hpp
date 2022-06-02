@@ -38,7 +38,7 @@ namespace Ponglord
         ///
         /// How much longer the ball has left before it starts moving at the start of the round.
         ///
-        unsigned int delay;
+        int delay;
 
         ///
         /// The starting speed of the ball.
