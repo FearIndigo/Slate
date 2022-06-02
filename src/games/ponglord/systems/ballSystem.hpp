@@ -5,8 +5,8 @@
 
 #include "core/components/position.hpp"
 #include "core/components/velocity.hpp"
-#include "components/ball.hpp"
-#include "components/paddle.hpp"
+#include "../components/ball.hpp"
+#include "../components/paddle.hpp"
 
 namespace Ponglord
 {
