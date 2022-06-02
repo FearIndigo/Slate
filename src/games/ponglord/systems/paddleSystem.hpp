@@ -1,6 +1,7 @@
 ﻿#ifndef PONGLORD_SYSTEMS_PADDLESYSTEM
 #define PONGLORD_SYSTEMS_PADDLESYSTEM
 
+#include "rgb-matrix.h"
 #include <entt/entity/registry.hpp>
 
 #include "core/components/position.hpp"
@@ -23,8 +24,9 @@ namespace Ponglord
         ///
         /// \param registry The registry to retrieve entities from.
         /// \param input The player inputs.
+        /// \param canvas The frame canvas to draw scores to.
         ///
-        void Update(entt::registry &registry, const Slate::Input &input);
+        void Update(entt::registry &registry, const Slate::Input &input, rgb_matrix::FrameCanvas *canvas);
     };
 }
 
