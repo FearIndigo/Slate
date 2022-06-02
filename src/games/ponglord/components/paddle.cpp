@@ -5,6 +5,13 @@ namespace Ponglord
     Paddle::Paddle(const bool p1, const Ponglord::Bounds b, Slate::Position &pos)
         : isPlayer1(p1), bounds(b), position(pos) {}
 
+    Paddle::Paddle(Paddle&& p) noexcept
+    {
+        this->isPlayer1 = p.isPlayer1;
+        this->bounds = p.bounds;
+        this->position = p.position;
+    }
+    
     Paddle& Paddle::operator=(Paddle&& p) noexcept
     {
         if (this != &p)

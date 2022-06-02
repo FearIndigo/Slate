@@ -14,6 +14,8 @@ namespace Slate
         ///
         Position(const double init_x, const double init_y);
 
+        Position(Position&&) noexcept;
+        
         Position& operator=(Position&&) noexcept;
         
         ///

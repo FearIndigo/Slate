@@ -5,6 +5,12 @@ namespace Slate
     Position::Position(const double init_x, const double init_y)
         : x(init_x), y(init_y) {}
 
+    Position::Position(Position&& p) noexcept
+    {
+        this->x = p.x;
+        this->y = p.y;
+    }
+    
     Position& Position::operator=(Position&& p) noexcept
     {
         if (this != &p)

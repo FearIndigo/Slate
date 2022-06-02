@@ -23,6 +23,8 @@ namespace Ponglord
         ///
         Paddle(const bool p1, const Ponglord::Bounds b, Slate::Position &pos);
 
+        Paddle(Paddle&&) noexcept;
+        
         Paddle& operator=(Paddle&&) noexcept;
         
         ///
