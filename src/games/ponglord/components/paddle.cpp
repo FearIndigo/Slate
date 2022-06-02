@@ -14,7 +14,6 @@ namespace Ponglord
     }
     
     Paddle& Paddle::operator=(Paddle&& p) noexcept
-        : is_player1(p.is_player1)
     {
         if (this != &p)
         {
