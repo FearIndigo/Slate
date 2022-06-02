@@ -10,7 +10,7 @@ namespace Ponglord
         this->isPlayer1 = p.isPlayer1;
         this->score = p.score;
         this->bounds = p.bounds;
-        this->position = p.&position;
+        this->position = p.position;
     }
     
     Paddle& Paddle::operator=(Paddle&& p) noexcept
@@ -20,7 +20,7 @@ namespace Ponglord
             this->isPlayer1 = p.isPlayer1;
             this->score = p.score;
             this->bounds = p.bounds;
-            this->position = p.&position;
+            this->position = p.position;
         }
 
         return *this;
