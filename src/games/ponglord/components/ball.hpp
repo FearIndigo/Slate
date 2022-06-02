@@ -15,6 +15,10 @@ namespace Ponglord
         ///
         Ball(const unsigned int d, const double s, const double a);
 
+        Ball(Ball&&) noexcept;
+        
+        Ball& operator=(Ball&&) noexcept;
+        
         ///
         /// Reset the ball to the starting state for each round.
         ///
