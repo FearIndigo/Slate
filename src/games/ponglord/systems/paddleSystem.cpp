@@ -10,34 +10,29 @@ namespace Ponglord
         registry.view<Paddle,Slate::Position,Slate::Velocity>()
         .each([&input](auto &pad, auto &pos, auto &vel)
         {
+            vel.x = 0;
             if(pad.is_player1)
             {
                 if(input.GetButton(0))
                 {
-                    vel.x = -3.0;
+                    vel.x += -3.0;
                 }
-                else if(input.GetButton(1))
+                
+                if(input.GetButton(1))
                 {
-                    vel.x = 3.0
-                }
-                else
-                {
-                    vel.x = 0;
+                    vel.x += 3.0
                 }
             }
             else
             {
                 if(input.GetButton(2))
                 {
-                    vel.x = -3.0;
+                    vel.x += -3.0;
                 }
-                else if(input.GetButton(3))
+                
+                if(input.GetButton(3))
                 {
-                    vel.x = 3.0
-                }
-                else
-                {
-                    vel.x = 0;
+                    vel.x += 3.0
                 }
             }
         });
