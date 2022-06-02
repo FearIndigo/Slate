@@ -1,8 +1,8 @@
 ﻿#ifndef PONGLORD_COMPONENTS_BALL
 #define PONGLORD_COMPONENTS_BALL
 
-#include "core/components/position"
-#include "core/components/velocity"
+#include "core/components/position.hpp"
+#include "core/components/velocity.hpp"
 
 namespace Ponglord
 {
