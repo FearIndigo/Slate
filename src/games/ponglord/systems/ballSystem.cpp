@@ -35,7 +35,7 @@ namespace Ponglord
 
             // If the ball has collided with a paddle
             if((p1->PointInsideBounds(x,y) && vel.y < 0) ||
-                (p2->PointInsideBounds(x,y) && vel.y > 0)
+                (p2->PointInsideBounds(x,y) && vel.y > 0))
             {
                 vel.y *= -1.0;
             }
