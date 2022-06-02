@@ -17,6 +17,10 @@ namespace Ponglord
         /// \param a How much speed to add each time the ball hits a paddle.
         ///
         Ball(const unsigned int d, const double s, const double a);
+
+        Ball(Ball&&) noexcept;
+        
+        Ball& operator=(Ball&&) noexcept;
         
         ///
         /// Reset the ball to the starting state for each round.

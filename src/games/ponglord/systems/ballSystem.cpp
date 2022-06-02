@@ -43,13 +43,13 @@ namespace Ponglord
             else if(y < 0)
             {
                 p2->score++;
-                ball.Reset(pos);
+                ball.Reset(pos,vel);
             }
             // If the ball has reach player 2's goals
             else if (y > 63)
             {
                 p1->score++;
-                ball.Reset(pos);
+                ball.Reset(pos,vel);
             }
         });
     }
