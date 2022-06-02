@@ -31,8 +31,8 @@ namespace Ponglord
         const int xPos = position->MatrixX();
         const int yPos = position->MatrixY();
 
-        // Change ball dir angle by 15 degrees each pixel away from paddle centre
-        angle_change = (x - xPos) * 15.0;
+        // Change ball dir angle depending on distance to center
+        angle_change = (x - xPos) * 20.0;
         
         return x <= xPos + bounds.max_x && x >= xPos + bounds.min_x &&
             y <= yPos + bounds.max_y && y >= yPos + bounds.min_y;
