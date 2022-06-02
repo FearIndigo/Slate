@@ -13,13 +13,22 @@ namespace Ponglord
             vel.x = 0;
             if(pad.IsPlayer1())
             {
-                vel.x += input.GetButton(0) ? -10.0 : 0;
-                vel.x += input.GetButton(1) ? 10.0 : 0;
+                vel.x += input.GetButton(0) ? -20.0 : 0;
+                vel.x += input.GetButton(1) ? 20.0 : 0;
             }
             else
             {
-                vel.x += input.GetButton(2) ? -10.0 : 0;
-                vel.x += input.GetButton(3) ? 10.0 : 0;
+                vel.x += input.GetButton(2) ? -20.0 : 0;
+                vel.x += input.GetButton(3) ? 20.0 : 0;
+            }
+
+            if(pos.MatrixX() <= 2)
+            {
+                pos.x = 2.0;
+            }
+            else if (pos.MatrixY() >= 29)
+            {
+                pos.x = 29.0;
             }
         });
     }

@@ -7,8 +7,6 @@ namespace Ponglord
     {
         // Create entities
         const auto ball = registry.create();
-        const auto ball1 = registry.create();
-        const auto ball2 = registry.create();
         const auto player1 = registry.create();
         const auto player2 = registry.create();
 
@@ -39,16 +37,6 @@ namespace Ponglord
         registry.emplace<Slate::Velocity>(ball, 0.0, 0.0);
         registry.emplace<Slate::Renderable>(ball, ball_pixels);
         registry.emplace<Ponglord::Ball>(ball, 2000, 20.0, 5.0);
-
-        registry.emplace<Slate::Position>(ball1, 15.0, 32.0);
-        registry.emplace<Slate::Velocity>(ball1, 0.0, 0.0);
-        registry.emplace<Slate::Renderable>(ball1, ball_pixels);
-        registry.emplace<Ponglord::Ball>(ball1, 2000, 20.0, 5.0);
-
-        registry.emplace<Slate::Position>(ball2, 15.0, 32.0);
-        registry.emplace<Slate::Velocity>(ball2, 0.0, 0.0);
-        registry.emplace<Slate::Renderable>(ball2, ball_pixels);
-        registry.emplace<Ponglord::Ball>(ball2, 2000, 20.0, 5.0);
 
         auto &p1Pos = registry.emplace<Slate::Position>(player1, 15.0, 0.0);
         registry.emplace<Slate::Velocity>(player1, 0.0, 0.0);
