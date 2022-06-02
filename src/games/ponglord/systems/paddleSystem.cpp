@@ -8,7 +8,7 @@ namespace Ponglord
     {
         // Loop through entities with Paddle, Position and Velocity components
         registry.view<Paddle,Slate::Position,Slate::Velocity>()
-        .each([&input](auto &pad, auto &pos, auto &vel)
+        .each([&input,&canvas](auto &pad, auto &pos, auto &vel)
         {
             vel.x = 0;
             if(pad.IsPlayer1())
