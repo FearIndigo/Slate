@@ -26,7 +26,7 @@ namespace Ponglord
                 rgb_matrix::DrawTextInverted(canvas, font,
                                     0, 8,
                                     p1_color, NULL,
-                                    std::to_string(pad.score), 0);
+                                    std::to_string(pad.score).c_str(), 0);
             }
             else
             {
@@ -36,7 +36,7 @@ namespace Ponglord
                 rgb_matrix::DrawText(canvas, font,
                                     28, 62,
                                     p2_color, NULL,
-                                    std::to_string(pad.score), 0);
+                                    std::to_string(pad.score).c_str(), 0);
             }
 
             // Limit paddle positions
