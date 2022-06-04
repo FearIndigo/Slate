@@ -15,18 +15,12 @@ namespace Slate
 
         // Set how long it takes for the text to initially start scrolling
         first_step = 500;
-        
-        // Load font
-        if (!font.LoadFont("matrix/fonts/4x6.bdf")) {
-            fprintf(stderr, "Couldn't load font '%s'\n", "matrix/font/4x6.bdf");
-            throw std::invalid_argument("Could load font used for thumbnail.");
-        }
 
         // Reset to starting position
         Reset();
     }
 
-    void Thumbnail::Display(rgb_matrix::FrameCanvas *canvas, const unsigned int frame_time)
+    void Thumbnail::Display(rgb_matrix::FrameCanvas *canvas, const rgb_matrix::Font font, const unsigned int frame_time)
     {
         length = rgb_matrix::DrawText(canvas, font,
                                     x, 62,

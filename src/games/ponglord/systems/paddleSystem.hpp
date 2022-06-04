@@ -27,8 +27,9 @@ namespace Ponglord
         /// \param registry The registry to retrieve entities from.
         /// \param input The player inputs.
         /// \param canvas The frame canvas to draw scores to.
+        /// \param font Font used to display score.
         ///
-        void Update(entt::registry &registry, const Slate::Input &input, rgb_matrix::FrameCanvas *canvas);
+        void Update(entt::registry &registry, const Slate::Input &input, rgb_matrix::FrameCanvas *canvas, const rgb_matrix::Font font);
 
         ///
         /// Player 1 score colour.
@@ -39,11 +40,6 @@ namespace Ponglord
         /// Player 2 score colour.
         ///
         rgb_matrix::Color p2_color;
-
-        ///
-        /// Font used to display paddle scores.
-        ///
-        rgb_matrix::Font score_font;
     };
 }
 

@@ -18,17 +18,13 @@ namespace Slate
         /// \param canvas Frame canvas to display thumbnail on.
         /// \param frame_time Frame delta time.
         ///
-        void Display(rgb_matrix::FrameCanvas *canvas, const unsigned int frame_time);
+        void Display(rgb_matrix::FrameCanvas *canvas, const rgb_matrix::Font font, const unsigned int frame_time);
 
         ///
         /// Reset the thumbnail to the starting position.
         ///
         void Reset();
     private:
-        ///
-        /// Font used for display.
-        ///
-        rgb_matrix::Font font;
 
         ///
         /// Colour used for display.

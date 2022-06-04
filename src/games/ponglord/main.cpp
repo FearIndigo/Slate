@@ -57,10 +57,10 @@ namespace Ponglord
         paddle_system.p2_color = {0,64,128};
     }
 
-    void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)
+    void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const rgb_matrix::Font font, const unsigned int frame_time)
     {
         ball_system.Update(registry, frame_time);
-        paddle_system.Update(registry, input, canvas);
+        paddle_system.Update(registry, input, canvas, font);
         move_system.Update(registry, frame_time);
 
         render_system.Update(registry, canvas);
