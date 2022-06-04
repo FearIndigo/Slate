@@ -23,7 +23,7 @@ namespace Slate
     void Renderable::Draw(rgb_matrix::FrameCanvas *canvas, const Slate::Position &pos)
     {
         const int x_pos = pos.MatrixX();
-        const int y_pos = pos.MatrixX();
+        const int y_pos = pos.MatrixY();
         for (const auto &p : pixels)
             canvas->SetPixel(x_pos + p.rel_x, y_pos + p.rel_y, p.r, p.g, p.b);
     }
