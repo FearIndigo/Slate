@@ -29,12 +29,12 @@ namespace Slate
     void Thumbnail::Display(rgb_matrix::FrameCanvas *canvas, const unsigned int frame_time)
     {
         length = rgb_matrix::DrawText(canvas, font,
-                                    x + 32, 38 + font.baseline() / 2,
+                                    x + 32, 8 + font.baseline() / 2,
                                     color, NULL,
                                     title, 0);
 
         rgb_matrix::DrawTextInverted(canvas, font,
-                                    -x - 32, 38 - font.baseline() / 2,
+                                    -x + 32, 55 - font.baseline() / 2,
                                     color, NULL,
                                     title, 0);
         
