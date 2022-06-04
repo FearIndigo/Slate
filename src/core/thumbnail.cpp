@@ -29,7 +29,7 @@ namespace Slate
     void Thumbnail::Display(rgb_matrix::FrameCanvas *canvas, const unsigned int frame_time)
     {
         length = rgb_matrix::DrawText(canvas, font,
-                                    x, 60,
+                                    x, 64,
                                     color, NULL,
                                     title, 0);
 
@@ -42,14 +42,14 @@ namespace Slate
         if(step >= step_time)
         {
             step = step % step_time;
-            if(--x + length < 0)
-                x = 0;
+            if(--x + length + 32 < 0)
+                x = 32;
         }
     }
 
     void Thumbnail::Reset()
     {
-        x = 0;
+        x = 8;
         step = -first_step + step_time;
     }
 }
