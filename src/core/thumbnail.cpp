@@ -32,6 +32,11 @@ namespace Slate
                                     x + 32, 29 + font.baseline(),
                                     color, NULL,
                                     title, 0);
+
+        rgb_matrix::DrawText(canvas, font,
+                                    x + 32, 29 + font.baseline() * 2,
+                                    color, NULL,
+                                    title, 0, true);
         
         step += frame_time;
         if(step >= step_time)

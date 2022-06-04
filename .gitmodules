@@ -1,6 +1,7 @@
 [submodule "matrix"]
 	path = matrix
-	url = https://github.com/hzeller/rpi-rgb-led-matrix.git
+	url = https://github.com/FearIndigo/rpi-rgb-led-matrix.git
+	branch = inverted-text
 [submodule "wiringPi"]
 	path = wiringPi
 	url = https://github.com/WiringPi/WiringPi.git
