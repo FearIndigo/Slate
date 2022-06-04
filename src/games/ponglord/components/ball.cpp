@@ -55,7 +55,7 @@ namespace Ponglord
         difficulty++;
         const double new_speed = start_speed + add_speed * difficulty;
         
-        ball_move_angle = std::clamp(ball_move_angle + angle_change, -70.0, 70.0); // -70.0 to 70.0 degrees
+        ball_move_angle = std::clamp(ball_move_angle + angle_change, -60.0, 60.0); // -70.0 to 70.0 degrees
         const double x_dir = std::sin(ball_move_angle * 3.14159265359 / 180.0);
         const double y_dir = std::cos(ball_move_angle * 3.14159265359 / 180.0);
         
