@@ -1,5 +1,6 @@
 ﻿#include <signal.h>
 #include <iterator>
+#include "graphics.h"
 
 #include "core/display.hpp"
 #include "core/input.hpp"
