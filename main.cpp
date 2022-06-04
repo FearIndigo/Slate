@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
 			if(is_running)
 			{
 				// Run game main loop
-				games[game_index]->Run(display.canvas, input, &font, frame_time);
+				games[game_index]->Run(display.canvas, input, font, frame_time);
 
 				// Return to main menu if all buttons have been long pressed
 				if(input.GetButtonLongPress(0) && input.GetButtonLongPress(1) &&
@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
 				rgb_matrix::DrawLine(display.canvas, 32, 63, 32 - input.GetButtonLongPressPercentage(3)*16, 63, long_press_color);
 				
 				// Display game thumbnail
-				games[game_index]->thumbnail->Display(display.canvas, &font, frame_time);
+				games[game_index]->thumbnail->Display(display.canvas, font, frame_time);
 
 				// Player 1 move to next game index
 				if(input.GetButtonLongPress(1) && input.GetButtonLongPressPercentage(0) == 0)
