@@ -14,8 +14,8 @@ namespace Ponglord
             vel.x = 0;
             if(pad.IsPlayer1())
             {
-                vel.x += input.GetButton(0) ? -30.0 : 0;
-                vel.x += input.GetButton(1) ? 30.0 : 0;
+                vel.x += input.GetButton(0) ? -35.0 : 0;
+                vel.x += input.GetButton(1) ? 35.0 : 0;
                 
                 rgb_matrix::DrawTextInverted(canvas, font,
                                     32, 31,
@@ -24,8 +24,8 @@ namespace Ponglord
             }
             else
             {
-                vel.x += input.GetButton(2) ? -20.0 : 0;
-                vel.x += input.GetButton(3) ? 20.0 : 0;
+                vel.x += input.GetButton(2) ? -35.0 : 0;
+                vel.x += input.GetButton(3) ? 35.0 : 0;
                 
                 rgb_matrix::DrawText(canvas, font,
                                     1, 38,

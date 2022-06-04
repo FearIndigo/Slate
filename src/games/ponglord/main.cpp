@@ -42,14 +42,14 @@ namespace Ponglord
         registry.emplace<Slate::Renderable>(ball, ball_pixels);
         registry.emplace<Ponglord::Ball>(ball, 2000, 20.0, 5.0);
 
-        auto &p1Pos = registry.emplace<Slate::Position>(player1, 15.0, 1.0);
+        auto &p1Pos = registry.emplace<Slate::Position>(player1, 15.0, 0.0);
         registry.emplace<Slate::Velocity>(player1, 0.0, 0.0);
         registry.emplace<Slate::Renderable>(player1, player1_pixels);
         auto &p1 = registry.emplace<Ponglord::Paddle>(player1, true, paddle_bounds, p1Pos);
         ball_system.p1 = &p1;
         paddle_system.p1_color = {128,64,0};
 
-        auto &p2Pos = registry.emplace<Slate::Position>(player2, 15.0, 62.0);
+        auto &p2Pos = registry.emplace<Slate::Position>(player2, 15.0, 63.0);
         registry.emplace<Slate::Velocity>(player2, 0.0, 0.0);
         registry.emplace<Slate::Renderable>(player2, player2_pixels);
         auto &p2 = registry.emplace<Ponglord::Paddle>(player2, false, paddle_bounds, p2Pos);
