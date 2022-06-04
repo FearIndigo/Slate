@@ -28,8 +28,8 @@ namespace Ponglord
     bool Paddle::PointInsideBounds(double &angle_change, const int x, const int y) const
     {
         // Get paddle current position
-        int xPos = position->MatrixX();
-        int yPos = position->MatrixY();
+        const int xPos = position->MatrixX();
+        const int yPos = position->MatrixY();
 
         // Change ball dir angle depending on ball x distance to center x of paddle
         angle_change = (x - xPos) * 30.0;
