@@ -1,5 +1,6 @@
 ﻿#include <signal.h>
 #include <iterator>
+#include <iostream>
 #include "graphics.h"
 
 #include "core/display.hpp"
@@ -134,6 +135,7 @@ int main(int argc, char *argv[]) {
 	}
 	catch(...)
 	{
+		std::cout << "Oops. Something went wrong...";
 		return 1;
 	}
 	
