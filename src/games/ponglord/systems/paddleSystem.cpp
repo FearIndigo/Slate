@@ -2,13 +2,7 @@
 
 namespace Ponglord
 {
-    PaddleSystem::PaddleSystem()
-    {
-        if (!score_font.LoadFont("matrix/fonts/4x6.bdf"))
-        {
-            fprintf(stderr, "Couldn't load font '%s'\n", "matrix/font/4x6.bdf");
-        }
-    }
+    PaddleSystem::PaddleSystem() {}
     
     void PaddleSystem::Update(entt::registry &registry, const Slate::Input &input, rgb_matrix::FrameCanvas *canvas, const rgb_matrix::Font &font)
     {
