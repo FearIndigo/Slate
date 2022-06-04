@@ -22,8 +22,8 @@ namespace Ponglord
                 ball.Serve(vel);
             }
 
-            const int x = pos.MatrixX();
-            const int y = pos.MatrixY();
+            int x = pos.MatrixX();
+            int y = pos.MatrixY();
             
             // If the ball has hit the side of the playing field
             if((x <= 0 && vel.x < 0.0) ||
