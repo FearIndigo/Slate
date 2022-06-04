@@ -29,7 +29,7 @@ namespace Ponglord
         /// \param canvas The frame canvas to draw scores to.
         /// \param font Font used to display score.
         ///
-        void Update(entt::registry &registry, const Slate::Input &input, rgb_matrix::FrameCanvas *canvas, const rgb_matrix::Font font);
+        void Update(entt::registry &registry, const Slate::Input &input, rgb_matrix::FrameCanvas *canvas, const rgb_matrix::Font &font);
 
         ///
         /// Player 1 score colour.

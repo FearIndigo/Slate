@@ -20,7 +20,7 @@ namespace Slate
         Reset();
     }
 
-    void Thumbnail::Display(rgb_matrix::FrameCanvas *canvas, const rgb_matrix::Font font, const unsigned int frame_time)
+    void Thumbnail::Display(rgb_matrix::FrameCanvas *canvas, const rgb_matrix::Font &font, const unsigned int frame_time)
     {
         length = rgb_matrix::DrawText(canvas, font,
                                     x, 62,

@@ -13,7 +13,7 @@ namespace Test
         ///
         /// The main game loop.
         ///
-        void Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const rgb_matrix::Font font, const unsigned int frame_time);
+        void Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const rgb_matrix::Font &font, const unsigned int frame_time);
     private:
     };
 }

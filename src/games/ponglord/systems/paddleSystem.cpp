@@ -10,7 +10,7 @@ namespace Ponglord
         }
     }
     
-    void PaddleSystem::Update(entt::registry &registry, const Slate::Input &input, rgb_matrix::FrameCanvas *canvas, const rgb_matrix::Font font)
+    void PaddleSystem::Update(entt::registry &registry, const Slate::Input &input, rgb_matrix::FrameCanvas *canvas, const rgb_matrix::Font &font)
     {
         // Loop through entities with Paddle, Position and Velocity components
         registry.view<Paddle,Slate::Position,Slate::Velocity>()

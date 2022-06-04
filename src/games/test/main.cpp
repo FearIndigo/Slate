@@ -6,7 +6,7 @@ namespace Test
         : Slate::BaseGame(testTitle)
     {}
 
-    void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const rgb_matrix::Font font, const unsigned int frame_time)
+    void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const rgb_matrix::Font &font, const unsigned int frame_time)
     {
         // DEBUG. Set red pixels on if button pressed
         if(input.GetButton(0))

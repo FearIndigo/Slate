@@ -16,7 +16,7 @@ namespace Slate
         ///
         /// Main game loop.
         ///
-        virtual void Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const rgb_matrix::Font font, const unsigned int frame_time) {}
+        virtual void Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const rgb_matrix::Font &font, const unsigned int frame_time) {}
         
         ///
         /// Game thumbnail.
