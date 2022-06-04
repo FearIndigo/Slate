@@ -42,8 +42,8 @@ namespace Slate
         if(step >= step_time)
         {
             step = step % step_time;
-            if(--x + length + 32 < 0)
-                x = 16;
+            if(--x + length < 0)
+                x = 32;
         }
     }
 
