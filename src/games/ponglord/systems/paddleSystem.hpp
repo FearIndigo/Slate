@@ -1,7 +1,9 @@
 ﻿#ifndef PONGLORD_SYSTEMS_PADDLESYSTEM
 #define PONGLORD_SYSTEMS_PADDLESYSTEM
 
+#include <string>
 #include "led-matrix.h"
+#include "graphics.h"
 #include <entt/entity/registry.hpp>
 
 #include "core/components/position.hpp"
@@ -27,6 +29,21 @@ namespace Ponglord
         /// \param canvas The frame canvas to draw scores to.
         ///
         void Update(entt::registry &registry, const Slate::Input &input, rgb_matrix::FrameCanvas *canvas);
+
+        ///
+        /// Player 1 score colour.
+        ///
+        rgb_matrix::Color p1_color;
+
+        ///
+        /// Player 2 score colour.
+        ///
+        rgb_matrix::Color p2_color;
+
+        ///
+        /// Font used to display paddle scores.
+        ///
+        rgb_matrix::Font font;
     };
 }
 
