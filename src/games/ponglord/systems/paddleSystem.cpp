@@ -18,7 +18,7 @@ namespace Ponglord
                 vel.x += input.GetButton(1) ? 30.0 : 0;
                 
                 rgb_matrix::DrawTextInverted(canvas, font,
-                                    1, 31,
+                                    28, 31,
                                     p1_color, NULL,
                                     std::to_string(pad.score).c_str(), 0);
             }
