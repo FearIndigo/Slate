@@ -34,7 +34,7 @@ namespace Slate
                                     title, 0);
 
         rgb_matrix::DrawTextInverted(canvas, font,
-                                    x + 32, 29 + font.baseline() * 2,
+                                    x + 32, 29,
                                     color, NULL,
                                     title, 0);
         
