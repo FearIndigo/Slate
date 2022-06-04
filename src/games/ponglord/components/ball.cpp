@@ -7,6 +7,7 @@ namespace Ponglord
     {
         srand (time(NULL));
         player1_serve = (rand() % 2) == 0;
+        difficulty = 0;
     }
 
     Ball::Ball(Ball&& b) noexcept
@@ -31,6 +32,7 @@ namespace Ponglord
     
     void Ball::Reset(Slate::Position &pos, Slate::Velocity &vel)
     {
+        difficulty = 0;
         delay = start_delay;
         pos.x = 15.0;
         pos.y = 31.0;
@@ -41,19 +43,23 @@ namespace Ponglord
     void Ball::Serve(Slate::Velocity &vel)
     {
         ball_move_angle = ((rand() % 900) - 450) / 10.0; // -45.0 to 45.0 degrees
-        double x_dir = std::sin(ball_move_angle * 3.14159265359 / 180.0);
-        double y_dir = std::cos(ball_move_angle * 3.14159265359 / 180.0);
+        const double x_dir = std::sin(ball_move_angle * 3.14159265359 / 180.0);
+        const double y_dir = std::cos(ball_move_angle * 3.14159265359 / 180.0);
+        
         vel.x = start_speed * x_dir;
         vel.y = (player1_serve ? 1.0 : -1.0) * start_speed * y_dir;
     }
 
     void Ball::IncreaseDificulty(const double angle_change, Slate::Velocity &vel)
     {
-        ball_move_angle = std::clamp(ball_move_angle + angle_change, -70.0, 70.0); // -70.0 to 70.0 degrees
-        double x_dir = std::sin(ball_move_angle * 3.14159265359 / 180.0);
-        double y_dir = std::cos(ball_move_angle * 3.14159265359 / 180.0);
+        difficulty++;
+        const double new_speed = start_speed + add_speed * difficulty;
         
-        vel.x += add_speed * x_dir;
-        vel.y += (vel.y > 0) - (vel.y < 0) * add_speed * std::abs(y_dir);
+        ball_move_angle = std::clamp(ball_move_angle + angle_change, -70.0, 70.0); // -70.0 to 70.0 degrees
+        const double x_dir = std::sin(ball_move_angle * 3.14159265359 / 180.0);
+        const double y_dir = std::cos(ball_move_angle * 3.14159265359 / 180.0);
+        
+        vel.x = new_speed * x_dir;
+        vel.y = (vel.y > 0) - (vel.y < 0) * new_speed * std::abs(y_dir);
     }
 }

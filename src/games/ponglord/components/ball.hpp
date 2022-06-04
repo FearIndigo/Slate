@@ -79,6 +79,11 @@ namespace Ponglord
         /// How much speed to add each time the ball hits a paddle.
         ///
         const double add_speed;
+
+        ///
+        /// How many times the ball has hit a paddle this round.
+        ///
+        int difficulty;
     };
 }
 
