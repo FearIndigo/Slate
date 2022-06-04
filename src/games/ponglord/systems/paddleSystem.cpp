@@ -10,11 +10,12 @@ namespace Ponglord
         registry.view<Paddle,Slate::Position,Slate::Velocity>()
         .each([&input,&canvas](auto &pad, auto &pos, auto &vel)
         {
+            // Move paddles and render scores
             vel.x = 0;
             if(pad.IsPlayer1())
             {
-                vel.x += input.GetButton(0) ? -20.0 : 0;
-                vel.x += input.GetButton(1) ? 20.0 : 0;
+                vel.x += input.GetButton(0) ? -30.0 : 0;
+                vel.x += input.GetButton(1) ? 30.0 : 0;
                 for (unsigned int i=0; i < pad.score; ++i)
                 {
                     canvas->SetPixel(i,0,32,32,32);
@@ -29,7 +30,8 @@ namespace Ponglord
                     canvas->SetPixel(31-i,63,32,32,32);
                 }
             }
-            
+
+            // Limit paddle positions
             pos.x = pos.x < 3.0 ? 3.0 : pos.x;
             pos.x = pos.x > 28.0 ? 28.0 : pos.x;
         });
