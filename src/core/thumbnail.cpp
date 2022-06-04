@@ -33,10 +33,10 @@ namespace Slate
                                     color, NULL,
                                     title, 0);
 
-        rgb_matrix::DrawText(canvas, font,
+        rgb_matrix::DrawTextInverted(canvas, font,
                                     x + 32, 29 + font.baseline() * 2,
                                     color, NULL,
-                                    title, 0, true);
+                                    title, 0);
         
         step += frame_time;
         if(step >= step_time)
