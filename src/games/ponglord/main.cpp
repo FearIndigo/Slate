@@ -47,14 +47,14 @@ namespace Ponglord
         registry.emplace<Slate::Renderable>(player1, player1_pixels);
         auto &p1 = registry.emplace<Ponglord::Paddle>(player1, true, paddle_bounds, p1Pos);
         ball_system.p1 = &p1;
-        paddle_system.p1_color = {255,128,0};
+        paddle_system.p1_color = {128,64,0};
 
         auto &p2Pos = registry.emplace<Slate::Position>(player2, 15.0, 62.0);
         registry.emplace<Slate::Velocity>(player2, 0.0, 0.0);
         registry.emplace<Slate::Renderable>(player2, player2_pixels);
         auto &p2 = registry.emplace<Ponglord::Paddle>(player2, false, paddle_bounds, p2Pos);
         ball_system.p2 = &p2;
-        paddle_system.p2_color = {0,128,255};
+        paddle_system.p2_color = {0,64,128};
     }
 
     void Game::Run(rgb_matrix::FrameCanvas *canvas, Slate::Input &input, const unsigned int frame_time)

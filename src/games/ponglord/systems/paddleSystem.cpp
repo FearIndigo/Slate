@@ -4,7 +4,7 @@ namespace Ponglord
 {
     PaddleSystem::PaddleSystem()
     {
-        if (!font.LoadFont("matrix/fonts/4x6.bdf"))
+        if (!score_font.LoadFont("matrix/fonts/4x6.bdf"))
         {
             fprintf(stderr, "Couldn't load font '%s'\n", "matrix/font/4x6.bdf");
         }
@@ -23,8 +23,8 @@ namespace Ponglord
                 vel.x += input.GetButton(0) ? -30.0 : 0;
                 vel.x += input.GetButton(1) ? 30.0 : 0;
                 
-                rgb_matrix::DrawTextInverted(canvas, font,
-                                    0, 8,
+                rgb_matrix::DrawTextInverted(canvas, score_font,
+                                    1, 20,
                                     p1_color, NULL,
                                     std::to_string(pad.score).c_str(), 0);
             }
@@ -33,8 +33,8 @@ namespace Ponglord
                 vel.x += input.GetButton(2) ? -20.0 : 0;
                 vel.x += input.GetButton(3) ? 20.0 : 0;
                 
-                rgb_matrix::DrawText(canvas, font,
-                                    28, 62,
+                rgb_matrix::DrawText(canvas, score_font,
+                                    28, 42,
                                     p2_color, NULL,
                                     std::to_string(pad.score).c_str(), 0);
             }

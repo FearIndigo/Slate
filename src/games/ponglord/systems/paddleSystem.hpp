@@ -43,7 +43,7 @@ namespace Ponglord
         ///
         /// Font used to display paddle scores.
         ///
-        rgb_matrix::Font font;
+        rgb_matrix::Font score_font;
     };
 }
 
