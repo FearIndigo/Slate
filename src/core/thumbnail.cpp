@@ -49,7 +49,7 @@ namespace Slate
 
     void Thumbnail::Reset()
     {
-        x = 8;
+        x = 4;
         step = -first_step + step_time;
     }
 }
