@@ -23,6 +23,8 @@ namespace Slate
         ///
         /// Read inputs from serial update values.
         ///
+        /// \param frame_time Frame delta time.
+        ///
         void Update(const unsigned int frame_time);
 
 		///
