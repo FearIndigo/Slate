@@ -125,6 +125,7 @@ int main(int argc, char *argv[]) {
 				{
 					is_running = true;
 					input.ResetLongPressAll();
+					games[game_index]->Reset();
 					games[game_index]->thumbnail->Reset();
 				}
 			}

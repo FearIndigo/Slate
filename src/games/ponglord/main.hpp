@@ -15,6 +15,11 @@ namespace Ponglord
         /// Main constructor.
         ///                                               
         Game();
+
+        ///
+        /// Reset the game.
+        ///
+        void Reset();
         
         ///
         /// The main game loop.

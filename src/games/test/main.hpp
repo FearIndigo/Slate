@@ -9,6 +9,11 @@ namespace Test
         /// Main constructor.
         ///                                               
         Game(const char* testTitle);
+
+        ///
+        /// Reset the game.
+        ///
+        void Reset();
         
         ///
         /// The main game loop.

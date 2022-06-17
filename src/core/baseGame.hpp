@@ -13,6 +13,12 @@ namespace Slate
     {
     public:
         BaseGame(const char* title) : thumbnail(new Slate::Thumbnail(title)) {}
+
+        ///
+        /// Reset game.
+        ///
+        virtual void Reset() {}
+        
         ///
         /// Main game loop.
         ///

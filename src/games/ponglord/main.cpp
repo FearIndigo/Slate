@@ -4,7 +4,13 @@ namespace Ponglord
 {
     Game::Game()
         : Slate::BaseGame("PONGLORD")
+    {}
+
+    void Game::Reset()
     {
+        // Remove previous entities
+        registry.clear();
+        
         // Create entities
         const auto ball = registry.create();
         const auto player1 = registry.create();

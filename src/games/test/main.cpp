@@ -18,4 +18,9 @@ namespace Test
         if(input.GetButton(3))
             canvas->SetPixel(31,63,255,128,0);
     }
+    
+    void Game::Reset()
+    {
+        
+    }
 }
