@@ -46,7 +46,7 @@ namespace Ponglord
         registry.emplace<Slate::Position>(ball, 15.0, 32.0);
         registry.emplace<Slate::Velocity>(ball, 0.0, 0.0);
         registry.emplace<Slate::Renderable>(ball, ball_pixels);
-        registry.emplace<Ponglord::Ball>(ball, 2000, 20.0, 5.0);
+        registry.emplace<Ponglord::Ball>(ball, 2000, 30.0, 3.0);
 
         auto &p1Pos = registry.emplace<Slate::Position>(player1, 15.0, 0.0);
         registry.emplace<Slate::Velocity>(player1, 0.0, 0.0);

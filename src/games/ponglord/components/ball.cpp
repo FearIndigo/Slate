@@ -42,7 +42,7 @@ namespace Ponglord
 
     void Ball::Serve(Slate::Velocity &vel)
     {
-        ball_move_angle = ((rand() % 900) - 450) / 10.0; // -45.0 to 45.0 degrees
+        ball_move_angle = ((rand() % 600) - 300) / 10.0; // -30.0 to 30.0 degrees
         const double x_dir = std::sin(ball_move_angle * 3.14159265359 / 180.0);
         const double y_dir = std::cos(ball_move_angle * 3.14159265359 / 180.0);
         
